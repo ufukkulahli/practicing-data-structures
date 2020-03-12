@@ -10,13 +10,14 @@ namespace practicing_data_structures
     public void Test()
     {
       // Arrange
-      var al = new ArrayList();
+      var al = new ArrayList<string>();
 
       // Act
       var count = al.Count();
+      Assert.Equal(0, count);
+
 
       // Assert
-      Assert.Equal(0, count);
     }
   }
 }
