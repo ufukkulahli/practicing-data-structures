@@ -2,10 +2,10 @@ using System;
 
 namespace practicing_data_structures.data_structures.lists
 {
-  public class ArrayList<T>
+  public sealed class ArrayList<T>
   {
-    private int size  = 0;
-    private T[] items = new T[0];
+    int size  = 0;
+    T[] items = new T[0];
 
     public int Count()    => size;
     public int Capacity() => items.Length;
@@ -19,9 +19,9 @@ namespace practicing_data_structures.data_structures.lists
       items[size++] = item;
     }
 
-    private bool HasNotEnoughCapacity()  => size == items.Length;
-    private void ExpandCapacity()        => Array.Resize<T>(ref items, NewCapacitySize());
-    private int NewCapacitySize()        => NoItems() ? 1 : items.Length * 2;
-    private bool NoItems()               => items.Length == 0;
+    bool HasNotEnoughCapacity()  => size == items.Length;
+    void ExpandCapacity()        => Array.Resize<T>(ref items, NewCapacitySize());
+    int NewCapacitySize()        => NoItems() ? 1 : items.Length * 2;
+    bool NoItems()               => 0 == items.Length;
   }
 }
