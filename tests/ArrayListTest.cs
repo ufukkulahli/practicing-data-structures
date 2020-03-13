@@ -22,8 +22,8 @@ namespace practicing_data_structures
       Assert.Equal(1, words.Capacity());
 
       var removed = words.Remove("hello");
-      Assert.False(removed);
-      Assert.Equal(1, words.Count());
+      Assert.True(removed);
+      Assert.Equal(0, words.Count());
       Assert.Equal(1, words.Capacity());
     }
   }

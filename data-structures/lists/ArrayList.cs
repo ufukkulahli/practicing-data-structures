@@ -19,14 +19,36 @@ namespace practicing_data_structures.data_structures.lists
       items[size++] = item;
     }
 
-    public bool Remove(T v)
+    public bool Remove(T item)
     {
+      var indexOfItem = IndexOf(item);
+      if(Exist(indexOfItem))
+      {
+        RemoveAt(indexOfItem);
+        return true;
+      }
       return false;
     }
 
-    bool HasNotEnoughCapacity()  => size == items.Length;
-    void ExpandCapacity()        => Array.Resize<T>(ref items, NewCapacitySize());
-    int NewCapacitySize()        => NoItems() ? 1 : items.Length * 2;
-    bool NoItems()               => 0 == items.Length;
+    bool HasNotEnoughCapacity()            => size == items.Length;
+    void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
+    int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
+    bool NoItems()                         => 0 == items.Length;
+    bool Exist(int index)                  => index >= 0;
+    int IndexOf(T item)                    => Array.IndexOf(items, item);
+    void DecreaseSize()                    => size--;
+    int SourceIndexOf(int index)           => index + 1;
+    int numberOfElementsToCopy(int index)  => (size - index);
+    bool NeedToCopyItems(int index)        => index < size;
+    void ResetCell()                       => items[size] = default(T);
+    void RemoveAt(int index)
+    {
+      DecreaseSize();
+      if (NeedToCopyItems(index))
+      {
+        Array.Copy(items, SourceIndexOf(index), items, index, numberOfElementsToCopy(index));
+      }
+      ResetCell();
+    }
   }
 }
