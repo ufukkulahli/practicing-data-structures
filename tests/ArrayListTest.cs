@@ -20,6 +20,11 @@ namespace practicing_data_structures
       words.Add("hello");
       Assert.Equal(1, words.Count());
       Assert.Equal(1, words.Capacity());
+
+      var removed = words.Remove("hello");
+      Assert.False(removed);
+      Assert.Equal(1, words.Count());
+      Assert.Equal(1, words.Capacity());
     }
   }
 }
