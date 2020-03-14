@@ -9,6 +9,7 @@ namespace practicing_data_structures.data_structures.lists
 
     public int Count()    => size;
     public int Capacity() => items.Length;
+    public bool IsEmpty() => items.Length == 0;
 
     public void Add(T item)
     {
@@ -34,7 +35,7 @@ namespace practicing_data_structures.data_structures.lists
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                         => 0 == items.Length;
-    bool ExistAt(int index)                  => index >= 0;
+    bool ExistAt(int index)                => index >= 0;
     int IndexOf(T item)                    => Array.IndexOf(items, item);
     void DecreaseSize()                    => size--;
     int SourceIndexOf(int index)           => index + 1;
