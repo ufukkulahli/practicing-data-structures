@@ -31,6 +31,15 @@ namespace practicing_data_structures.data_structures.lists
       return false;
     }
 
+    public T First()
+    {
+      if(Count() == 0)
+      {
+        throw new IndexOutOfRangeException("No items!");
+      }
+      return items[0];
+    }
+
     bool HasNotEnoughCapacity()            => size == items.Length;
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
