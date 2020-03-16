@@ -49,6 +49,13 @@ namespace practicing_data_structures.data_structures.lists
       return items[Count() - 1];
     }
 
+    public void Clear()
+    {
+      size = 0;
+      Array.Clear(items, 0, size);
+      items = new T[0];
+    }
+
     bool HasNotEnoughCapacity()            => size == items.Length;
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;

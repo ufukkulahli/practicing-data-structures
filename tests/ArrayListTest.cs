@@ -28,6 +28,11 @@ namespace practicing_data_structures
       Assert.Equal(0, words.Count());
       Assert.Equal(1, words.Capacity());
       Assert.False(words.IsEmpty());
+
+      words.Clear();
+      Assert.Equal(0, words.Count());
+      Assert.Equal(0, words.Capacity());
+      Assert.True(words.IsEmpty());
     }
   }
 }
