@@ -56,17 +56,20 @@ namespace practicing_data_structures.data_structures.lists
       items = new T[0];
     }
 
-    bool HasNotEnoughCapacity()            => size == items.Length;
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                         => 0 == items.Length;
     bool ExistAt(int index)                => index >= 0;
     int IndexOf(T item)                    => Array.IndexOf(items, item);
-    void DecreaseSize()                    => size--;
     int SourceIndexOf(int index)           => index + 1;
+
+    bool HasNotEnoughCapacity()            => size == items.Length;
+    void ResetCell()                       => items[size] = default(T);
+
+    void DecreaseSize()                    => size--;
     int numberOfElementsToCopy(int index)  => (size - index);
     bool NeedToCopyItems(int index)        => index < size;
-    void ResetCell()                       => items[size] = default(T);
+
     void RemoveAt(int index)
     {
       DecreaseSize();
