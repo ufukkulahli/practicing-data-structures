@@ -23,6 +23,9 @@ namespace practicing_data_structures
       Assert.Equal("hello", words.First());
       Assert.Equal("hello", words.Last());
 
+      var found = words.Find(w => w == "hello");
+      Assert.Equal("hello", found);
+
       var removed = words.Remove("hello");
       Assert.True(removed);
       Assert.Equal(0, words.Count());

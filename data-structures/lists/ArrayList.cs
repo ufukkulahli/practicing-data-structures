@@ -56,6 +56,18 @@ namespace practicing_data_structures.data_structures.lists
       items = new T[0];
     }
 
+    public T Find(Predicate<T> p)
+    {
+      for(var i=0; i<size; ++i)
+      {
+        if(p(items[i]))
+        {
+          return items[i];
+        }
+      }
+      return default(T);
+    }
+
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                         => 0 == items.Length;
