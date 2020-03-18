@@ -36,6 +36,12 @@ namespace practicing_data_structures
       Assert.Equal(0, words.Count());
       Assert.Equal(0, words.Capacity());
       Assert.True(words.IsEmpty());
+
+      words[0] = "world";
+      Assert.Equal("world", words[0]);
+      Assert.Equal(1, words.Count());
+      Assert.Equal(1, words.Capacity());
+      Assert.False(words.IsEmpty());
     }
   }
 }

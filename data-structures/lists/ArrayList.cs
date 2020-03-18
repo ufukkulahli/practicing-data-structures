@@ -68,6 +68,21 @@ namespace practicing_data_structures.data_structures.lists
       return default(T);
     }
 
+    public T this[int index]
+    {
+      get
+      {
+        CheckIfIndexInRange(index);
+        return items[index];
+      }
+      set
+      {
+        ExpandCapacityIfNeeded();
+        CheckIfIndexInRange(index);
+        items[index] = value;
+      }
+    }
+
     void ExpandCapacity()                  => Array.Resize<T>(ref items, NewCapacitySize());
     int NewCapacitySize()                  => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                         => 0 == items.Length;
@@ -81,6 +96,22 @@ namespace practicing_data_structures.data_structures.lists
     void DecreaseSize()                    => size--;
     int numberOfElementsToCopy(int index)  => (size - index);
     bool NeedToCopyItems(int index)        => index < size;
+    void CheckIfIndexInRange(int index)
+    {
+      if(index<0 || index>=size)
+      {
+        throw new IndexOutOfRangeException();
+      }
+    }
+
+    void ExpandCapacityIfNeeded()
+    {
+      if (HasNotEnoughCapacity())
+      {
+        ExpandCapacity();
+        size++;
+      }
+    }
 
     void RemoveAt(int index)
     {
