@@ -77,7 +77,6 @@ namespace practicing_data_structures.data_structures.lists
       }
       set
       {
-        ExpandCapacityIfNeeded();
         CheckIfIndexInRange(index);
         items[index] = value;
       }
@@ -101,15 +100,6 @@ namespace practicing_data_structures.data_structures.lists
       if(index<0 || index>=size)
       {
         throw new IndexOutOfRangeException();
-      }
-    }
-
-    void ExpandCapacityIfNeeded()
-    {
-      if (HasNotEnoughCapacity())
-      {
-        ExpandCapacity();
-        size++;
       }
     }
 
