@@ -32,6 +32,14 @@ namespace practicing_data_structures
       Assert.Equal(1, words.Capacity());
       Assert.False(words.IsEmpty());
 
+      foreach (var word in words)
+      {
+        Assert.Equal("world", words[0]);
+        Assert.Equal(1, words.Count());
+        Assert.Equal(1, words.Capacity());
+        Assert.False(words.IsEmpty());
+      }
+
       var removed = words.Remove("world");
       Assert.True(removed);
       Assert.Equal(0, words.Count());

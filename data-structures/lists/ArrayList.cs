@@ -1,11 +1,23 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class ArrayList<T>
+  public sealed class ArrayList<T> : IEnumerable<T>
   {
     int size  = 0;
     T[] items = new T[0];
+
+    public IEnumerator<T> GetEnumerator()
+    {
+      for(var i=0; i < Count(); i++)
+      {
+        yield return items[i];
+      }
+    }
+
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
     public int Count()    => size;
     public int Capacity() => items.Length;
