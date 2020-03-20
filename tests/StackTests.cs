@@ -10,6 +10,10 @@ namespace practicing_data_structures.tests
     {
       // Arrange
       var words = new Stack<string>();
+
+      // Act && Assert
+      words.Push("hello");
+      Assert.Equal(1, words.Count);
     }
   }
 }
