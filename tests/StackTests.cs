@@ -12,9 +12,15 @@ namespace practicing_data_structures.tests
       var words = new Stack<string>();
 
       // Act && Assert
+
+      //
       words.Push("hello");
       words.Push("world");
       Assert.Equal(2, words.Count);
+
+      //
+      Assert.Equal("world", words.Top);
+      Assert.Equal(1, words.Count);
     }
   }
 }
