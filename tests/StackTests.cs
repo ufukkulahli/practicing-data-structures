@@ -13,7 +13,8 @@ namespace practicing_data_structures.tests
 
       // Act && Assert
       words.Push("hello");
-      Assert.Equal(1, words.Count);
+      words.Push("world");
+      Assert.Equal(2, words.Count);
     }
   }
 }

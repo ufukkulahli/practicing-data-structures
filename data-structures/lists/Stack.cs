@@ -5,5 +5,6 @@ namespace practicing_data_structures.data_structures.lists
     readonly ArrayList<T> items = new ArrayList<T>();
     public void Push(T item) => items.Add(item);
     public int Count { get => items.Count(); }
+    public T Top { get => items.Last(); }
   }
 }
