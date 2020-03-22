@@ -115,7 +115,7 @@ namespace practicing_data_structures.data_structures.lists
       }
     }
 
-    void RemoveAt(int index)
+    public void RemoveAt(int index)
     {
       DecreaseSize();
       if (NeedToCopyItems(index))
