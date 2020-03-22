@@ -20,7 +20,7 @@ namespace practicing_data_structures.tests
 
       //
       Assert.Equal("world", words.Top);
-      Assert.Equal(1, words.Count);
+      Assert.Equal(2, words.Count);
     }
   }
 }
