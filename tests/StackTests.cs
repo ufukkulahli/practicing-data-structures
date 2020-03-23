@@ -25,6 +25,9 @@ namespace practicing_data_structures.tests
       //
       Assert.Equal("world", words.Pop());
       Assert.Equal(1, words.Count);
+
+      //
+      Assert.False(words.IsEmpty);
     }
   }
 }
