@@ -1,5 +1,7 @@
-using practicing_data_structures.data_structures.lists;
+using System.Collections;
+using System.Linq;
 using Xunit;
+using practicing_data_structures.data_structures.lists;
 
 namespace practicing_data_structures.tests
 {
@@ -19,6 +21,10 @@ namespace practicing_data_structures.tests
       Assert.Equal(2, words.Count);
 
       //
+      Assert.Equal("world", words.First());
+      Assert.Equal("hello", words.Last());
+
+      //
       Assert.Equal("world", words.Top);
       Assert.Equal(2, words.Count);
 
@@ -28,6 +34,9 @@ namespace practicing_data_structures.tests
 
       //
       Assert.False(words.IsEmpty);
+
+      //
+      Assert.True(words is IEnumerable);
     }
   }
 }
