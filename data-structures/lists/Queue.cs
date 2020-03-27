@@ -13,10 +13,9 @@ namespace practicing_data_structures.data_structures.lists
 
     public void Enqueue(T item)
     {
-      throw new NotImplementedException();
       if(HasNotEnoughCapacity())
       {
-        // TODO: implement
+        ExpandCapacity();
       }
       items[tailPointer++] = item;
       if(NeedResettingTailPointer())
@@ -26,9 +25,19 @@ namespace practicing_data_structures.data_structures.lists
       IncrementSize();
     }
 
-    bool HasNotEnoughCapacity()=> size == items.Length;
+    public int Count { get => size; }
+
+    void ExpandCapacity()
+    {
+      var tempItems = new T[NewCapacitySize()];
+      Array.Copy(items, headPointer, tempItems, 0, size);
+      items = tempItems;
+    }
+    bool HasNotEnoughCapacity()      => size == items.Length;
     bool NeedResettingTailPointer () => tailPointer == items.Length;
-    void ResetTailPointer () => tailPointer = 0;
-    void IncrementSize() => size++;
+    void ResetTailPointer ()         => tailPointer = 0;
+    void IncrementSize()             => size++;
+    int NewCapacitySize()            => NoItems() ? 1 : items.Length * 2;
+    bool NoItems()                   => 0 == items.Length;
   }
 }

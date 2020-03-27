@@ -14,8 +14,12 @@ namespace practicing_data_structures.tests
       // Arrange
       var words = new Queue<string>();
 
-      // Act && Assert
-      Assert.Throws<NotImplementedException>(() => words.Enqueue("hello"));
+      // Act
+      words.Enqueue("hello");
+      words.Enqueue("world");
+      
+      // Assert
+      Assert.Equal(2, words.Count);
     }
   }
 }
