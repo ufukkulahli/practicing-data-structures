@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Linq;
 using Xunit;
 using practicing_data_structures.data_structures.lists;
-using System;
 
 namespace practicing_data_structures.tests
 {
-  public class QueueTests
+    public class QueueTests
   {
     [Fact]
     public void Test()
@@ -15,6 +12,7 @@ namespace practicing_data_structures.tests
       var words = new Queue<string>();
 
       // Act
+      Assert.True(words.IsEmpty);
       words.Enqueue("hello");
       words.Enqueue("world");
       

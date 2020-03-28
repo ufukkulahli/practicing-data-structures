@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.lists
 {
@@ -25,7 +23,8 @@ namespace practicing_data_structures.data_structures.lists
       IncrementSize();
     }
 
-    public int Count { get => size; }
+    public int Count    { get => size; }
+    public bool IsEmpty { get => size == 0; }
 
     void ExpandCapacity()
     {
