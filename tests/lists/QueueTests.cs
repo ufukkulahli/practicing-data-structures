@@ -11,13 +11,12 @@ namespace practicing_data_structures.tests
       // Arrange
       var words = new Queue<string>();
 
-      // Act
+      // Act && Assert
       Assert.True(words.IsEmpty);
       words.Enqueue("hello");
       words.Enqueue("world");
-      
-      // Assert
       Assert.Equal(2, words.Count);
+      Assert.Equal("world", words.Top);
     }
   }
 }

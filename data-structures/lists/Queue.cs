@@ -25,6 +25,17 @@ namespace practicing_data_structures.data_structures.lists
 
     public int Count    { get => size; }
     public bool IsEmpty { get => size == 0; }
+    public T Top
+    {
+      get
+      {
+        if(IsEmpty)
+        {
+          throw new Exception("Queue is empty!");
+        }
+        return items[headPointer];
+      }
+    }
 
     void ExpandCapacity()
     {
