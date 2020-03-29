@@ -1,9 +1,10 @@
+using System;
 using Xunit;
 using practicing_data_structures.data_structures.lists;
 
 namespace practicing_data_structures.tests
 {
-    public class QueueTests
+  public class QueueTests
   {
     [Fact]
     public void Test()
@@ -17,6 +18,7 @@ namespace practicing_data_structures.tests
       words.Enqueue("world");
       Assert.Equal(2, words.Count);
       Assert.Equal("world", words.Top);
+      Assert.Throws<NotImplementedException>(() => words.Dequeue());
     }
   }
 }

@@ -23,7 +23,12 @@ namespace practicing_data_structures.data_structures.lists
       IncrementSize();
     }
 
-    public int Count    { get => size; }
+    public T Dequeue()
+    {
+      throw new NotImplementedException();
+    }
+
+        public int Count    { get => size; }
     public bool IsEmpty { get => size == 0; }
     public T Top
     {
