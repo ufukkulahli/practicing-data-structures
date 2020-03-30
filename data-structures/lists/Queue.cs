@@ -25,20 +25,32 @@ namespace practicing_data_structures.data_structures.lists
 
     public T Dequeue()
     {
-      throw new NotImplementedException();
+      ThrowIfEmpty();
+      var top = TopItem();
+      RemoveTopItem();
+      DecreaseSize();
+      MoveHeadPointerToNextItem();
+      ResetHeadPointerIfNeeded();
+      // TODO: Implement shrinking managed internal array.
+      return top;
     }
 
-        public int Count    { get => size; }
+    public int Count    { get => size; }
     public bool IsEmpty { get => size == 0; }
     public T Top
     {
       get
       {
-        if(IsEmpty)
-        {
-          throw new Exception("Queue is empty!");
-        }
-        return items[headPointer];
+        ThrowIfEmpty();
+        return TopItem();
+      }
+    }
+
+    void ThrowIfEmpty()
+    {
+      if(IsEmpty)
+      {
+        throw new Exception("Queue is empty!");
       }
     }
 
@@ -48,9 +60,23 @@ namespace practicing_data_structures.data_structures.lists
       Array.Copy(items, headPointer, tempItems, 0, size);
       items = tempItems;
     }
+
+    void ResetHeadPointerIfNeeded()          
+    {
+      if(NeedResettingHeadPointer())
+      {
+        ResetHeadPointer();
+      }
+    }
+    void MoveHeadPointerToNextItem() => headPointer++;
+    void DecreaseSize()              => size--;
+    void RemoveTopItem()             => items[headPointer] = default(T);
+    T TopItem()                      => items[headPointer];
     bool HasNotEnoughCapacity()      => size == items.Length;
     bool NeedResettingTailPointer () => tailPointer == items.Length;
+    bool NeedResettingHeadPointer () => headPointer == items.Length;
     void ResetTailPointer ()         => tailPointer = 0;
+    void ResetHeadPointer ()         => headPointer = 0;
     void IncrementSize()             => size++;
     int NewCapacitySize()            => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                   => 0 == items.Length;

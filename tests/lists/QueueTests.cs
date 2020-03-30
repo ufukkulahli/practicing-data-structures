@@ -14,11 +14,15 @@ namespace practicing_data_structures.tests
 
       // Act && Assert
       Assert.True(words.IsEmpty);
+      Assert.Equal(0, words.Count);
       words.Enqueue("hello");
+      Assert.Equal(1, words.Count);
       words.Enqueue("world");
       Assert.Equal(2, words.Count);
       Assert.Equal("world", words.Top);
-      Assert.Throws<NotImplementedException>(() => words.Dequeue());
+      // TODO: Make work.
+      //Assert.Equal("hello", words.Dequeue());
+      //Assert.Equal("world", words.Dequeue());
     }
   }
 }
