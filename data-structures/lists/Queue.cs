@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace practicing_data_structures.data_structures.lists
 {
   public sealed class Queue<T> : IEnumerable<T>
-    {
+  {
     int size;
     int headPointer;
     int tailPointer;
@@ -13,15 +13,12 @@ namespace practicing_data_structures.data_structures.lists
 
     public void Enqueue(T item)
     {
-      if(HasNotEnoughCapacity())
+      if (HasNotEnoughCapacity())
       {
         ExpandCapacity();
       }
-      items[tailPointer++] = item;
-      if(NeedResettingTailPointer())
-      {
-        ResetTailPointer();
-      }
+      EnqueueItemToTheTail(item);
+      // TODO: NeedResettingTailPointer() at some point.
       IncrementSize();
     }
 
@@ -73,6 +70,8 @@ namespace practicing_data_structures.data_structures.lists
         ResetHeadPointer();
       }
     }
+    
+    void EnqueueItemToTheTail(T item)=> items[tailPointer++] = item;
     void MoveHeadPointerToNextItem() => headPointer++;
     void DecreaseSize()              => size--;
     void RemoveTopItem()             => items[headPointer] = default(T);
@@ -85,6 +84,5 @@ namespace practicing_data_structures.data_structures.lists
     void IncrementSize()             => size++;
     int NewCapacitySize()            => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                   => 0 == items.Length;
-
-    }
+  }
 }
