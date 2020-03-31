@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class Queue<T>
-  {
+  public sealed class Queue<T> : IEnumerable<T>
+    {
     int size;
     int headPointer;
     int tailPointer;
@@ -46,6 +48,9 @@ namespace practicing_data_structures.data_structures.lists
       }
     }
 
+    public IEnumerator<T> GetEnumerator() => items.GetEnumerator() as IEnumerator<T>;
+    IEnumerator IEnumerable.GetEnumerator() => this.GetEnumerator();
+
     void ThrowIfEmpty()
     {
       if(IsEmpty)
@@ -80,5 +85,6 @@ namespace practicing_data_structures.data_structures.lists
     void IncrementSize()             => size++;
     int NewCapacitySize()            => NoItems() ? 1 : items.Length * 2;
     bool NoItems()                   => 0 == items.Length;
-  }
+
+    }
 }
