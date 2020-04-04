@@ -1,15 +1,15 @@
 namespace practicing_data_structures.data_structures.trees
 {
-  public sealed class Node
+  public sealed class Node<T>
   {
-    public readonly int value;
-    public Node Left, Right;
-    public Node(int v) => value = v;
+    public readonly T value;
+    public Node<T> Left, Right;
+    public Node(T v) => value = v;
   }
 
-  public sealed class BinaryTree
+  public sealed class BinaryTree<T>
   {
-    readonly Node root;
-    public BinaryTree(Node r) => root = r;
+    readonly Node<T> root;
+    public BinaryTree(Node<T> r) => root = r;
   }
 }

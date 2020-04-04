@@ -10,7 +10,7 @@ namespace practicing_data_structures.tests.trees
     {
       
       // Arrange
-      var bt = new BinaryTree(BuildBinaryTreeFromNodes());
+      var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
 
       // Act
 
@@ -18,25 +18,25 @@ namespace practicing_data_structures.tests.trees
       Assert.True(true);
     }
 
-    public Node BuildBinaryTreeFromNodes()
+    public Node<int> BuildBinaryTreeFromNodes()
     {
       // Depth: 1
-		  var tree = new Node(1);
+		  var tree = new Node<int>(1);
 		
         // Depth: 2
-        tree.Left = new Node(2);
-        tree.Right = new Node(3);
+        tree.Left = new Node<int>(2);
+        tree.Right = new Node<int>(3);
 		
           // Depth: 3
-          tree.Left.Left = new Node(4);
-          tree.Left.Right = new Node(5);
+          tree.Left.Left = new Node<int>(4);
+          tree.Left.Right = new Node<int>(5);
       
-          tree.Right.Left = new Node(4);
-          tree.Right.Right = new Node(5);
+          tree.Right.Left = new Node<int>(4);
+          tree.Right.Right = new Node<int>(5);
       
             // Depth: 4
-            tree.Left.Left.Left = new Node(4);
-            tree.Left.Left.Right = new Node(5);
+            tree.Left.Left.Left = new Node<int>(4);
+            tree.Left.Left.Right = new Node<int>(5);
 
       return tree;
     }
