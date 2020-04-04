@@ -9,7 +9,7 @@ namespace practicing_data_structures.data_structures.trees
 
   public sealed class BinaryTree<T>
   {
-    readonly Node<T> root;
+    public readonly Node<T> root;
     public BinaryTree(Node<T> r) => root = r;
   }
 }

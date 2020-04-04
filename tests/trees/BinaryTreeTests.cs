@@ -12,10 +12,8 @@ namespace practicing_data_structures.tests.trees
       // Arrange
       var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
 
-      // Act
-
-      // Assert
-      Assert.True(true);
+      // Act && Assert
+      Assert.Equal(1, bt.root.value);
     }
 
     public Node<int> BuildBinaryTreeFromNodes()
