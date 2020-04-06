@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
 using practicing_data_structures.data_structures.lists;
 using Xunit;
 
 namespace practicing_data_structures
 {
-  public class ArrayListTest
+  public class ArrayListTests
   {
     [Fact]
     public void Test()
