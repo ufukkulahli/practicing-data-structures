@@ -9,13 +9,15 @@ namespace practicing_data_structures.tests.lists
     public void Test()
     {
       // TODO: Continue implementing.
+
       // Arrange
-      var singlyLinkedList = new SinglyLinkedList();
+      var singlyLinkedWords = new SinglyLinkedList<string>();
 
       // Act
+      singlyLinkedWords.Append("hello");
 
       // Assert
-
+      Assert.Equal(1, singlyLinkedWords.Count);
     }
   }
 }
