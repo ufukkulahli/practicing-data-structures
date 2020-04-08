@@ -2,7 +2,7 @@ namespace practicing_data_structures.data_structures.lists
 {
   public sealed class Node<T>
   {
-    T value;
+    public T value;
     public Node<T> Next;
     public Node(T value) => this.value = value;
   }
@@ -30,6 +30,7 @@ namespace practicing_data_structures.data_structures.lists
     }
 
     public int Count { get => nodeCount; }
+    public T First   { get => headNode == null ? default(T) : headNode.value; }
 
     void UpdateNodeCount() => nodeCount++;
   }

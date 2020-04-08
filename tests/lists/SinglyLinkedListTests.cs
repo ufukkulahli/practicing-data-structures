@@ -17,6 +17,7 @@ namespace practicing_data_structures.tests.lists
       singlyLinkedWords.Append("hello");
 
       // Assert
+      Assert.Equal("hello", singlyLinkedWords.First);
       Assert.Equal(1, singlyLinkedWords.Count);
     }
   }
