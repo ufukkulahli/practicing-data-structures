@@ -13,12 +13,18 @@ namespace practicing_data_structures.tests.lists
       // Arrange
       var singlyLinkedWords = new SinglyLinkedList<string>();
 
-      // Act
+      // Act && Assert
+      Assert.Equal(null, singlyLinkedWords.First);
+      Assert.Equal(null, singlyLinkedWords.Last);
+      Assert.Equal(0, singlyLinkedWords.Count);
+
       singlyLinkedWords.Append("hello");
+      singlyLinkedWords.Append("world");
 
       // Assert
       Assert.Equal("hello", singlyLinkedWords.First);
-      Assert.Equal(1, singlyLinkedWords.Count);
+      Assert.Equal("world", singlyLinkedWords.Last);
+      Assert.Equal(2, singlyLinkedWords.Count);
     }
   }
 }
