@@ -29,6 +29,7 @@ namespace practicing_data_structures.data_structures.lists
       tailNode               = nodeToBeAppended;
     }
 
+    public bool IsEmpty()  => nodeCount == 0;
     public int Count { get => nodeCount; }
     public T First   { get => headNode == null ? default(T) : headNode.value; }
     public T Last    { get => tailNode == null ? default(T) : tailNode.value; }

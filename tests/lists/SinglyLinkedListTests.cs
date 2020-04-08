@@ -17,6 +17,7 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal(null, singlyLinkedWords.First);
       Assert.Equal(null, singlyLinkedWords.Last);
       Assert.Equal(0, singlyLinkedWords.Count);
+      Assert.True(singlyLinkedWords.IsEmpty());
 
       singlyLinkedWords.Append("hello");
       singlyLinkedWords.Append("world");
@@ -25,6 +26,7 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal("hello", singlyLinkedWords.First);
       Assert.Equal("world", singlyLinkedWords.Last);
       Assert.Equal(2, singlyLinkedWords.Count);
+      Assert.False(singlyLinkedWords.IsEmpty());
     }
   }
 }
