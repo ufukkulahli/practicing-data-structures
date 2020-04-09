@@ -40,6 +40,13 @@ namespace practicing_data_structures.tests.lists
 
       Assert.Equal(4, singlyLinkedWords.Count);
       Assert.False(singlyLinkedWords.IsEmpty());
+
+      // Clear
+      singlyLinkedWords.Clear();
+      Assert.Equal(null, singlyLinkedWords.First);
+      Assert.Equal(null, singlyLinkedWords.Last);
+      Assert.Equal(0, singlyLinkedWords.Count);
+      Assert.True(singlyLinkedWords.IsEmpty());
     }
   }
 }

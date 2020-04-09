@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.lists
 {
   public sealed class Node<T>
@@ -44,6 +47,12 @@ namespace practicing_data_structures.data_structures.lists
       nodeToBePrepended.Next = currentHeadNode;
       headNode               = nodeToBePrepended;
     }
+
+    public void Clear()
+    {
+      headNode = tailNode = null;
+      nodeCount = 0;
+    }  
 
     public bool IsEmpty()  => nodeCount == 0;
     public int Count { get => nodeCount; }
