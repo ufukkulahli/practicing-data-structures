@@ -8,6 +8,7 @@ namespace practicing_data_structures.data_structures.lists
     public T value;
     public Node<T> Next;
     public Node(T value) => this.value = value;
+    public bool Same(T other) => EqualityComparer<T>.Default.Equals(value, other);
   }
 
   public sealed class SinglyLinkedList<T>
@@ -48,6 +49,28 @@ namespace practicing_data_structures.data_structures.lists
       headNode               = nodeToBePrepended;
     }
 
+    public T Get(int index)
+    {
+      if(index == 0)
+      {
+        return First;
+      }
+      if(AtTail(index))
+      {
+        return Last;
+      }
+      ThrowIfOutOfRange(index);
+      
+      var currentNode = headNode;
+      for(var i=0; i<index; i++)
+      {
+        currentNode = currentNode.Next;
+      }
+      return currentNode.value;
+    }
+
+    
+
     public void Clear()
     {
       headNode = tailNode = null;
@@ -60,5 +83,13 @@ namespace practicing_data_structures.data_structures.lists
     public T Last    { get => tailNode == null ? default(T) : tailNode.value; }
 
     void UpdateNodeCount() => nodeCount++;
+    bool AtTail(int index) => index == (Count -1);
+    void ThrowIfOutOfRange(int index)
+    {
+      if((index < 0) || (index >= Count))
+      {
+        throw new IndexOutOfRangeException();
+      }
+    } 
   }
 }

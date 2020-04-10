@@ -1,3 +1,4 @@
+using System;
 using practicing_data_structures.data_structures.lists;
 using Xunit;
 
@@ -40,6 +41,23 @@ namespace practicing_data_structures.tests.lists
 
       Assert.Equal(4, singlyLinkedWords.Count);
       Assert.False(singlyLinkedWords.IsEmpty());
+
+      // Get
+      Assert.Throws<IndexOutOfRangeException>(() => singlyLinkedWords.Get(-1));
+
+      var venus = singlyLinkedWords.Get(0);
+      Assert.Equal("venus", venus);
+
+      var mars = singlyLinkedWords.Get(1);
+      Assert.Equal("mars", mars);
+
+      var hello = singlyLinkedWords.Get(2);
+      Assert.Equal("hello", hello);
+
+      var world = singlyLinkedWords.Get(3);
+      Assert.Equal("world", world);
+
+      Assert.Throws<IndexOutOfRangeException>(() => singlyLinkedWords.Get(4));
 
       // Clear
       singlyLinkedWords.Clear();
