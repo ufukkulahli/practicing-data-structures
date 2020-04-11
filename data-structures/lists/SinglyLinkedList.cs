@@ -7,8 +7,9 @@ namespace practicing_data_structures.data_structures.lists
   {
     public T value;
     public Node<T> Next;
-    public Node(T value) => this.value = value;
-    public bool Same(T other) => EqualityComparer<T>.Default.Equals(value, other);
+    public Node(T value)                => this.value = value;
+    public bool Same(T other)           => EqualityComparer<T>.Default.Equals(value, other);
+    public override string ToString ()  => value.ToString();
   }
 
   public sealed class SinglyLinkedList<T>
@@ -29,7 +30,7 @@ namespace practicing_data_structures.data_structures.lists
       }
 
       var currentTailNode    = tailNode;
-      nodeToBeAppended.Next  = currentTailNode;
+      currentTailNode.Next   = nodeToBeAppended;
       tailNode               = nodeToBeAppended;
     }
 
