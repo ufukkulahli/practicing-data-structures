@@ -49,36 +49,39 @@ namespace practicing_data_structures.data_structures.lists
       headNode               = nodeToBePrepended;
     }
 
-    public T Get(int index)
+    public Node<T> GetNode(int index)
     {
       if(index == 0)
       {
-        return First;
+        return FirstNode;
       }
       if(AtTail(index))
       {
-        return Last;
+        return LastNode;
       }
       ThrowIfOutOfRange(index);
-      
+
       var currentNode = headNode;
       for(var i=0; i<index; i++)
       {
         currentNode = currentNode.Next;
       }
-      return currentNode.value;
+      return currentNode;
     }
 
     public void Clear()
     {
       headNode = tailNode = null;
       nodeCount = 0;
-    }  
+    }
 
-    public bool IsEmpty()  => nodeCount == 0;
-    public int Count { get => nodeCount; }
-    public T First   { get => headNode == null ? default(T) : headNode.value; }
-    public T Last    { get => tailNode == null ? default(T) : tailNode.value; }
+    public T Get(int index)         => GetNode(index).value;
+    public bool IsEmpty()           => nodeCount == 0;
+    public int Count          { get => nodeCount; }
+    public T First            { get => headNode == null ? default(T) : headNode.value; }
+    public T Last             { get => tailNode == null ? default(T) : tailNode.value; }
+    public Node<T> FirstNode  { get => headNode == null ? default(Node<T>) : headNode; }
+    public Node<T> LastNode   { get => tailNode == null ? default(Node<T>) : tailNode; }
 
     void UpdateNodeCount() => nodeCount++;
     bool AtTail(int index) => index == (Count -1);
@@ -88,6 +91,6 @@ namespace practicing_data_structures.data_structures.lists
       {
         throw new IndexOutOfRangeException();
       }
-    } 
+    }
   }
 }

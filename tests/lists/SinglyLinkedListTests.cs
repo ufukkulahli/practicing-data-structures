@@ -17,6 +17,7 @@ namespace practicing_data_structures.tests.lists
       AppendItems();
       PrependItems();
       GetItemsByIndex();
+      GetNodesByIndex();
       ClearList();
     }
 
@@ -69,6 +70,21 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal("world", world);
 
       Assert.Throws<IndexOutOfRangeException>(() => singlyLinkedWords.Get(4));
+    }
+
+    void GetNodesByIndex()
+    {
+      var venus = singlyLinkedWords.GetNode(0);
+      Assert.Equal("venus", venus.value);
+
+      var mars = singlyLinkedWords.GetNode(1);
+      Assert.Equal("mars", mars.value);
+
+      var hello = singlyLinkedWords.GetNode(2);
+      Assert.Equal("hello", hello.value);
+
+      var world = singlyLinkedWords.GetNode(3);
+      Assert.Equal("world", world.value);
     }
 
     void ClearList()
