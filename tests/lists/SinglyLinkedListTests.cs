@@ -18,7 +18,7 @@ namespace practicing_data_structures.tests.lists
       PrependItems();
       GetItemsByIndex();
       GetNodesByIndex();
-      //CheckTheNexts();
+      CheckTheNexts();
       ClearList();
     }
 
