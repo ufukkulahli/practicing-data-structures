@@ -6,31 +6,40 @@ namespace practicing_data_structures.tests.lists
 {
   public class SinglyLinkedListTests
   {
+    // Arrange
+    SinglyLinkedList<string> singlyLinkedWords = new SinglyLinkedList<string>();
+
     [Fact]
     public void Test()
     {
-      // TODO: Continue implementing.
-
-      // Arrange
-      var singlyLinkedWords = new SinglyLinkedList<string>();
-
       // Act && Assert
+      ListIsTrulyEmpty();
+      AppendItems();
+      PrependItems();
+      GetItemsByIndex();
+      ClearList();
+    }
 
-      // Ensure list is empty
+    void ListIsTrulyEmpty()
+    {
       Assert.Equal(null, singlyLinkedWords.First);
       Assert.Equal(null, singlyLinkedWords.Last);
       Assert.Equal(0, singlyLinkedWords.Count);
       Assert.True(singlyLinkedWords.IsEmpty());
+    }
 
-      // Append
+    void AppendItems()
+    {
       singlyLinkedWords.Append("hello");
       singlyLinkedWords.Append("world");
 
       Assert.Equal("hello", singlyLinkedWords.First);
       Assert.Equal("world", singlyLinkedWords.Last);
       Assert.Equal(2, singlyLinkedWords.Count);
+    }
 
-      // Prepend
+    void PrependItems()
+    {
       singlyLinkedWords.Prepend("mars");
       Assert.Equal("mars", singlyLinkedWords.First);
       Assert.Equal("world", singlyLinkedWords.Last);
@@ -41,8 +50,10 @@ namespace practicing_data_structures.tests.lists
 
       Assert.Equal(4, singlyLinkedWords.Count);
       Assert.False(singlyLinkedWords.IsEmpty());
+    }
 
-      // Get
+    void GetItemsByIndex()
+    {
       Assert.Throws<IndexOutOfRangeException>(() => singlyLinkedWords.Get(-1));
 
       var venus = singlyLinkedWords.Get(0);
@@ -58,8 +69,10 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal("world", world);
 
       Assert.Throws<IndexOutOfRangeException>(() => singlyLinkedWords.Get(4));
+    }
 
-      // Clear
+    void ClearList()
+    {
       singlyLinkedWords.Clear();
       Assert.Equal(null, singlyLinkedWords.First);
       Assert.Equal(null, singlyLinkedWords.Last);

@@ -69,8 +69,6 @@ namespace practicing_data_structures.data_structures.lists
       return currentNode.value;
     }
 
-    
-
     public void Clear()
     {
       headNode = tailNode = null;
