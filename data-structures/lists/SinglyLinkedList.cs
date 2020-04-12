@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using practicing_data_structures.lists;
 
 namespace practicing_data_structures.data_structures.lists
 {
@@ -75,7 +76,7 @@ namespace practicing_data_structures.data_structures.lists
     public Node<T> FirstNode  { get => headNode == null ? default(Node<T>) : headNode; }
     public Node<T> LastNode   { get => tailNode == null ? default(Node<T>) : tailNode; }
 
-    public IEnumerator<T> GetEnumerator()                                          => throw new NotImplementedException();
+    public IEnumerator<T> GetEnumerator()                                          => new SinglyLinkedListEnumerator<T>(this);
     System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()  => this.GetEnumerator();
 
     void UpdateNodeCount() => nodeCount++;

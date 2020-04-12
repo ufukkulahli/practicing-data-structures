@@ -102,14 +102,26 @@ namespace practicing_data_structures.tests.lists
 
     void IterateList()
     {
-      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.GetEnumerator());
+      var enumerator = singlyLinkedWords.GetEnumerator();
+
+      Assert.Equal("venus", enumerator.Current);
+      Assert.True(enumerator.MoveNext());
+
+      Assert.Equal("mars", enumerator.Current);
+      Assert.True(enumerator.MoveNext());
+
+      Assert.Equal("hello", enumerator.Current);
+      Assert.True(enumerator.MoveNext());
+
+      Assert.Equal("world", enumerator.Current);
+      Assert.False(enumerator.MoveNext());
     }
 
     void IterateViaIEnumerableInterface()
     {
       // To obtain 'System.Collections.IEnumerator' instance; call, System.Collections.IEnumerable.GetEnumerator() on 'SinglyLinkedList'.
       IEnumerable names = new SinglyLinkedList<string>();
-      Assert.Throws<NotImplementedException>(() => names.GetEnumerator());
+      // TODO: Assert names.
     }
 
     void ClearList()
