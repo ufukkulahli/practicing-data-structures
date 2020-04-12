@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using practicing_data_structures.data_structures.lists;
 using Xunit;
 
@@ -19,6 +20,8 @@ namespace practicing_data_structures.tests.lists
       GetItemsByIndex();
       GetNodesByIndex();
       CheckTheNexts();
+      IterateList();
+      IterateViaIEnumerableInterface();
       ClearList();
     }
 
@@ -95,6 +98,18 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal("hello", venus.Next.Next.value);
       Assert.Equal("world", venus.Next.Next.Next.value);
       Assert.Null(venus.Next.Next.Next.Next);
+    }
+
+    void IterateList()
+    {
+      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.GetEnumerator());
+    }
+
+    void IterateViaIEnumerableInterface()
+    {
+      // To obtain 'System.Collections.IEnumerator' instance; call, System.Collections.IEnumerable.GetEnumerator() on 'SinglyLinkedList'.
+      IEnumerable names = new SinglyLinkedList<string>();
+      Assert.Throws<NotImplementedException>(() => names.GetEnumerator());
     }
 
     void ClearList()

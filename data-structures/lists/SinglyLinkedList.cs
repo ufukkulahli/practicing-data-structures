@@ -1,8 +1,9 @@
 using System;
+using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class SinglyLinkedList<T>
+  public sealed class SinglyLinkedList<T> : IEnumerable<T>
   {
     Node<T> headNode;
     Node<T> tailNode;
@@ -73,6 +74,9 @@ namespace practicing_data_structures.data_structures.lists
     public T Last             { get => tailNode == null ? default(T) : tailNode.value; }
     public Node<T> FirstNode  { get => headNode == null ? default(Node<T>) : headNode; }
     public Node<T> LastNode   { get => tailNode == null ? default(Node<T>) : tailNode; }
+
+    public IEnumerator<T> GetEnumerator()                                          => throw new NotImplementedException();
+    System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()  => this.GetEnumerator();
 
     void UpdateNodeCount() => nodeCount++;
     bool AtTail(int index) => index == (Count -1);
