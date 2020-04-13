@@ -119,9 +119,19 @@ namespace practicing_data_structures.tests.lists
 
     void IterateViaIEnumerableInterface()
     {
-      // To obtain 'System.Collections.IEnumerator' instance; call, System.Collections.IEnumerable.GetEnumerator() on 'SinglyLinkedList'.
-      IEnumerable names = new SinglyLinkedList<string>();
-      // TODO: Assert names.
+      var names = new SinglyLinkedList<string>();
+      names.Append("hello");
+      names.Append("world");
+
+      // To obtain 'System.Collections.IEnumerator' instance;
+      // call, System.Collections.IEnumerable.GetEnumerator() after casting 'SinglyLinkedList'.
+      var namesEnumerator = ((IEnumerable)names).GetEnumerator();
+
+      Assert.Equal("hello", namesEnumerator.Current);
+      Assert.True(namesEnumerator.MoveNext());
+
+      Assert.Equal("world", namesEnumerator.Current);
+      Assert.False(namesEnumerator.MoveNext());
     }
 
     void ClearList()
