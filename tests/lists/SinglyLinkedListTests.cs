@@ -22,6 +22,7 @@ namespace practicing_data_structures.tests.lists
       CheckTheNexts();
       IterateList();
       IterateViaIEnumerableInterface();
+      InsertItemAtIndex();
       ClearList();
     }
 
@@ -132,6 +133,11 @@ namespace practicing_data_structures.tests.lists
 
       Assert.Equal("world", namesEnumerator.Current);
       Assert.False(namesEnumerator.MoveNext());
+    }
+
+    void InsertItemAtIndex()
+    {
+      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.InsertAt("not yet", 0));
     }
 
     void ClearList()

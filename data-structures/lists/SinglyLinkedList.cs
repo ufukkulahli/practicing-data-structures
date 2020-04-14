@@ -68,6 +68,11 @@ namespace practicing_data_structures.data_structures.lists
       nodeCount = 0;
     }
 
+    public void InsertAt(T item, int index)
+    {
+      throw new NotImplementedException();
+    }
+
     public T Get(int index)         => GetNode(index).value;
     public bool IsEmpty()           => nodeCount == 0;
     public int Count          { get => nodeCount; }
