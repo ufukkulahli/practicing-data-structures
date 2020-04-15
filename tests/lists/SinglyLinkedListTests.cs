@@ -28,8 +28,8 @@ namespace practicing_data_structures.tests.lists
 
     void ListIsTrulyEmpty()
     {
-      Assert.Equal(null, singlyLinkedWords.First);
-      Assert.Equal(null, singlyLinkedWords.Last);
+      Assert.Null(singlyLinkedWords.First);
+      Assert.Null(singlyLinkedWords.Last);
       Assert.Equal(0, singlyLinkedWords.Count);
       Assert.True(singlyLinkedWords.IsEmpty());
     }
@@ -143,8 +143,8 @@ namespace practicing_data_structures.tests.lists
     void ClearList()
     {
       singlyLinkedWords.Clear();
-      Assert.Equal(null, singlyLinkedWords.First);
-      Assert.Equal(null, singlyLinkedWords.Last);
+      Assert.Null(singlyLinkedWords.First);
+      Assert.Null(singlyLinkedWords.Last);
       Assert.Equal(0, singlyLinkedWords.Count);
       Assert.True(singlyLinkedWords.IsEmpty());
     }
