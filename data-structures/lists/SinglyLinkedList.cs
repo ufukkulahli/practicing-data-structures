@@ -70,7 +70,30 @@ namespace practicing_data_structures.data_structures.lists
 
     public void InsertAt(T item, int index)
     {
-      throw new NotImplementedException();
+      if(index == 0)
+      {
+        Prepend(item);
+        return;
+      }
+      if(index == Count)
+      {
+        Append(item);
+        return;
+      }
+
+      ThrowIfOutOfRange(index);
+
+      var newNodeToBeInserted = new Node<T>(item);
+      var currentNode = headNode;
+
+      for(var i=0; i<index; i++)
+      {
+        currentNode = currentNode.Next;
+      }
+
+      newNodeToBeInserted.Next = currentNode.Next;
+      currentNode.Next         = newNodeToBeInserted;
+      UpdateNodeCount();
     }
 
     public T Get(int index)         => GetNode(index).value;

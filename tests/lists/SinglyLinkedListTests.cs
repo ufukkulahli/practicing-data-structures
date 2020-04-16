@@ -137,7 +137,8 @@ namespace practicing_data_structures.tests.lists
 
     void InsertItemAtIndex()
     {
-      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.InsertAt("not yet", 0));
+      singlyLinkedWords.InsertAt("jupiter", 0);
+      Assert.Equal("jupiter", singlyLinkedWords.First);
     }
 
     void ClearList()
