@@ -53,13 +53,7 @@ namespace practicing_data_structures.data_structures.lists
         return LastNode;
       }
       ThrowIfOutOfRange(index);
-
-      var currentNode = headNode;
-      for(var i=0; i<index; i++)
-      {
-        currentNode = currentNode.Next;
-      }
-      return currentNode;
+      return NodeAt(index);
     }
 
     public void Clear()
@@ -83,16 +77,11 @@ namespace practicing_data_structures.data_structures.lists
 
       ThrowIfOutOfRange(index);
 
-      var newNodeToBeInserted = new Node<T>(item);
-      var currentNode = headNode;
-
-      for(var i=0; i<index; i++)
-      {
-        currentNode = currentNode.Next;
-      }
-
-      newNodeToBeInserted.Next = currentNode.Next;
-      currentNode.Next         = newNodeToBeInserted;
+      var newNodeToBeInserted  = new Node<T>(item);
+      var nodeAtIndex          = NodeAt(index);
+      newNodeToBeInserted.Next = nodeAtIndex.Next;
+      nodeAtIndex.Next         = newNodeToBeInserted;
+      
       UpdateNodeCount();
     }
 
@@ -115,6 +104,16 @@ namespace practicing_data_structures.data_structures.lists
       {
         throw new IndexOutOfRangeException();
       }
+    }
+
+    Node<T> NodeAt(int index)
+    {
+      var currentNode = headNode;
+      for(var i=0; i<index; i++)
+      {
+        currentNode = currentNode.Next;
+      }
+      return currentNode;
     }
   }
 }
