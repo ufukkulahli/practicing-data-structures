@@ -23,6 +23,7 @@ namespace practicing_data_structures.tests.lists
       IterateList();
       IterateViaIEnumerableInterface();
       InsertItemAtIndex();
+      DeleteItem();
       ClearList();
     }
 
@@ -148,6 +149,11 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal("world", jupiter.Next.Next.Next.Next.value);
       Assert.Null(jupiter.Next.Next.Next.Next.Next);
       Assert.Equal("world", singlyLinkedWords.Last);
+    }
+
+    void DeleteItem()
+    {
+      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.DeleteItem("hello"));
     }
 
     void ClearList()

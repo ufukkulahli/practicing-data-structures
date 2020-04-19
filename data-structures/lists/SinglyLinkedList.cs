@@ -85,6 +85,11 @@ namespace practicing_data_structures.data_structures.lists
       UpdateNodeCount();
     }
 
+    public void DeleteItem(T item)
+    {
+      throw new NotImplementedException();
+    }
+
     public T Get(int index)         => GetNode(index).value;
     public bool IsEmpty()           => nodeCount == 0;
     public int Count          { get => nodeCount; }
