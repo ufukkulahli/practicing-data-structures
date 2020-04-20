@@ -81,13 +81,33 @@ namespace practicing_data_structures.data_structures.lists
       var nodeAtIndex          = NodeAt(index);
       newNodeToBeInserted.Next = nodeAtIndex.Next;
       nodeAtIndex.Next         = newNodeToBeInserted;
-      
+
       UpdateNodeCount();
     }
 
     public void DeleteItem(T item)
     {
-      throw new NotImplementedException();
+      var currentNode   = headNode;
+      Node<T> previousNode = null;
+
+      if(currentNode != null && currentNode.Same(item))
+      {
+        headNode = currentNode.Next;
+        return;
+      }
+
+      while(currentNode != null && currentNode.NotSame(item))
+      {
+        previousNode = currentNode;
+        currentNode  = currentNode.Next;
+      }
+
+      if(currentNode == null)
+      {
+        return;
+      }
+
+      previousNode.Next = currentNode.Next;
     }
 
     public T Get(int index)         => GetNode(index).value;

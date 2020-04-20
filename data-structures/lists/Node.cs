@@ -8,6 +8,7 @@ namespace practicing_data_structures.data_structures.lists
     public Node<T> Next;
     public Node(T value)                => this.value = value;
     public bool Same(T other)           => EqualityComparer<T>.Default.Equals(value, other);
+    public bool NotSame(T other)        => ! Same(other);
     public override string ToString ()  => value.ToString();
   }
 }

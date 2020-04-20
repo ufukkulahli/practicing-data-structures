@@ -153,7 +153,14 @@ namespace practicing_data_structures.tests.lists
 
     void DeleteItem()
     {
-      Assert.Throws<NotImplementedException>(() => singlyLinkedWords.DeleteItem("hello"));
+      singlyLinkedWords.DeleteItem("hello");
+      var jupiter = singlyLinkedWords.GetNode(0);
+      Assert.Equal("jupiter", jupiter.value);
+      Assert.Equal("venus", jupiter.Next.value);
+      Assert.Equal("mars", jupiter.Next.Next.value);
+      Assert.Equal("world", jupiter.Next.Next.Next.value);
+      Assert.Null(jupiter.Next.Next.Next.Next);
+      Assert.Equal("world", singlyLinkedWords.Last);
     }
 
     void ClearList()
