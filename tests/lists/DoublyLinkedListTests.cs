@@ -10,6 +10,8 @@ namespace practicing_data_structures.data_structures.lists
     {
       var words = new DoublyLinkedList<string>();
       Assert.Throws<NotImplementedException>(() => words.Append("hello"));
+      Assert.Equal(0, words.Count);
+      Assert.True(words.IsEmpty());
     }
   }
 }
