@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace practicing_data_structures.data_structures.lists
+namespace practicing_data_structures.data_structures.lists.singly
 {
   public sealed class Node<T>
   {

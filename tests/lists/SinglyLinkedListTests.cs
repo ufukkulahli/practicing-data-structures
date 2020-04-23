@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using practicing_data_structures.data_structures.lists;
+using practicing_data_structures.data_structures.lists.singly;
 using Xunit;
 
 namespace practicing_data_structures.tests.lists

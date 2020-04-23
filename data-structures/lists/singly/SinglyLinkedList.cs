@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using practicing_data_structures.lists;
+using practicing_data_structures.lists.singly;
 
-namespace practicing_data_structures.data_structures.lists
+namespace practicing_data_structures.data_structures.lists.singly
 {
   public sealed class SinglyLinkedList<T> : IEnumerable<T>
   {
