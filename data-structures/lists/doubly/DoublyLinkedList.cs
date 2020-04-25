@@ -13,25 +13,12 @@ namespace practicing_data_structures.data_structures.lists.doubly
       throw new NotImplementedException();
     }
 
-    public int Count   { get => nodeCount; }
-    public T First
-    {
-      get
-      {
-        ThrowIfEmpty();
-        return headNode.Value;
-      }
-    }
-    public T Last
-    {
-      get
-      {
-        ThrowIfEmpty();
-        return tailNode.Value;
-      }
-    }
-
     public bool IsEmpty() => Count == 0;
+
+    public int Count { get => nodeCount; }
+    public T First   { get { ThrowIfEmpty(); return headNode.Value; } }
+    public T Last    { get { ThrowIfEmpty(); return tailNode.Value; } }
+
 
     public void Clear()
     {
@@ -45,10 +32,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         throw new Exception("No items in the list!");
       }
-    }
-    void A()
-    {
-      Console.WriteLine("");
     }
   }
 }
