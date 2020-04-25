@@ -6,7 +6,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
   {
     int nodeCount;
     Node<T> headNode;
-    Node<T> lastNode;
+    Node<T> tailNode;
 
     public void Append(T item)
     {
@@ -14,6 +14,41 @@ namespace practicing_data_structures.data_structures.lists.doubly
     }
 
     public int Count   { get => nodeCount; }
+    public T First
+    {
+      get
+      {
+        ThrowIfEmpty();
+        return headNode.Value;
+      }
+    }
+    public T Last
+    {
+      get
+      {
+        ThrowIfEmpty();
+        return tailNode.Value;
+      }
+    }
+
     public bool IsEmpty() => Count == 0;
+
+    public void Clear()
+    {
+      nodeCount = 0;
+      headNode = tailNode = null;
+    }
+
+    void ThrowIfEmpty()
+    {
+      if(IsEmpty())
+      {
+        throw new Exception("No items in the list!");
+      }
+    }
+    void A()
+    {
+      Console.WriteLine("");
+    }
   }
 }
