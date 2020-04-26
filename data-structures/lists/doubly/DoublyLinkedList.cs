@@ -18,7 +18,8 @@ namespace practicing_data_structures.data_structures.lists.doubly
     public int Count { get => nodeCount; }
     public T First   { get { ThrowIfEmpty(); return headNode.Value; } }
     public T Last    { get { ThrowIfEmpty(); return tailNode.Value; } }
-
+    public Node<T> HeadNode { get => headNode; }
+    public Node<T> TailNode { get => tailNode; }
 
     public void Clear()
     {

@@ -18,6 +18,8 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<NotImplementedException>(() => words.Append("hello"));
       Assert.Equal(0, words.Count);
       Assert.True(words.IsEmpty());
+      Assert.Null(words.HeadNode);
+      Assert.Null(words.TailNode);
       Assert.Throws<Exception>(() => words.First);
       Assert.Throws<Exception>(() => words.Last);
     }
