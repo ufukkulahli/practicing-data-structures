@@ -10,7 +10,20 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void Append(T item)
     {
-      throw new NotImplementedException();
+      UpdateNodeCount();
+
+      var nodeToBeAppended = new Node<T>(item);
+
+      if(HeadNode == null)
+      {
+        headNode = tailNode = nodeToBeAppended;
+        return;
+      }
+
+      var currentTailNode = tailNode;
+      currentTailNode.Next = nodeToBeAppended;
+      nodeToBeAppended.Previous = currentTailNode;
+      tailNode = nodeToBeAppended;
     }
 
     public bool IsEmpty() => Count == 0;
@@ -34,5 +47,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
         throw new Exception("No items in the list!");
       }
     }
+
+    void UpdateNodeCount() => nodeCount++;
   }
 }

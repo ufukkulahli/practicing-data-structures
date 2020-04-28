@@ -6,16 +6,32 @@ namespace practicing_data_structures.data_structures.lists
 {
   public sealed class DoublyLinkedListTests
   {
+    DoublyLinkedList<string> words;
+
     [Fact]
     public void Test()
     {
       // Arrange
-      var words = new DoublyLinkedList<string>();
+      words = new DoublyLinkedList<string>();
 
       // Act && Assert
-      words.Clear();
+      BeSureListIsClean();
 
-      Assert.Throws<NotImplementedException>(() => words.Append("hello"));
+      words.Append("world");
+      words.Append("mars");
+      words.Append("venus");
+
+      Assert.Equal(3, words.Count);
+      Assert.False(words.IsEmpty());
+      Assert.Equal("world", words.First);
+      Assert.Equal("venus", words.Last);
+
+      words.Clear();
+      BeSureListIsClean();
+    }
+
+    void BeSureListIsClean()
+    {
       Assert.Equal(0, words.Count);
       Assert.True(words.IsEmpty());
       Assert.Null(words.HeadNode);
