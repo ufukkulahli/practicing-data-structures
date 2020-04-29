@@ -21,6 +21,21 @@ namespace practicing_data_structures.data_structures.lists
       words.Append("mars");
       words.Append("venus");
 
+      // Head Node: 'world'
+      Assert.Null(words.HeadNode.Previous);
+      Assert.Equal("world", words.HeadNode.Value);
+      Assert.Equal("mars", words.HeadNode.Next.Value);
+
+      // Next Node: 'mars'
+      var mars = words.HeadNode.Next;
+      Assert.Equal("world", mars.Previous.Value);
+      Assert.Equal("venus", mars.Next.Value);
+
+      // Next Node: 'venus'
+      var venus = mars.Next;
+      Assert.Equal("mars", venus.Previous.Value);
+      Assert.Null(venus.Next);
+
       Assert.Equal(3, words.Count);
       Assert.False(words.IsEmpty());
       Assert.Equal("world", words.First);
