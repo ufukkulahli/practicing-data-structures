@@ -26,6 +26,24 @@ namespace practicing_data_structures.data_structures.lists.doubly
       tailNode = nodeToBeAppended;
     }
 
+    public void Prepend(T item)
+    {
+      UpdateNodeCount();
+
+      var nodeToBePrepended = new Node<T>(item);
+
+      if(headNode == null)
+      {
+        headNode = tailNode = nodeToBePrepended;
+        return;
+      }
+
+      var currentHeadNode      = headNode;
+      nodeToBePrepended.Next   = currentHeadNode;
+      currentHeadNode.Previous = nodeToBePrepended;
+      headNode                 = nodeToBePrepended;
+    }
+
     public bool IsEmpty() => Count == 0;
 
     public int Count { get => nodeCount; }
