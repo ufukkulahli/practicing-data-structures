@@ -14,13 +14,26 @@ namespace practicing_data_structures.data_structures.lists
       // Arrange
       words = new DoublyLinkedList<string>();
 
-      // Act && Assert
+      // Assert
       BeSureListIsClean();
 
+      // Act
       words.Append("world");
       words.Append("mars");
       words.Append("venus");
 
+      // Assert
+      AssertFirstThreeWords();
+
+      // Act
+      words.Clear();
+
+      // Assert
+      BeSureListIsClean();
+    }
+
+    void AssertFirstThreeWords()
+    {
       // Head Node: 'world'
       Assert.Null(words.HeadNode.Previous);
       Assert.Equal("world", words.HeadNode.Value);
@@ -40,9 +53,6 @@ namespace practicing_data_structures.data_structures.lists
       Assert.False(words.IsEmpty());
       Assert.Equal("world", words.First);
       Assert.Equal("venus", words.Last);
-
-      words.Clear();
-      BeSureListIsClean();
     }
 
     void BeSureListIsClean()
