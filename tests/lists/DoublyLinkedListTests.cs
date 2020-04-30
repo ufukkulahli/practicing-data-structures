@@ -6,63 +6,66 @@ namespace practicing_data_structures.data_structures.lists
 {
   public sealed class DoublyLinkedListTests
   {
-    DoublyLinkedList<string> words;
+    DoublyLinkedList<string> planets;
 
     [Fact]
     public void Test()
     {
       // Arrange
-      words = new DoublyLinkedList<string>();
+      planets = new DoublyLinkedList<string>();
 
       // Assert
       BeSureListIsClean();
 
       // Act
-      words.Append("world");
-      words.Append("mars");
-      words.Append("venus");
+      planets.Append("World");
+      planets.Append("Mars");
+      planets.Append("Venus");
 
       // Assert
-      AssertFirstThreeWords();
+      AssertFirstThreePlanets();
+
+      planets.Prepend("Jupiter");
+      planets.Prepend("Neptune");
 
       // Act
-      words.Clear();
+      planets.Clear();
 
       // Assert
       BeSureListIsClean();
     }
 
-    void AssertFirstThreeWords()
+    void AssertFirstThreePlanets()
     {
       // Head Node: 'world'
-      Assert.Null(words.HeadNode.Previous);
-      Assert.Equal("world", words.HeadNode.Value);
-      Assert.Equal("mars", words.HeadNode.Next.Value);
+      Assert.Null(planets.HeadNode.Previous);
+      Assert.Equal("World", planets.HeadNode.Value);
+      Assert.Equal("Mars", planets.HeadNode.Next.Value);
 
       // Next Node: 'mars'
-      var mars = words.HeadNode.Next;
-      Assert.Equal("world", mars.Previous.Value);
-      Assert.Equal("venus", mars.Next.Value);
+      var mars = planets.HeadNode.Next;
+      Assert.Equal("World", mars.Previous.Value);
+      Assert.Equal("Venus", mars.Next.Value);
 
-      // Next Node: 'venus'
+      // Next Node: 'Venus'
       var venus = mars.Next;
-      Assert.Equal("mars", venus.Previous.Value);
+      Assert.Equal("Mars", venus.Previous.Value);
       Assert.Null(venus.Next);
 
-      Assert.Equal(3, words.Count);
-      Assert.False(words.IsEmpty());
-      Assert.Equal("world", words.First);
-      Assert.Equal("venus", words.Last);
+      Assert.Equal(3, planets.Count);
+      Assert.False(planets.IsEmpty());
+      Assert.Equal("World", planets.First);
+      Assert.Equal("Venus", planets.Last);
     }
 
     void BeSureListIsClean()
     {
-      Assert.Equal(0, words.Count);
-      Assert.True(words.IsEmpty());
-      Assert.Null(words.HeadNode);
-      Assert.Null(words.TailNode);
-      Assert.Throws<Exception>(() => words.First);
-      Assert.Throws<Exception>(() => words.Last);
+      Assert.Equal(0, planets.Count);
+      Assert.True(planets.IsEmpty());
+      Assert.Null(planets.HeadNode);
+      Assert.Null(planets.TailNode);
+      Assert.Throws<Exception>(() => planets.First);
+      Assert.Throws<Exception>(() => planets.Last);
     }
   }
 }
