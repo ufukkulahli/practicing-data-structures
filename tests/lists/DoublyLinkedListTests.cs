@@ -28,6 +28,9 @@ namespace practicing_data_structures.data_structures.lists
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");
 
+      // Assert
+      AssertNewlyAddedPlanets();
+
       // Act
       planets.Clear();
 
@@ -56,6 +59,25 @@ namespace practicing_data_structures.data_structures.lists
       Assert.False(planets.IsEmpty());
       Assert.Equal("World", planets.First);
       Assert.Equal("Venus", planets.Last);
+    }
+
+    void AssertNewlyAddedPlanets()
+    {
+      // New Head Node: 'Neptune'
+      var neptune = planets.HeadNode;
+      Assert.Null(neptune.Previous);
+      Assert.Equal("Neptune", neptune.Value);
+      Assert.Equal("Jupiter", neptune.Next.Value);
+
+      // Next Node: 'Jupiter'
+      var jupiter = neptune.Next;
+      Assert.Equal("Neptune", jupiter.Previous.Value);
+      Assert.Equal("World", jupiter.Next.Value);
+
+      // Next Node: 'World'
+      var world = jupiter.Next;
+      Assert.Equal("Jupiter", world.Previous.Value);
+      Assert.Equal("Mars", world.Next.Value);
     }
 
     void BeSureListIsClean()
