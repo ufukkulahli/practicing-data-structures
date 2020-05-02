@@ -44,6 +44,24 @@ namespace practicing_data_structures.data_structures.lists.doubly
       headNode                 = nodeToBePrepended;
     }
 
+    public Node<T> FindNode(T item)
+    {
+      ThrowIfEmpty();
+
+      var currentNode = headNode;
+
+      while(currentNode != null)
+      {
+        if(currentNode.Same(item))
+        {
+          return currentNode;
+        }
+        currentNode = currentNode.Next;
+      }
+
+      throw new Exception("Item does not exist!");
+    }
+
     public bool IsEmpty() => Count == 0;
 
     public int Count { get => nodeCount; }

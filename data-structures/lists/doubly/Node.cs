@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.lists.doubly
 {
   public sealed class Node<T>
@@ -13,5 +15,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       Previous = previous;
       Next     = next;
     }
+
+    public bool Same(T other) => EqualityComparer<T>.Default.Equals(Value, other);
   }
 }

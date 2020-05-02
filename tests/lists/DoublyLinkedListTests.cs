@@ -32,6 +32,11 @@ namespace practicing_data_structures.data_structures.lists
       AssertNewlyAddedPlanets();
 
       // Act
+      var mars = planets.FindNode("Mars");
+      Assert.Equal("World", mars.Previous.Value);
+      Assert.Equal("Venus", mars.Next.Value);
+
+      // Act
       planets.Clear();
 
       // Assert
