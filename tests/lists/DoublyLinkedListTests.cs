@@ -36,6 +36,8 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal("World", mars.Previous.Value);
       Assert.Equal("Venus", mars.Next.Value);
 
+      Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
+
       // Act
       planets.Clear();
 
