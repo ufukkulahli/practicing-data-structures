@@ -78,6 +78,11 @@ namespace practicing_data_structures.data_structures.lists
       var world = jupiter.Next;
       Assert.Equal("Jupiter", world.Previous.Value);
       Assert.Equal("Mars", world.Next.Value);
+
+      Assert.Equal(5, planets.Count);
+      Assert.False(planets.IsEmpty());
+      Assert.Equal("Neptune", planets.First);
+      Assert.Equal("Venus", planets.Last);
     }
 
     void BeSureListIsClean()
