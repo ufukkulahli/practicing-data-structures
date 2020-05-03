@@ -17,31 +17,25 @@ namespace practicing_data_structures.data_structures.lists
       // Assert
       BeSureListIsClean();
 
-      // Act
+      // Act && Assert
       planets.Append("World");
       planets.Append("Mars");
       planets.Append("Venus");
-
-      // Assert
       AssertFirstThreePlanets();
 
+      // Act & Assert
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");
-
-      // Assert
       AssertNewlyAddedPlanets();
 
-      // Act
+      // Act && Assert
       var mars = planets.FindNode("Mars");
       Assert.Equal("World", mars.Previous.Value);
       Assert.Equal("Venus", mars.Next.Value);
-
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
-      // Act
+      // Act && Assert
       planets.Clear();
-
-      // Assert
       BeSureListIsClean();
     }
 
