@@ -35,6 +35,9 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       // Act && Assert
+      Assert.Throws<NotImplementedException>( () => planets.InsertAt(3, "Saturn") );
+
+      // Act && Assert
       planets.Clear();
       BeSureListIsClean();
     }

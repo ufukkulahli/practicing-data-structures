@@ -62,6 +62,11 @@ namespace practicing_data_structures.data_structures.lists.doubly
       throw new Exception("Item does not exist!");
     }
 
+    public void InsertAt(int index, T item)
+    {
+      throw new NotImplementedException();
+    }
+
     public bool IsEmpty() => Count == 0;
 
     public int Count { get => nodeCount; }
