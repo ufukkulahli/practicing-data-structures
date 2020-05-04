@@ -64,7 +64,33 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void InsertAt(int index, T item)
     {
-      throw new NotImplementedException();
+      if(index == 0)
+      {
+        Prepend(item);
+        return;
+      }
+
+      if(index == Count)
+      {
+        Append(item);
+        return;
+      }
+
+      ThrowIfOutOfRange(index);
+
+      var previousNodeOf_NodeToBeInserted = GetNodeAt(index-1);
+      var previousNodes_NextNode          = previousNodeOf_NodeToBeInserted.Next;
+      var newNodeToBeInserted             = new Node<T>(item);
+
+      if(previousNodes_NextNode != null)
+      {
+        previousNodeOf_NodeToBeInserted.Next.Previous = newNodeToBeInserted;
+      }
+
+      newNodeToBeInserted.Next                = previousNodes_NextNode;
+      previousNodeOf_NodeToBeInserted.Next    = newNodeToBeInserted;
+      newNodeToBeInserted.Previous            = previousNodeOf_NodeToBeInserted;
+      UpdateNodeCount();
     }
 
     public bool IsEmpty() => Count == 0;
@@ -87,6 +113,24 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         throw new Exception("No items in the list!");
       }
+    }
+
+    void ThrowIfOutOfRange(int index)
+    {
+      if(index < 0 || index > Count)
+      {
+        throw new IndexOutOfRangeException();
+      }
+    }
+
+    Node<T> GetNodeAt(int index)
+    {
+      var currentNode = headNode;
+      for(var i=0; i < index; i++)
+      {
+        currentNode = currentNode.Next;
+      }
+      return currentNode;
     }
 
     void UpdateNodeCount() => nodeCount++;
