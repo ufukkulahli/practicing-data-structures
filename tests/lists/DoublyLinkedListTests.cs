@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Xunit;
 using practicing_data_structures.data_structures.lists.doubly;
 
@@ -18,14 +19,18 @@ namespace practicing_data_structures.data_structures.lists
       BeSureListIsClean();
 
       // Act && Assert
+      // Order is: World, Mars, Venus
       planets.Append("World");
       planets.Append("Mars");
       planets.Append("Venus");
+      AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
       AssertFirstThreePlanets();
 
       // Act & Assert
+      // Order is: Neptune, Jupiter, World, Mars, Venus
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");
+      AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "World", "Mars", "Venus"});
       AssertNewlyAddedPlanets();
 
       // Act && Assert
@@ -35,12 +40,42 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       // Act && Assert
+      // Order is: Neptune, Jupiter, Saturn, World, Mars, Venus
       planets.InsertAt(3, "Saturn");
       Assert.Equal(6, planets.Count);
 
       // Act && Assert
       planets.Clear();
       BeSureListIsClean();
+    }
+
+    void AssertGivenPlanetsInOrder(string[] planetNames)
+    {
+      var currentPlanet = planets.HeadNode;
+      var indexOfPlanet = 0;
+
+      while(currentPlanet != null)
+      {
+        var actualPreviousPlanet = GetPlanetNameOrNothing(indexOfPlanet-1, planetNames);
+        var actualCurrentPlanet  = GetPlanetNameOrNothing(indexOfPlanet, planetNames);
+        var actualNextPlanet     = GetPlanetNameOrNothing(indexOfPlanet+1, planetNames);
+
+        Assert.Equal(actualPreviousPlanet , currentPlanet.Previous?.Value);
+        Assert.Equal(actualCurrentPlanet  , currentPlanet.Value);
+        Assert.Equal(actualNextPlanet     , currentPlanet?.Next?.Value);
+
+        currentPlanet = currentPlanet.Next;
+        indexOfPlanet++;
+      }
+    }
+
+    string GetPlanetNameOrNothing(int index, string[] planetNames)
+    {
+      if (index < 0 || index >= planetNames.Length)
+      {
+        return null;
+      }
+      return planetNames[index];
     }
 
     void AssertFirstThreePlanets()
