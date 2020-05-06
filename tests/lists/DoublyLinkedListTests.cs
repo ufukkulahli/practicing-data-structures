@@ -1,11 +1,10 @@
 using System;
-using System.Collections.Generic;
 using Xunit;
 using practicing_data_structures.data_structures.lists.doubly;
 
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class DoublyLinkedListTests
+    public sealed class DoublyLinkedListTests
   {
     DoublyLinkedList<string> planets;
 
@@ -50,6 +49,10 @@ namespace practicing_data_structures.data_structures.lists
       planets.InsertAt(6, "Pluto");
       AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus", "Pluto"});
       Assert.Equal(7, planets.Count);
+
+      // Act && Assert
+      Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(-1, "Mercury") );
+      Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(8, "Mercury") );
 
       // Act && Assert
       planets.Clear();
