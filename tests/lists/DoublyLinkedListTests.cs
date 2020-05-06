@@ -41,7 +41,8 @@ namespace practicing_data_structures.data_structures.lists
 
       // Act && Assert
       // Order is: Neptune, Jupiter, Saturn, World, Mars, Venus
-      planets.InsertAt(3, "Saturn");
+      planets.InsertAt(0, "Saturn");
+      AssertGivenPlanetsInOrder(new string[6]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus"});
       Assert.Equal(6, planets.Count);
 
       // Act && Assert
