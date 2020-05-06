@@ -40,10 +40,16 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       // Act && Assert
-      // Order is: Neptune, Jupiter, Saturn, World, Mars, Venus
+      // Order is: Saturn, Neptune, Jupiter, Saturn, World, Mars, Venus
       planets.InsertAt(0, "Saturn");
       AssertGivenPlanetsInOrder(new string[6]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus"});
       Assert.Equal(6, planets.Count);
+
+      // Act && Assert
+      // Order is: Pluto, Saturn, Neptune, Jupiter, Saturn, World, Mars, Venus
+      planets.InsertAt(6, "Pluto");
+      AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus", "Pluto"});
+      Assert.Equal(7, planets.Count);
 
       // Act && Assert
       planets.Clear();
