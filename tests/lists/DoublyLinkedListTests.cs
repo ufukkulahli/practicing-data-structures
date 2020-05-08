@@ -56,6 +56,9 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(8, "Mercury") );
 
       // Act && Assert
+      Assert.Throws<NotImplementedException>( () => planets.Remove("Pluto") );
+
+      // Act && Assert
       planets.Clear();
       BeSureListIsClean();
     }

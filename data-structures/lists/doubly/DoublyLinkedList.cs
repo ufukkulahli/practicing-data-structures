@@ -93,6 +93,17 @@ namespace practicing_data_structures.data_structures.lists.doubly
       UpdateNodeCount();
     }
 
+    public void Clear()
+    {
+      nodeCount = 0;
+      headNode = tailNode = null;
+    }
+
+    public void Remove(T item)
+    {
+      throw new NotImplementedException();
+    }
+
     public bool IsEmpty() => Count == 0;
 
     public int Count { get => nodeCount; }
@@ -100,12 +111,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
     public T Last    { get { ThrowIfEmpty(); return tailNode.Value; } }
     public Node<T> HeadNode { get => headNode; }
     public Node<T> TailNode { get => tailNode; }
-
-    public void Clear()
-    {
-      nodeCount = 0;
-      headNode = tailNode = null;
-    }
 
     void ThrowIfEmpty()
     {
