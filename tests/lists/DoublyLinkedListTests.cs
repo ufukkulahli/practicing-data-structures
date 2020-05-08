@@ -18,7 +18,6 @@ namespace practicing_data_structures.data_structures.lists
       BeSureListIsClean();
 
       // Act && Assert
-      // Order is: World, Mars, Venus
       planets.Append("World");
       planets.Append("Mars");
       planets.Append("Venus");
@@ -26,7 +25,6 @@ namespace practicing_data_structures.data_structures.lists
       AssertFirstThreePlanets();
 
       // Act & Assert
-      // Order is: Neptune, Jupiter, World, Mars, Venus
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");
       AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "World", "Mars", "Venus"});
@@ -39,19 +37,16 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       // Act && Assert
-      // Order is: Saturn, Neptune, Jupiter, Saturn, World, Mars, Venus
       planets.InsertAt(0, "Saturn");
       AssertGivenPlanetsInOrder(new string[6]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus"});
       Assert.Equal(6, planets.Count);
 
       // Act && Assert
-      // Order is: Saturn, Neptune, Jupiter, Saturn, World, Mars, Venus
       planets.InsertAt(3, "Mercury");
       AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars", "Venus"});
       Assert.Equal(7, planets.Count);
 
       // Act && Assert
-      // Order is: Pluto, Saturn, Neptune, Jupiter, Saturn, World, Mars, Venus
       planets.InsertAt(6, "Pluto");
       AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus", "Pluto"});
       Assert.Equal(7, planets.Count);
