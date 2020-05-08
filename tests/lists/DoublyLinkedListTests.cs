@@ -48,12 +48,12 @@ namespace practicing_data_structures.data_structures.lists
 
       // Act && Assert
       planets.InsertAt(6, "Pluto");
-      AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus", "Pluto"});
-      Assert.Equal(7, planets.Count);
+      AssertGivenPlanetsInOrder(new string[8]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto", "Venus"});
+      Assert.Equal(8, planets.Count);
 
       // Act && Assert
       Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(-1, "Mercury") );
-      Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(8, "Mercury") );
+      Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(99, "Mercury") );
 
       // Act && Assert
       Assert.Throws<NotImplementedException>( () => planets.Remove("Pluto") );
