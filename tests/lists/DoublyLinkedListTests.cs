@@ -147,6 +147,7 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Null(planets.TailNode);
       Assert.Throws<Exception>(() => planets.First);
       Assert.Throws<Exception>(() => planets.Last);
+      Assert.Throws<Exception>(() => planets.Remove("Neptune"));
     }
   }
 }

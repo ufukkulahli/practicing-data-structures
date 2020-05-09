@@ -101,6 +101,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void Remove(T item)
     {
+      ThrowIfEmpty();
       throw new NotImplementedException();
     }
 
