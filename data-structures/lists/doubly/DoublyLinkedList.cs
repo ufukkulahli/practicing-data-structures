@@ -102,7 +102,17 @@ namespace practicing_data_structures.data_structures.lists.doubly
     public void Remove(T item)
     {
       ThrowIfEmpty();
-      throw new NotImplementedException();
+
+      DecreaseNodeCount();
+
+      if(headNode.Same(item))
+      {
+        headNode = headNode.Next;
+        // TODO: Throws exception
+        headNode.Previous = null;
+        return;
+      }
+
     }
 
     public bool IsEmpty() => Count == 0;
@@ -140,5 +150,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
     }
 
     void UpdateNodeCount() => nodeCount++;
+    void DecreaseNodeCount() => nodeCount--;
   }
 }

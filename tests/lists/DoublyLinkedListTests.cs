@@ -36,6 +36,20 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal("Venus", mars.Next.Value);
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
+      AssertInsertAtFunctionality();
+
+      // Act && Assert
+      planets.Remove("Saturn");
+      Assert.Equal("Neptune", planets.First);
+      Assert.Equal(7, planets.Count);
+
+      // Act && Assert
+      planets.Clear();
+      BeSureListIsClean();
+    }
+
+    void AssertInsertAtFunctionality()
+    {
       // Act && Assert
       planets.InsertAt(0, "Saturn");
       AssertGivenPlanetsInOrder(new string[6]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus"});
@@ -54,13 +68,6 @@ namespace practicing_data_structures.data_structures.lists
       // Act && Assert
       Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(-1, "Mercury") );
       Assert.Throws<IndexOutOfRangeException>( () => planets.InsertAt(99, "Mercury") );
-
-      // Act && Assert
-      Assert.Throws<NotImplementedException>( () => planets.Remove("Pluto") );
-
-      // Act && Assert
-      planets.Clear();
-      BeSureListIsClean();
     }
 
     void AssertGivenPlanetsInOrder(string[] planetNames)
