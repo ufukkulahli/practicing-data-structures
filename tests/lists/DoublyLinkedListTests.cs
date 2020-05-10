@@ -44,6 +44,11 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal(7, planets.Count);
 
       // Act && Assert
+      planets.Remove("Venus");
+      Assert.Equal("Pluto", planets.Last);
+      Assert.Equal(6, planets.Count);
+
+      // Act && Assert
       planets.Clear();
       BeSureListIsClean();
     }

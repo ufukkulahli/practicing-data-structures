@@ -113,6 +113,13 @@ namespace practicing_data_structures.data_structures.lists.doubly
         return;
       }
 
+      if(tailNode.Same(item))
+      {
+        tailNode = tailNode.Previous;
+        // TODO: Throws exception
+        tailNode.Previous = null;
+        return;
+      }
     }
 
     public bool IsEmpty() => Count == 0;
