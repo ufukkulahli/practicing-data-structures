@@ -120,6 +120,20 @@ namespace practicing_data_structures.data_structures.lists.doubly
         tailNode.Previous = null;
         return;
       }
+
+      var foundNode       = FindNode(item);
+      var newPreviousNode = foundNode.Previous;
+      var newNextNode     = foundNode.Next;
+
+      if(newPreviousNode != null)
+      {
+        newPreviousNode.Next = newNextNode;
+      }
+      if(newNextNode != null)
+      {
+        newNextNode.Previous = newPreviousNode;
+      }
+      foundNode = newPreviousNode;
     }
 
     public bool IsEmpty() => Count == 0;
