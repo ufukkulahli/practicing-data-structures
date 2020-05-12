@@ -71,16 +71,17 @@ namespace practicing_data_structures.data_structures.lists
     {
       // Act && Assert
       planets.Remove("Saturn");
-      Assert.Equal("Neptune", planets.First);
+      AssertGivenPlanetsInOrder(new string[7]{"Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto", "Venus"});
       Assert.Equal(7, planets.Count);
 
       // Act && Assert
       planets.Remove("Venus");
-      Assert.Equal("Pluto", planets.Last);
+      AssertGivenPlanetsInOrder(new string[6]{"Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto"});
       Assert.Equal(6, planets.Count);
 
       // Act && Assert
       planets.Remove("World");
+      AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "Mercury", "Mars",  "Pluto"});
       Assert.Equal(5, planets.Count);
     }
 

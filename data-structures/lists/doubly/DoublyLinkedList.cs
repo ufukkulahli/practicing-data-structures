@@ -116,7 +116,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         tailNode = tailNode.Previous;
         // TODO: Throws exception
-        tailNode.Previous = null;
+        tailNode.Next = null;
         DecreaseNodeCount();
         return;
       }
