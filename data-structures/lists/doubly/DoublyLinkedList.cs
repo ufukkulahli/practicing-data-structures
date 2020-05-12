@@ -103,13 +103,12 @@ namespace practicing_data_structures.data_structures.lists.doubly
     {
       ThrowIfEmpty();
 
-      DecreaseNodeCount();
-
       if(headNode.Same(item))
       {
         headNode = headNode.Next;
         // TODO: Throws exception
         headNode.Previous = null;
+        DecreaseNodeCount();
         return;
       }
 
@@ -118,6 +117,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
         tailNode = tailNode.Previous;
         // TODO: Throws exception
         tailNode.Previous = null;
+        DecreaseNodeCount();
         return;
       }
 
@@ -133,7 +133,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         newNextNode.Previous = newPreviousNode;
       }
-      foundNode = newPreviousNode;
+      DecreaseNodeCount();
     }
 
     public bool IsEmpty() => Count == 0;

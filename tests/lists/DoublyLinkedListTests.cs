@@ -78,6 +78,10 @@ namespace practicing_data_structures.data_structures.lists
       planets.Remove("Venus");
       Assert.Equal("Pluto", planets.Last);
       Assert.Equal(6, planets.Count);
+
+      // Act && Assert
+      planets.Remove("World");
+      Assert.Equal(5, planets.Count);
     }
 
     void AssertGivenPlanetsInOrder(string[] planetNames)
