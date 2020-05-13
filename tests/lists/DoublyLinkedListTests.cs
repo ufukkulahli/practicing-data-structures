@@ -19,6 +19,8 @@ namespace practicing_data_structures.data_structures.lists
 
       // Act && Assert
       planets.Append("World");
+      planets.Remove("World"); // Should not throw exception
+      planets.Append("World");
       planets.Append("Mars");
       planets.Append("Venus");
       AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
@@ -103,6 +105,7 @@ namespace practicing_data_structures.data_structures.lists
         currentPlanet = currentPlanet.Next;
         indexOfPlanet++;
       }
+      Assert.Equal(planetNames.Length, planets.Count);
     }
 
     string GetPlanetNameOrNothing(int index, string[] planetNames)
