@@ -106,8 +106,10 @@ namespace practicing_data_structures.data_structures.lists.doubly
       if(headNode.Same(item))
       {
         headNode = headNode.Next;
-        // TODO: Throws exception
-        headNode.Previous = null;
+        if(headNode != null)
+        {
+          headNode.Previous = null;
+        }
         DecreaseNodeCount();
         return;
       }
@@ -115,7 +117,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
       if(tailNode.Same(item))
       {
         tailNode = tailNode.Previous;
-        // TODO: Throws exception
         tailNode.Next = null;
         DecreaseNodeCount();
         return;
