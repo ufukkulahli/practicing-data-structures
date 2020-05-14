@@ -19,6 +19,8 @@ namespace practicing_data_structures.data_structures.lists
 
       // Act && Assert
       planets.Append("World");
+      Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(-1));
+      Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(2));
       planets.Remove("World"); // Should not throw exception
       planets.Append("World");
       planets.Append("Mars");

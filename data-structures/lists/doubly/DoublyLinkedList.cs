@@ -140,6 +140,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
     public void RemoveAt(int index)
     {
       ThrowIfEmpty();
+      ThrowIfOutOfRange(index);
     }
 
     public bool IsEmpty() => Count == 0;
