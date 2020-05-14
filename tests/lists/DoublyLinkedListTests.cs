@@ -42,6 +42,8 @@ namespace practicing_data_structures.data_structures.lists
 
       AssertRemoveFunctionality();
 
+      Assert.Throws<NotImplementedException>( () => planets.RemoveAt(0) );
+
       // Act && Assert
       planets.Clear();
       BeSureListIsClean();

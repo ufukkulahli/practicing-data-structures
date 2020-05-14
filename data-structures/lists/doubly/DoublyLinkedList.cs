@@ -137,6 +137,11 @@ namespace practicing_data_structures.data_structures.lists.doubly
       DecreaseNodeCount();
     }
 
+    public void RemoveAt(int index)
+    {
+      throw new NotImplementedException();
+    }
+
     public bool IsEmpty() => Count == 0;
 
     public int Count { get => nodeCount; }
