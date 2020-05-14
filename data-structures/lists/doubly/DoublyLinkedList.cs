@@ -105,12 +105,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
       if(headNode.Same(item))
       {
-        headNode = headNode.Next;
-        if(headNode != null)
-        {
-          headNode.Previous = null;
-        }
-        DecreaseNodeCount();
+        RemoveHeadNode();
         return;
       }
 
@@ -141,6 +136,20 @@ namespace practicing_data_structures.data_structures.lists.doubly
     {
       ThrowIfEmpty();
       ThrowIfOutOfRange(index);
+      if(index == 0)
+      {
+        RemoveHeadNode();
+      }
+    }
+
+    void RemoveHeadNode()
+    {
+      headNode = headNode.Next;
+      if(headNode != null)
+      {
+        headNode.Previous = null;
+      }
+      DecreaseNodeCount();
     }
 
     public bool IsEmpty() => Count == 0;
