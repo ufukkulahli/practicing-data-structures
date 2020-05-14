@@ -139,7 +139,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void RemoveAt(int index)
     {
-      throw new NotImplementedException();
+      ThrowIfEmpty();
     }
 
     public bool IsEmpty() => Count == 0;

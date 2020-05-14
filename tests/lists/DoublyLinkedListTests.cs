@@ -42,8 +42,6 @@ namespace practicing_data_structures.data_structures.lists
 
       AssertRemoveFunctionality();
 
-      Assert.Throws<NotImplementedException>( () => planets.RemoveAt(0) );
-
       // Act && Assert
       planets.Clear();
       BeSureListIsClean();
@@ -172,6 +170,7 @@ namespace practicing_data_structures.data_structures.lists
       Assert.True(planets.IsEmpty());
       Assert.Null(planets.HeadNode);
       Assert.Null(planets.TailNode);
+      Assert.Throws<Exception>(() => planets.RemoveAt(0));
       Assert.Throws<Exception>(() => planets.First);
       Assert.Throws<Exception>(() => planets.Last);
       Assert.Throws<Exception>(() => planets.Remove("Neptune"));
