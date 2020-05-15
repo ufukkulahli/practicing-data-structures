@@ -111,9 +111,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
       if(tailNode.Same(item))
       {
-        tailNode = tailNode.Previous;
-        tailNode.Next = null;
-        DecreaseNodeCount();
+        RemoveTailNode();
         return;
       }
 
@@ -139,6 +137,12 @@ namespace practicing_data_structures.data_structures.lists.doubly
       if(index == 0)
       {
         RemoveHeadNode();
+        return;
+      }
+      if(LastItem(index))
+      {
+        RemoveTailNode();
+        return;
       }
     }
 
@@ -149,6 +153,13 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         headNode.Previous = null;
       }
+      DecreaseNodeCount();
+    }
+
+    void RemoveTailNode()
+    {
+      tailNode = tailNode.Previous;
+      tailNode.Next = null;
       DecreaseNodeCount();
     }
 
@@ -188,5 +199,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     void UpdateNodeCount() => nodeCount++;
     void DecreaseNodeCount() => nodeCount--;
+    bool LastItem(int index) => index == Count - 1;
   }
 }

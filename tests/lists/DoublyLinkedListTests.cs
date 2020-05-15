@@ -4,7 +4,7 @@ using practicing_data_structures.data_structures.lists.doubly;
 
 namespace practicing_data_structures.data_structures.lists
 {
-    public sealed class DoublyLinkedListTests
+  public sealed class DoublyLinkedListTests
   {
     DoublyLinkedList<string> planets;
 
@@ -32,6 +32,12 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal(0, planets.Count);
 
       planets.Append("World");
+
+      // Remove 'Mars'
+      planets.Append("Mars");
+      planets.RemoveAt(1);
+      Assert.Equal(1, planets.Count);
+
       planets.Append("Mars");
       planets.Append("Venus");
       AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
