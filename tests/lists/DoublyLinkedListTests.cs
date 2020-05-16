@@ -66,6 +66,11 @@ namespace practicing_data_structures.data_structures.lists
 
       AssertRemoveFunctionality();
 
+      // RemoveAt
+      planets.RemoveAt(2);
+      Assert.Equal(4, planets.Count);
+      AssertGivenPlanetsInOrder(new string[4]{"Neptune", "Jupiter", "Mars",  "Pluto"});
+
       // Clear
       planets.Clear();
       BeSureListIsClean();

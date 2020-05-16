@@ -62,6 +62,19 @@ namespace practicing_data_structures.data_structures.lists.doubly
       throw new Exception("Item does not exist!");
     }
 
+    Node<T> FindNodeAt(int index)
+    {
+      var currentNode = headNode;
+      var order = 0;
+
+      while(order < index)
+      {
+        currentNode = currentNode.Next;
+        order++;
+      }
+      return currentNode;
+    }
+
     public void InsertAt(int index, T item)
     {
       if(index == 0)
@@ -144,6 +157,14 @@ namespace practicing_data_structures.data_structures.lists.doubly
         RemoveTailNode();
         return;
       }
+
+      var foundNode       = FindNodeAt(index);
+      var newPreviousNode = foundNode.Previous;
+      var newNextNode     = foundNode.Next;
+
+      newPreviousNode.Next = newNextNode;
+      newNextNode.Previous = newPreviousNode;
+      DecreaseNodeCount();
     }
 
     void RemoveHeadNode()
