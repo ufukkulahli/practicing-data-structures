@@ -17,20 +17,24 @@ namespace practicing_data_structures.data_structures.lists
       // Assert
       BeSureListIsClean();
 
-      // Act && Assert
+      // Append
       planets.Append("World");
       Assert.Equal(1, planets.Count);
 
+      // RemoveAt, throws exception
       Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(-1));
       Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(2));
 
-      planets.Remove("World"); // Should not throw exception
+      // Remove, no exception
+      planets.Remove("World");
       Assert.Equal(0, planets.Count);
 
+      // RemoveAt
       planets.Append("World");
       planets.RemoveAt(0);
       Assert.Equal(0, planets.Count);
 
+      // Append
       planets.Append("World");
 
       // Remove 'Mars'
@@ -38,28 +42,31 @@ namespace practicing_data_structures.data_structures.lists
       planets.RemoveAt(1);
       Assert.Equal(1, planets.Count);
 
+      // Append
       planets.Append("Mars");
       planets.Append("Venus");
       AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
       AssertFirstThreePlanets();
 
-      // Act & Assert
+      // Prepend
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");
       AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "World", "Mars", "Venus"});
       AssertNewlyAddedPlanets();
 
-      // Act && Assert
+      // FindNode
       var mars = planets.FindNode("Mars");
       Assert.Equal("World", mars.Previous.Value);
       Assert.Equal("Venus", mars.Next.Value);
+
+      // FindNode, throws exception
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       AssertInsertAtFunctionality();
 
       AssertRemoveFunctionality();
 
-      // Act && Assert
+      // Clear
       planets.Clear();
       BeSureListIsClean();
     }
