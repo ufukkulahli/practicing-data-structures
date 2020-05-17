@@ -75,6 +75,11 @@ namespace practicing_data_structures.data_structures.lists.doubly
       return currentNode;
     }
 
+    public T GetElementAt(int index)
+    {
+      throw new NotImplementedException();
+    }
+
     public void InsertAt(int index, T item)
     {
       if(index == 0)
