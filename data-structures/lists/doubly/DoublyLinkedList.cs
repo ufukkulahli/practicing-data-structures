@@ -77,6 +77,10 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public T GetElementAt(int index)
     {
+      if (index == 0)
+      {
+        return First;
+      }
       throw new NotImplementedException();
     }
 

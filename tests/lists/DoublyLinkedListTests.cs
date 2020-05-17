@@ -22,7 +22,8 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal(1, planets.Count);
 
       // GetElementAt
-      Assert.Throws<NotImplementedException>( () => planets.GetElementAt(0) );
+      Assert.Equal("World", planets.GetElementAt(0));
+      Assert.Throws<NotImplementedException>( () => planets.GetElementAt(1) );
 
       // RemoveAt, throws exception
       Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(-1));
