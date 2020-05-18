@@ -81,7 +81,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         return First;
       }
-      if (LastItem(index))
+      if (LastOne(index))
       {
         return Last;
       }
@@ -165,7 +165,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
         RemoveHeadNode();
         return;
       }
-      if(LastItem(index))
+      if(LastOne(index))
       {
         RemoveTailNode();
         return;
@@ -233,7 +233,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     void UpdateNodeCount() => nodeCount++;
     void DecreaseNodeCount() => nodeCount--;
-    bool LastItem(int index) => index == Count - 1;
+    bool LastOne(int index) => index == Count - 1;
     bool FirstOne(int index) => index == 0;
   }
 }
