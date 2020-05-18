@@ -77,7 +77,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public T GetElementAt(int index)
     {
-      if (index == 0)
+      if (FirstOne(index))
       {
         return First;
       }
@@ -90,7 +90,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void InsertAt(int index, T item)
     {
-      if(index == 0)
+      if(FirstOne(index))
       {
         Prepend(item);
         return;
@@ -160,7 +160,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
     {
       ThrowIfEmpty();
       ThrowIfOutOfRange(index);
-      if(index == 0)
+      if(FirstOne(index))
       {
         RemoveHeadNode();
         return;
@@ -234,5 +234,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
     void UpdateNodeCount() => nodeCount++;
     void DecreaseNodeCount() => nodeCount--;
     bool LastItem(int index) => index == Count - 1;
+    bool FirstOne(int index) => index == 0;
   }
 }
