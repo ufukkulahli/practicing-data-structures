@@ -77,6 +77,8 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public T GetElementAt(int index)
     {
+      ThrowIfEmpty();
+      ThrowIfOutOfRange(index);
       if (FirstOne(index))
       {
         return First;

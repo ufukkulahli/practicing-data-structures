@@ -23,6 +23,7 @@ namespace practicing_data_structures.data_structures.lists
 
       // GetElementAt
       Assert.Equal("World", planets.GetElementAt(0));
+      Assert.Throws<IndexOutOfRangeException>( () => planets.GetElementAt(999) );
       Assert.Throws<NotImplementedException>( () => planets.GetElementAt(1) );
 
       // RemoveAt, throws exception
@@ -207,6 +208,7 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Null(planets.HeadNode);
       Assert.Null(planets.TailNode);
       Assert.Throws<Exception>(() => planets.RemoveAt(0));
+      Assert.Throws<Exception>(() => planets.GetElementAt(999));
       Assert.Throws<Exception>(() => planets.First);
       Assert.Throws<Exception>(() => planets.Last);
       Assert.Throws<Exception>(() => planets.Remove("Neptune"));
