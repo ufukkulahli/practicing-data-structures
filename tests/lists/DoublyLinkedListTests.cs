@@ -52,6 +52,9 @@ namespace practicing_data_structures.data_structures.lists
       AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
       AssertFirstThreePlanets();
 
+      // GetElementAt
+      Assert.Equal("Venus", planets.GetElementAt(2));
+
       // Prepend
       planets.Prepend("Jupiter");
       planets.Prepend("Neptune");

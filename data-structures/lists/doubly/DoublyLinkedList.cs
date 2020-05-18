@@ -81,6 +81,10 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         return First;
       }
+      if (LastItem(index))
+      {
+        return Last;
+      }
       throw new NotImplementedException();
     }
 
