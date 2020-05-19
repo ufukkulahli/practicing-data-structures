@@ -87,6 +87,10 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         return Last;
       }
+      if(ShouldTraverseFromHead(index))
+      {
+        return GetNodeAt(index).Value;
+      }
       throw new NotImplementedException();
     }
 
@@ -233,6 +237,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       return currentNode;
     }
 
+    bool ShouldTraverseFromHead(int index) => (index < (Count / 2));
     void UpdateNodeCount() => nodeCount++;
     void DecreaseNodeCount() => nodeCount--;
     bool LastOne(int index) => index == Count - 1;
