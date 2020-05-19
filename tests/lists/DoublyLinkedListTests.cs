@@ -62,6 +62,9 @@ namespace practicing_data_structures.data_structures.lists
       AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "World", "Mars", "Venus"});
       AssertNewlyAddedPlanets();
 
+      // GetElementAt
+      Assert.Equal("Jupiter", planets.GetElementAt(1));
+
       // FindNode
       var mars = planets.FindNode("Mars");
       Assert.Equal("World", mars.Previous.Value);
