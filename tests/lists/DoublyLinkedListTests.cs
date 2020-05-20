@@ -32,12 +32,12 @@ namespace practicing_data_structures.data_structures.lists
 
       // Remove, no exception
       planets.Remove("World");
-      Assert.Equal(0, planets.Count);
+      BeSureListIsClean();
 
       // RemoveAt (from head)
       planets.Append("World");
       planets.RemoveAt(0);
-      Assert.Equal(0, planets.Count);
+      BeSureListIsClean();
 
       // Append
       planets.Append("World");

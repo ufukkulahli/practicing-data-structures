@@ -193,6 +193,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         headNode.Previous = null;
       }
+      CleanTailIfNeeded();
       DecreaseNodeCount();
     }
 
@@ -201,6 +202,14 @@ namespace practicing_data_structures.data_structures.lists.doubly
       tailNode = tailNode.Previous;
       tailNode.Next = null;
       DecreaseNodeCount();
+    }
+
+    void CleanTailIfNeeded()
+    {
+      if(HasOneItem())
+      {
+        tailNode = null;
+      }
     }
 
     public bool IsEmpty() => Count == 0;
@@ -242,5 +251,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
     bool LastOne(int index)                => index == Count - 1;
     bool FirstOne(int index)               => index == 0;
     bool ShouldTraverseFromHead(int index) => (index < (Count / 2));
+    bool HasOneItem()                      => Count == 1;
   }
 }
