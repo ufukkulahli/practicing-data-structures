@@ -128,7 +128,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
     public void Clear()
     {
       nodeCount = 0;
-      headNode = tailNode = null;
+      headNode  = tailNode = null;
     }
 
     public void Remove(T item)
@@ -205,11 +205,11 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public bool IsEmpty() => Count == 0;
 
-    public int Count { get => nodeCount; }
-    public T First   { get { ThrowIfEmpty(); return headNode.Value; } }
-    public T Last    { get { ThrowIfEmpty(); return tailNode.Value; } }
+    public T First          { get { ThrowIfEmpty(); return headNode.Value; } }
+    public T Last           { get { ThrowIfEmpty(); return tailNode.Value; } }
     public Node<T> HeadNode { get => headNode; }
     public Node<T> TailNode { get => tailNode; }
+    public int Count        { get => nodeCount; }
 
     void ThrowIfEmpty()
     {
@@ -237,10 +237,10 @@ namespace practicing_data_structures.data_structures.lists.doubly
       return currentNode;
     }
 
+    void UpdateNodeCount()                 => nodeCount++;
+    void DecreaseNodeCount()               => nodeCount--;
+    bool LastOne(int index)                => index == Count - 1;
+    bool FirstOne(int index)               => index == 0;
     bool ShouldTraverseFromHead(int index) => (index < (Count / 2));
-    void UpdateNodeCount() => nodeCount++;
-    void DecreaseNodeCount() => nodeCount--;
-    bool LastOne(int index) => index == Count - 1;
-    bool FirstOne(int index) => index == 0;
   }
 }

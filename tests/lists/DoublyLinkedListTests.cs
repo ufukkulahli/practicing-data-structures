@@ -21,7 +21,7 @@ namespace practicing_data_structures.data_structures.lists
       planets.Append("World");
       Assert.Equal(1, planets.Count);
 
-      // GetElementAt
+      // GetElementAt (from head)
       Assert.Equal("World", planets.GetElementAt(0));
       Assert.Throws<IndexOutOfRangeException>( () => planets.GetElementAt(999) );
       Assert.Throws<NotImplementedException>( () => planets.GetElementAt(1) );
@@ -34,15 +34,16 @@ namespace practicing_data_structures.data_structures.lists
       planets.Remove("World");
       Assert.Equal(0, planets.Count);
 
-      // RemoveAt
+      // RemoveAt (from head)
       planets.Append("World");
       planets.RemoveAt(0);
       Assert.Equal(0, planets.Count);
 
       // Append
       planets.Append("World");
+      Assert.Equal(1, planets.Count);
 
-      // Remove 'Mars'
+      // RemoveAt (from tail)
       planets.Append("Mars");
       planets.RemoveAt(1);
       Assert.Equal(1, planets.Count);
@@ -53,7 +54,7 @@ namespace practicing_data_structures.data_structures.lists
       AssertGivenPlanetsInOrder(new string[3]{"World", "Mars", "Venus"});
       AssertFirstThreePlanets();
 
-      // GetElementAt
+      // GetElementAt (from tail)
       Assert.Equal("Venus", planets.GetElementAt(2));
 
       // Prepend
@@ -62,10 +63,10 @@ namespace practicing_data_structures.data_structures.lists
       AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "World", "Mars", "Venus"});
       AssertNewlyAddedPlanets();
 
-      // GetElementAt
+      // GetElementAt (from middle)
       Assert.Equal("Jupiter", planets.GetElementAt(1));
 
-      // FindNode
+      // FindNode ( O(n) )
       var mars = planets.FindNode("Mars");
       Assert.Equal("World", mars.Previous.Value);
       Assert.Equal("Venus", mars.Next.Value);
@@ -77,7 +78,7 @@ namespace practicing_data_structures.data_structures.lists
 
       AssertRemoveFunctionality();
 
-      // RemoveAt
+      // RemoveAt (from middle)
       planets.RemoveAt(2);
       Assert.Equal(4, planets.Count);
       AssertGivenPlanetsInOrder(new string[4]{"Neptune", "Jupiter", "Mars",  "Pluto"});
@@ -89,17 +90,18 @@ namespace practicing_data_structures.data_structures.lists
 
     void AssertInsertAtFunctionality()
     {
-      // Act && Assert
+      // InsertAt (at head)
       planets.InsertAt(0, "Saturn");
       AssertGivenPlanetsInOrder(new string[6]{"Saturn", "Neptune", "Jupiter", "World", "Mars", "Venus"});
       Assert.Equal(6, planets.Count);
 
-      // Act && Assert
+      // InsertAt (at middle)
       planets.InsertAt(3, "Mercury");
       AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars", "Venus"});
       Assert.Equal(7, planets.Count);
 
-      // Act && Assert
+      // InsertAt(at tail???)
+      // TODO: Check
       planets.InsertAt(6, "Pluto");
       AssertGivenPlanetsInOrder(new string[8]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto", "Venus"});
       Assert.Equal(8, planets.Count);
@@ -111,17 +113,17 @@ namespace practicing_data_structures.data_structures.lists
 
     void AssertRemoveFunctionality()
     {
-      // Act && Assert
+      // Remove (from head)
       planets.Remove("Saturn");
       AssertGivenPlanetsInOrder(new string[7]{"Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto", "Venus"});
       Assert.Equal(7, planets.Count);
 
-      // Act && Assert
+      // Remove (from tail)
       planets.Remove("Venus");
       AssertGivenPlanetsInOrder(new string[6]{"Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto"});
       Assert.Equal(6, planets.Count);
 
-      // Act && Assert
+      // Remove (from middle)
       planets.Remove("World");
       AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "Mercury", "Mars",  "Pluto"});
       Assert.Equal(5, planets.Count);
