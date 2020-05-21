@@ -24,7 +24,6 @@ namespace practicing_data_structures.data_structures.lists
       // GetElementAt (from head)
       Assert.Equal("World", planets.GetElementAt(0));
       Assert.Throws<IndexOutOfRangeException>( () => planets.GetElementAt(999) );
-      Assert.Throws<NotImplementedException>( () => planets.GetElementAt(1) );
 
       // RemoveAt, throws exception
       Assert.Throws<IndexOutOfRangeException>(() => planets.RemoveAt(-1));
@@ -75,6 +74,9 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Throws<Exception>( () => planets.FindNode("Pluto") );
 
       AssertInsertAtFunctionality();
+
+      // GetElementAt (by traversing from tail)
+      Assert.Equal("Pluto", planets.GetElementAt(6));
 
       AssertRemoveFunctionality();
 

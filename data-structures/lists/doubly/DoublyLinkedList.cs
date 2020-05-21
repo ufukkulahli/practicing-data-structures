@@ -91,7 +91,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       {
         return GetNodeAt(index).Value;
       }
-      throw new NotImplementedException();
+      return GetNodeFromTail(index).Value;
     }
 
     public void InsertAt(int index, T item)
@@ -242,6 +242,16 @@ namespace practicing_data_structures.data_structures.lists.doubly
       for(var i=0; i < index; i++)
       {
         currentNode = currentNode.Next;
+      }
+      return currentNode;
+    }
+
+    Node<T> GetNodeFromTail(int index)
+    {
+      var currentNode = tailNode;
+      for(var i=(Count-1); i>index; i--)
+      {
+        currentNode = currentNode.Previous;
       }
       return currentNode;
     }
