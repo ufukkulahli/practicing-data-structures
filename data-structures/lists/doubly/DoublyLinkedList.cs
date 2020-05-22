@@ -89,7 +89,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       }
       if(ShouldTraverseFromHead(index))
       {
-        return GetNodeAt(index).Value;
+        return GetNodeFromHead(index).Value;
       }
       return GetNodeFromTail(index).Value;
     }
@@ -110,7 +110,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
       ThrowIfOutOfRange(index);
 
-      var previousNodeOf_NodeToBeInserted = GetNodeAt(index-1);
+      var previousNodeOf_NodeToBeInserted = GetNodeFromHead(index-1);
       var previousNodes_NextNode          = previousNodeOf_NodeToBeInserted.Next;
       var newNodeToBeInserted             = new Node<T>(item);
 
@@ -236,7 +236,7 @@ namespace practicing_data_structures.data_structures.lists.doubly
       }
     }
 
-    Node<T> GetNodeAt(int index)
+    Node<T> GetNodeFromHead(int index)
     {
       var currentNode = headNode;
       for(var i=0; i < index; i++)
