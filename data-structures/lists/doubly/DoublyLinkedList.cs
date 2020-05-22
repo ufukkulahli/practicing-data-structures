@@ -96,6 +96,8 @@ namespace practicing_data_structures.data_structures.lists.doubly
 
     public void InsertAt(int index, T item)
     {
+      ThrowIfOutOfRange(index);
+
       if(FirstOne(index))
       {
         Prepend(item);
@@ -107,8 +109,6 @@ namespace practicing_data_structures.data_structures.lists.doubly
         Append(item);
         return;
       }
-
-      ThrowIfOutOfRange(index);
 
       var previousNodeOf_NodeToBeInserted = GetNodeFromHead(index-1);
       var previousNodes_NextNode          = previousNodeOf_NodeToBeInserted.Next;
