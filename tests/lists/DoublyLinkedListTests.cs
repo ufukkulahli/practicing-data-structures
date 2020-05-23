@@ -85,6 +85,10 @@ namespace practicing_data_structures.data_structures.lists
       Assert.Equal(4, planets.Count);
       AssertGivenPlanetsInOrder(new string[4]{"Neptune", "Jupiter", "Mars",  "Pluto"});
 
+      // InsertAt (at tail)
+      planets.InsertAt(4, "Uranus");
+      AssertGivenPlanetsInOrder(new string[5]{"Neptune", "Jupiter", "Mars", "Pluto", "Uranus"});
+
       // Clear
       planets.Clear();
       BeSureListIsClean();
@@ -102,8 +106,7 @@ namespace practicing_data_structures.data_structures.lists
       AssertGivenPlanetsInOrder(new string[7]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars", "Venus"});
       Assert.Equal(7, planets.Count);
 
-      // InsertAt(at tail???)
-      // TODO: Check
+      // InsertAt(at tail)
       planets.InsertAt(6, "Pluto");
       AssertGivenPlanetsInOrder(new string[8]{"Saturn", "Neptune", "Jupiter", "Mercury", "World", "Mars",  "Pluto", "Venus"});
       Assert.Equal(8, planets.Count);
