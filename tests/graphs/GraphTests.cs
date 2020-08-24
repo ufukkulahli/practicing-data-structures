@@ -26,5 +26,19 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(1, graph.VerticesCount);
     }
 
+    [Fact]
+    public void RemovingNullVertexCausesException()
+    {
+      // ARRANGE & ACT & ASSERT
+      Assert.Throws<System.ArgumentNullException>(() => new Graph<string>().RemoveVertex(null));
+    }
+
+    [Fact]
+    public void RemoveVertexTest()
+    {
+      // ARRANGE & ACT & ASSERT
+      Assert.Throws<System.Exception>(() => new Graph<string>().RemoveVertex("hello"));
+    }
+
   }
 }

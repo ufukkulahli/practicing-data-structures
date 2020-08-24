@@ -19,5 +19,24 @@ namespace practicing_data_structures.data_structures.graphs
       vertices.Add(item, new Vertex<T>(item));
     }
 
+    public void RemoveVertex(T item)
+    {
+      if (item == null)
+      {
+        throw new ArgumentNullException();
+      }
+
+      if(!vertices.ContainsKey(item))
+      {
+        throw new Exception("Vertex not found!");
+      }
+
+      // TODO: REMOVE EDGES
+
+      vertices.Remove(item);
+    }
+
+
+
   }
 }
