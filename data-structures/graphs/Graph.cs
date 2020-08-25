@@ -26,7 +26,7 @@ namespace practicing_data_structures.data_structures.graphs
         throw new ArgumentNullException();
       }
 
-      if(!vertices.ContainsKey(item))
+      if(vertices.NotContainsKey(item))
       {
         throw new Exception("Vertex not found!");
       }
