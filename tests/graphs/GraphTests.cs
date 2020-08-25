@@ -40,5 +40,25 @@ namespace practicing_data_structures.tests.graphs
       Assert.Throws<System.Exception>(() => new Graph<string>().RemoveVertex("hello"));
     }
 
+    [Fact]
+    public void NotContainsVertexTest()
+    {
+      // ARRANGE & ACT & ASSERT
+      Assert.False( new Graph<string>().ContainsVertex("hello") );
+    }
+
+    [Fact]
+    public void ContainsVertexTest()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+
+      // ACT
+      graph.AddVertex("hello");
+
+      // ASSERT
+      Assert.True(graph.ContainsVertex("hello"));
+    }
+
   }
 }

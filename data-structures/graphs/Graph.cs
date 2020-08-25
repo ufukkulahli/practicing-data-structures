@@ -36,7 +36,7 @@ namespace practicing_data_structures.data_structures.graphs
       vertices.Remove(item);
     }
 
-
+    public bool ContainsVertex(T item) => vertices.ContainsKey(item);
 
   }
 }
