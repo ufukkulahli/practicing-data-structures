@@ -60,5 +60,18 @@ namespace practicing_data_structures.tests.graphs
       Assert.True(graph.ContainsVertex("hello"));
     }
 
+    [Fact]
+    public void GetVertexTest()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+
+      // ACT
+      graph.AddVertex("hello");
+
+      // ASSERT
+      Assert.Equal("hello", graph.GetVertex("hello").Value);
+    }
+
   }
 }

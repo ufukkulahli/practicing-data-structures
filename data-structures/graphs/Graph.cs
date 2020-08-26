@@ -37,6 +37,7 @@ namespace practicing_data_structures.data_structures.graphs
     }
 
     public bool ContainsVertex(T item) => vertices.ContainsKey(item);
+    public Vertex<T> GetVertex(T item) => vertices[item];
 
   }
 }
