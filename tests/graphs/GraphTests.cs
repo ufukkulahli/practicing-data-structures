@@ -34,10 +34,25 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
-    public void RemoveVertexTest()
+    public void RemovingAbsentVertexCausesException()
     {
       // ARRANGE & ACT & ASSERT
       Assert.Throws<System.Exception>(() => new Graph<string>().RemoveVertex("hello"));
+    }
+
+    [Fact]
+    public void RemoveVertexTest()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+
+      // ACT
+      graph.AddVertex("hello");
+      graph.RemoveVertex("hello");
+
+      // ASSERT
+      Assert.False(graph.ContainsVertex("hello"));
+      Assert.Equal(0, graph.VerticesCount);
     }
 
     [Fact]
