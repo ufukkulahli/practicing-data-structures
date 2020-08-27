@@ -73,6 +73,7 @@ namespace practicing_data_structures.tests.graphs
 
       // ASSERT
       Assert.True(graph.ContainsVertex("hello"));
+      Assert.Equal(1, graph.VerticesCount);
     }
 
     [Fact]
@@ -86,6 +87,7 @@ namespace practicing_data_structures.tests.graphs
 
       // ASSERT
       Assert.Equal("hello", graph.GetVertex("hello").Value);
+      Assert.Equal(1, graph.VerticesCount);
     }
 
   }
