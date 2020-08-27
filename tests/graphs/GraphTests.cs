@@ -24,6 +24,7 @@ namespace practicing_data_structures.tests.graphs
 
       // ASSERT
       Assert.Equal(1, graph.VerticesCount);
+      Assert.Equal(0, graph.GetVertex("hello").EdgesCount);
     }
 
     [Fact]
@@ -74,6 +75,7 @@ namespace practicing_data_structures.tests.graphs
       // ASSERT
       Assert.True(graph.ContainsVertex("hello"));
       Assert.Equal(1, graph.VerticesCount);
+      Assert.Equal(0, graph.GetVertex("hello").EdgesCount);
     }
 
     [Fact]
@@ -81,13 +83,15 @@ namespace practicing_data_structures.tests.graphs
     {
       // ARRANGE
       var graph = new Graph<string>();
-
-      // ACT
       graph.AddVertex("hello");
 
+      // ACT
+      var vertex = graph.GetVertex("hello");
+
       // ASSERT
-      Assert.Equal("hello", graph.GetVertex("hello").Value);
+      Assert.Equal("hello", vertex.Value);
       Assert.Equal(1, graph.VerticesCount);
+      Assert.Equal(0, vertex.EdgesCount);
     }
 
   }

@@ -12,5 +12,7 @@ namespace practicing_data_structures.data_structures.graphs
       Value = value;
       Edges = new HashSet<Vertex<T>>();
     }
+
+    public int EdgesCount => Edges.Count;
   }
 }
