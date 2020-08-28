@@ -39,5 +39,13 @@ namespace practicing_data_structures.data_structures.graphs
     public bool ContainsVertex(T item) => vertices.ContainsKey(item);
     public Vertex<T> GetVertex(T item) => vertices[item];
 
+    public void AddEdge(T source, T destination)
+    {
+      if(source==null || destination==null)
+      {
+        throw new ArgumentNullException();
+      }
+    }
+
   }
 }

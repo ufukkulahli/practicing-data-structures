@@ -1,3 +1,4 @@
+using System;
 using practicing_data_structures.data_structures.graphs;
 using Xunit;
 
@@ -92,6 +93,13 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal("hello", vertex.Value);
       Assert.Equal(1, graph.VerticesCount);
       Assert.Equal(0, vertex.EdgesCount);
+    }
+
+    [Fact]
+    public void AddingNullEdgeCausesException()
+    {
+      Assert.Throws<ArgumentNullException>( () => new Graph<string>().AddEdge(null, "jupiter") );
+      Assert.Throws<ArgumentNullException>( () => new Graph<string>().AddEdge("planets", null) );
     }
 
   }
