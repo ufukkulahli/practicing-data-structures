@@ -45,6 +45,19 @@ namespace practicing_data_structures.data_structures.graphs
       {
         throw new ArgumentNullException();
       }
+
+      if(vertices.NotContainsKeys(source, destination))
+      {
+        throw new Exception();
+      }
+
+      if(vertices.EdgeExists(source, destination) || vertices.EdgeExists(destination, source))
+      {
+        throw new Exception();
+      }
+
+      vertices[source].Edges.Add( vertices[destination] );
+      vertices[destination].Edges.Add( vertices[source] );
     }
 
   }

@@ -102,5 +102,26 @@ namespace practicing_data_structures.tests.graphs
       Assert.Throws<ArgumentNullException>( () => new Graph<string>().AddEdge("planets", null) );
     }
 
+    [Fact]
+    public void AddingAbsentEdgeCausesException()
+    {
+      Assert.Throws<Exception>( () => new Graph<string>().AddEdge("planets", "jupiter") );
+    }
+
+    [Fact]
+    public void AddingEdge()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+
+      // ACT
+      graph.AddEdge("planets", "stars");
+
+      // ASSERT
+      Assert.Equal(2, graph.VerticesCount);
+    }
+
   }
 }
