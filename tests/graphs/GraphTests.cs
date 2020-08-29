@@ -103,7 +103,7 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
-    public void AddingAbsentEdgeCausesException()
+    public void AddingEdgeToNonExistingVerticesCausesException()
     {
       Assert.Throws<Exception>( () => new Graph<string>().AddEdge("planets", "jupiter") );
     }
