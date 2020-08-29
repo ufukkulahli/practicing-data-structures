@@ -109,6 +109,23 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
+    public void AlreadyAddedEdgesCausesException()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+
+      // ACT
+      graph.AddEdge("planets", "stars");
+
+      // ASSERT
+      Assert.Equal(2, graph.VerticesCount);
+      Assert.Throws<Exception>( () => graph.AddEdge("planets", "stars"));
+      Assert.Throws<Exception>( () => graph.AddEdge("stars", "planets"));
+    }
+
+    [Fact]
     public void AddingEdge()
     {
       // ARRANGE

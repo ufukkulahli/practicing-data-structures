@@ -22,8 +22,7 @@ namespace practicing_data_structures.data_structures
     public static bool EdgeExists<T>(this IDictionary<T, Vertex<T>> vertices, T source, T destination)
     {
       return
-        vertices[source].Edges.Contains( vertices[destination] ) ||
-        vertices[destination].Edges.Contains( vertices[source] );
+        vertices[source].Edges.Contains( vertices[destination] );
     }
 
 
