@@ -49,11 +49,16 @@ namespace practicing_data_structures.tests.graphs
       var graph = new Graph<string>();
 
       // ACT
-      graph.AddVertex("hello");
-      graph.RemoveVertex("hello");
+      graph.AddVertex("planets");
+      graph.AddVertex("world");
+      graph.AddEdge("planets", "world");
+
+      graph.RemoveVertex("planets");
+      graph.RemoveVertex("world");
 
       // ASSERT
-      Assert.False(graph.ContainsVertex("hello"));
+      Assert.False(graph.ContainsVertex("planets"));
+      Assert.False(graph.ContainsVertex("world"));
       Assert.Equal(0, graph.VerticesCount);
     }
 

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace practicing_data_structures.data_structures.graphs
 {
@@ -31,7 +32,10 @@ namespace practicing_data_structures.data_structures.graphs
         throw new Exception("Vertex not found!");
       }
 
-      // TODO: REMOVE EDGES
+      foreach(var vertice in vertices[item].Edges)
+      {
+        vertice.Edges.Remove(vertices[item]);
+      }
 
       vertices.Remove(item);
     }
