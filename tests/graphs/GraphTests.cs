@@ -145,5 +145,36 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(2, graph.VerticesCount);
     }
 
+    [Fact]
+    public void VerticesHasNoEdges()
+    {
+     // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+
+      // ACT
+      var hasEdge = graph.HasEdge("planets", "stars");
+
+      // ASSERT
+      Assert.False(hasEdge); 
+    }
+
+    [Fact]
+    public void VerticesHasEdges()
+    {
+     // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+      graph.AddEdge("planets", "stars");
+
+      // ACT
+      var hasEdge = graph.HasEdge("planets", "stars");
+
+      // ASSERT
+      Assert.True(hasEdge); 
+    }
+
   }
 }
