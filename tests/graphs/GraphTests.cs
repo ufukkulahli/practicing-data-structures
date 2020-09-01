@@ -176,5 +176,35 @@ namespace practicing_data_structures.tests.graphs
       Assert.True(hasEdge); 
     }
 
+    [Fact]
+    public void RemovingNullEdgesCausesException()
+    {
+      // ARRANGE & ACT & ASSERT
+      Assert.Throws<System.ArgumentNullException>(() => new Graph<string>().RemoveEdge(null, ""));
+      Assert.Throws<System.ArgumentNullException>(() => new Graph<string>().RemoveEdge("", null));
+    }
+
+    [Fact]
+    public void RemovingNonExistingVertexCausesException()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+
+      // Act & ASSERT
+      Assert.Throws<Exception>( () => graph.RemoveEdge("planets", "jupiter") );
+    }
+
+    [Fact]
+    public void RemovingNonExistingVertexCausesException2()
+    {
+      // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("jupiter");
+
+      // Act & ASSERT
+      Assert.Throws<Exception>( () => graph.RemoveEdge("planets", "jupiter") );
+    }
+
   }
 }

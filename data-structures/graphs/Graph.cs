@@ -90,5 +90,23 @@ namespace practicing_data_structures.data_structures.graphs
         vertices.EdgeExists(destination, source);
     }
 
+    public void RemoveEdge(T source, T destination)
+    {
+      if(source==null || destination==null)
+      {
+        throw new ArgumentNullException();
+      }
+
+      if(vertices.NotContainsKey(source))
+      {
+        throw new Exception($"Source '{source}' Vertex is not in this graph!");
+      }
+      if (vertices.NotContainsKey(destination))
+      {
+        throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
+      }
+      
+    }
+
   }
 }
