@@ -105,7 +105,17 @@ namespace practicing_data_structures.data_structures.graphs
       {
         throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
       }
-      
+
+      if(! vertices.EdgeExists(source, destination))
+      {
+        throw new Exception($"Edge '{source}' contains '{destination}'!");
+      }
+
+      if(! vertices.EdgeExists(destination, source))
+      {
+        throw new Exception($"Edge '{destination}' contains '{source}'!");
+      } 
+
     }
 
   }
