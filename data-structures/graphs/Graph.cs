@@ -116,6 +116,8 @@ namespace practicing_data_structures.data_structures.graphs
         throw new Exception($"Edge '{destination}' contains '{source}'!");
       } 
 
+      vertices[source].Edges.Remove(vertices[destination]);
+      vertices[destination].Edges.Remove(vertices[source]);
     }
 
   }

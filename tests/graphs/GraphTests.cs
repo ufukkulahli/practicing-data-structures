@@ -216,9 +216,26 @@ namespace practicing_data_structures.tests.graphs
 
       // ACT & ASSERT
       Assert.Throws<Exception>( () => graph.RemoveEdge("non_existing_edge", "stars") ); 
-      Assert.Throws<Exception>( () => graph.RemoveEdge("planets", "starts") ); 
+      Assert.Throws<Exception>( () => graph.RemoveEdge("planets", "non_existing_edge") ); 
     }
 
+    [Fact]
+    public void RemoveEdges()
+    {
+     // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+      graph.AddEdge("planets", "stars");
+
+      // ACT
+      graph.RemoveEdge("planets", "stars");
+
+      // ASSERT
+      Assert.False(graph.HasEdge("planets", "stars")); 
+      Assert.True(graph.ContainsVertex("planets")); 
+      Assert.True(graph.ContainsVertex("stars")); 
+    }
 
   }
 }
