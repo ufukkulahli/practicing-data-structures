@@ -120,5 +120,15 @@ namespace practicing_data_structures.data_structures.graphs
       vertices[destination].Edges.Remove(vertices[source]);
     }
 
+    public IEnumerable<T> Edges(T vertex)
+    {
+      if(vertices.NotContainsKey(vertex))
+      {
+        throw new Exception($"Given '{vertex}' Vertex is not in this graph!");
+      }
+
+      return vertices[vertex].Edges.Select(e => e.Value);
+    }
+
   }
 }

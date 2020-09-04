@@ -237,5 +237,12 @@ namespace practicing_data_structures.tests.graphs
       Assert.True(graph.ContainsVertex("stars")); 
     }
 
+    [Fact]
+    public void EdgeListTest()
+    {
+      // ARRANGE & ACT & ASSERT
+      Assert.Throws<System.Exception>(() => new Graph<string>().Edges("planets"));
+    }
+
   }
 }
