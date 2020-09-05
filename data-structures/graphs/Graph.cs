@@ -74,12 +74,12 @@ namespace practicing_data_structures.data_structures.graphs
       ThrowIfSourceIsAbsent(source);
       ThrowIfDestinationIsAbsent(destination);
 
-      if(! vertices.EdgeExists(source, destination))
+      if(vertices.EdgeIsAbsent(source, destination))
       {
         throw new Exception($"Edge '{source}' contains '{destination}'!");
       }
 
-      if(! vertices.EdgeExists(destination, source))
+      if(vertices.EdgeIsAbsent(destination, source))
       {
         throw new Exception($"Edge '{destination}' contains '{source}'!");
       } 

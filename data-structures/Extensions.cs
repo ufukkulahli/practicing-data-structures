@@ -25,6 +25,11 @@ namespace practicing_data_structures.data_structures
         vertices[source].Edges.Contains( vertices[destination] );
     }
 
+    public static bool EdgeIsAbsent<T>(this IDictionary<T, Vertex<T>> vertices, T source, T destination)
+    {
+      return
+        ! vertices.EdgeExists<T>(source, destination);
+    }
 
 
   }
