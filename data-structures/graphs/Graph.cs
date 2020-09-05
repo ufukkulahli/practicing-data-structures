@@ -8,29 +8,23 @@ namespace practicing_data_structures.data_structures.graphs
   {
 
     private readonly IDictionary<T, Vertex<T>> vertices = new Dictionary<T, Vertex<T>>();
+
     public int VerticesCount => vertices.Count;
+    public bool ContainsVertex(T item) => vertices.ContainsKey(item);
+    public Vertex<T> GetVertex(T item) => vertices[item];
 
     public void AddVertex(T item)
     {
-      if (item == null)
-      {
-        throw new ArgumentNullException();
-      }
+      ThrowIfNull(item);
 
       vertices.Add(item, new Vertex<T>(item));
     }
 
     public void RemoveVertex(T item)
     {
-      if (item == null)
-      {
-        throw new ArgumentNullException();
-      }
-
-      if(vertices.NotContainsKey(item))
-      {
-        throw new Exception("Vertex not found!");
-      }
+      
+      ThrowIfNull(item);
+      ThrowIfSourceIsAbsent(item);
 
       foreach(var vertice in vertices[item].Edges)
       {
@@ -40,25 +34,13 @@ namespace practicing_data_structures.data_structures.graphs
       vertices.Remove(item);
     }
 
-    public bool ContainsVertex(T item) => vertices.ContainsKey(item);
-    public Vertex<T> GetVertex(T item) => vertices[item];
-
     public void AddEdge(T source, T destination)
     {
-      if(source==null || destination==null)
-      {
-        throw new ArgumentNullException("Source or Destination Vertex can not be null!");
-      }
+      ThrowIfNull(source);
+      ThrowIfNull(destination);
 
-      if(vertices.NotContainsKey(source))
-      {
-        throw new Exception($"Source '{source}' Vertex is not in this graph!");
-      }
-
-      if(vertices.NotContainsKey(destination))
-      {
-        throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
-      }
+      ThrowIfSourceIsAbsent(source);
+      ThrowIfDestinationIsAbsent(destination);
 
       if(vertices.EdgeExists(source, destination))
       {
@@ -76,14 +58,8 @@ namespace practicing_data_structures.data_structures.graphs
 
     public bool HasEdge(T source, T destination)
     {
-      if(vertices.NotContainsKey(source))
-      {
-        throw new Exception($"Source '{source}' Vertex is not in this graph!");
-      }
-      if (vertices.NotContainsKey(destination))
-      {
-        throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
-      }
+      ThrowIfSourceIsAbsent(source);
+      ThrowIfDestinationIsAbsent(destination);
 
       return
         vertices.EdgeExists(source, destination) &&
@@ -92,19 +68,11 @@ namespace practicing_data_structures.data_structures.graphs
 
     public void RemoveEdge(T source, T destination)
     {
-      if(source==null || destination==null)
-      {
-        throw new ArgumentNullException();
-      }
+      ThrowIfNull(source);
+      ThrowIfNull(destination);
 
-      if(vertices.NotContainsKey(source))
-      {
-        throw new Exception($"Source '{source}' Vertex is not in this graph!");
-      }
-      if (vertices.NotContainsKey(destination))
-      {
-        throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
-      }
+      ThrowIfSourceIsAbsent(source);
+      ThrowIfDestinationIsAbsent(destination);
 
       if(! vertices.EdgeExists(source, destination))
       {
@@ -122,12 +90,34 @@ namespace practicing_data_structures.data_structures.graphs
 
     public IEnumerable<T> Edges(T vertex)
     {
-      if(vertices.NotContainsKey(vertex))
-      {
-        throw new Exception($"Given '{vertex}' Vertex is not in this graph!");
-      }
+      ThrowIfSourceIsAbsent(vertex);
 
-      return vertices[vertex].Edges.Select(e => e.Value);
+      return
+        vertices[vertex].Edges.Select(e => e.Value);
+    }
+
+    private void ThrowIfNull(T item)
+    {
+      if (item == null)
+      {
+        throw new ArgumentNullException();
+      }
+    }
+
+    private void ThrowIfSourceIsAbsent(T source)
+    {
+      if (vertices.NotContainsKey(source))
+      {
+        throw new Exception($"Source '{source}' Vertex is not in this graph!");
+      }
+    }
+
+    private void ThrowIfDestinationIsAbsent(T destination)
+    {
+      if (vertices.NotContainsKey(destination))
+      {
+        throw new Exception($"Destination  '{destination}' Vertex is not in this graph!");
+      }
     }
 
   }
