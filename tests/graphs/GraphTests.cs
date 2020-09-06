@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using practicing_data_structures.data_structures.graphs;
 using Xunit;
 
@@ -238,10 +239,27 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
-    public void EdgeListTest()
+    public void GettingEdgesOfAbsentVertexCausesException()
     {
       // ARRANGE & ACT & ASSERT
       Assert.Throws<System.Exception>(() => new Graph<string>().Edges("planets"));
+    }
+
+    [Fact]
+    public void EdgeList()
+    {
+     // ARRANGE
+      var graph = new Graph<string>();
+      graph.AddVertex("planets");
+      graph.AddVertex("stars");
+      graph.AddEdge("planets", "stars");
+
+      // ACT
+      var edges = graph.Edges("planets");
+
+      // ASSERT
+      Assert.Equal(1, edges.Count());
+      Assert.Equal("stars" ,edges.Single());
     }
 
   }
