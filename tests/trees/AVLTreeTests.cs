@@ -5,10 +5,18 @@ namespace practicing_data_structures.tests.trees
 {
   public class AVLTreeTests
   {
+
     [Fact]
-    public void Test()
+    public void CountTest()
     {
-      Assert.Equal(0, new AVLTree().Count);
+      Assert.Equal(0, new AVLTree<string>().Count);
     }
+
+    [Fact]
+    public void HeightTest()
+    {
+      Assert.Equal(-1, new AVLTree<string>().Height());
+    }
+
   }
 }
