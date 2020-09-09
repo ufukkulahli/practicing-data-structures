@@ -18,7 +18,16 @@ namespace practicing_data_structures.data_structures.trees
       return root.Height;
     }
 
-    private sealed class Node<V>
+    public Node<T> Find(Node<T> parent, T value)
+    {
+      if(parent == null)
+      {
+        return parent;
+      }
+      throw new System.NotImplementedException();
+    }
+
+    public sealed class Node<V>
     {
       public int Height { get; private set; }
     }

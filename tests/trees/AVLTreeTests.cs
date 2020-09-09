@@ -18,5 +18,11 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(-1, new AVLTree<string>().Height());
     }
 
+    [Fact]
+    public void NullParentCausesToBeReturnedNull()
+    {
+      Assert.Null( new AVLTree<string>().Find(null, "") );
+    }
+
   }
 }
