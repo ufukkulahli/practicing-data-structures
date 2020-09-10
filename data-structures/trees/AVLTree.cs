@@ -1,10 +1,10 @@
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.trees
 {
-
-
-  public sealed class AVLTree<T>
+  public sealed partial class AVLTree<T>
   {
-    private Node<T> root;
+    private AVLTreeNode<T> root;
 
     public int Count => 0;
 
@@ -18,18 +18,19 @@ namespace practicing_data_structures.data_structures.trees
       return root.Height;
     }
 
-    public Node<T> Find(Node<T> parent, T value)
+    public AVLTreeNode<T> Find(AVLTreeNode<T> parent, T value)
     {
-      if(parent == null)
+      if (parent == null)
       {
         return parent;
       }
-      throw new System.NotImplementedException();
-    }
 
-    public sealed class Node<V>
-    {
-      public int Height { get; private set; }
+      if (EqualityComparer<T>.Default.Equals(parent.Value, value))
+      {
+        return parent;
+      }
+
+      throw new System.NotImplementedException();
     }
   }
 }

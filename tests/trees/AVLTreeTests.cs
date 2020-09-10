@@ -24,5 +24,13 @@ namespace practicing_data_structures.tests.trees
       Assert.Null( new AVLTree<string>().Find(null, "") );
     }
 
+    [Fact]
+    public void FindTest()
+    {
+      var parent = new AVLTreeNode<string>();
+      parent.Value = "hello";
+
+      Assert.Equal(parent, new AVLTree<string>().Find(parent, "hello") ); }
+
   }
 }
