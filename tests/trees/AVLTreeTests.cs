@@ -38,5 +38,40 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(parent, node);
     }
 
+    [Fact]
+    public void FindMethodReturnsParentsLeftNode()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<string>();
+      var left = new AVLTreeNode<string>();
+      left.Value = "Parents left node";
+      parent.Left = left;
+
+      // Act
+      var actual = new AVLTree<string>().Find(parent, "Parents left node");
+
+      // Assert
+      Assert.Equal(left, actual);
+    }
+    [Fact]
+    public void FindMethodReturnsParentsLeftOfLeftNode()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<string>();
+
+      var parentsLeftOfLeftNode = new AVLTreeNode<string>();
+      parentsLeftOfLeftNode.Value = "Parents left of left node";
+
+      var parentsLeftNode = new AVLTreeNode<string>();
+      parentsLeftNode.Left = parentsLeftOfLeftNode;
+      parent.Left = parentsLeftNode;
+
+      // Act
+      var actual = new AVLTree<string>().Find(parent, "Parents left of left node");
+
+      // Assert
+      Assert.Equal(parentsLeftNode, actual);
+    }
+
   }
 }

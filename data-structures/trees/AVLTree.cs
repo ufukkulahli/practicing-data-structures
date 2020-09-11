@@ -30,6 +30,11 @@ namespace practicing_data_structures.data_structures.trees
         return parent;
       }
 
+      if(Find(parent.Left, value) != null)
+      {
+        return parent.Left;
+      }
+
       throw new System.NotImplementedException();
     }
   }

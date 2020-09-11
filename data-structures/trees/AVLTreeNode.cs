@@ -4,5 +4,6 @@ namespace practicing_data_structures.data_structures.trees
   {
     public T Value { get; set; }
     public int Height { get; set; }
+    public AVLTreeNode<T> Left { get; set; }
   }
 }
