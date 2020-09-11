@@ -21,16 +21,22 @@ namespace practicing_data_structures.tests.trees
     [Fact]
     public void NullParentCausesToBeReturnedNull()
     {
-      Assert.Null( new AVLTree<string>().Find(null, "") );
+      Assert.Null(new AVLTree<string>().Find(null, ""));
     }
 
     [Fact]
     public void FindTest()
     {
+      // Arrange
       var parent = new AVLTreeNode<string>();
       parent.Value = "hello";
 
-      Assert.Equal(parent, new AVLTree<string>().Find(parent, "hello") ); }
+      // Act
+      var node = new AVLTree<string>().Find(parent, "hello");
+
+      // Assert
+      Assert.Equal(parent, node);
+    }
 
   }
 }
