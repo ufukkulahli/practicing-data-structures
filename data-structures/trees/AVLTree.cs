@@ -35,7 +35,7 @@ namespace practicing_data_structures.data_structures.trees
         return parent.Left;
       }
 
-      throw new System.NotImplementedException();
+      return Find(parent.Right, value);
     }
   }
 }
