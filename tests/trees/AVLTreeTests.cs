@@ -25,17 +25,17 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void FindTest()
+    public void FindMethodReturnsParentSinceItsValueIsSameWithGiven()
     {
       // Arrange
       var parent = new AVLTreeNode<string>();
       parent.Value = "hello";
 
       // Act
-      var node = new AVLTree<string>().Find(parent, "hello");
+      var actual = new AVLTree<string>().Find(parent, "hello");
 
       // Assert
-      Assert.Equal(parent, node);
+      Assert.Equal(parent, actual);
     }
 
     [Fact]
