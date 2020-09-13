@@ -37,5 +37,8 @@ namespace practicing_data_structures.data_structures.trees
 
       return Find(parent.Right, value);
     }
+
+    public bool Contains(T value) => Find(root, value) != null;
+
   }
 }

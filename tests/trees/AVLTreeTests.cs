@@ -93,5 +93,12 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(parentsRightNode, actual);
     }
 
+    [Fact]
+    public void ContainsTest()
+    {
+      // Arrange & Act & Assert
+      Assert.False( new AVLTree<string>().Contains("hello") );
+    }
+
   }
 }
