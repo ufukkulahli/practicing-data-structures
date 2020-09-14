@@ -6,6 +6,8 @@ namespace practicing_data_structures.data_structures.trees
   {
     private AVLTreeNode<T> root;
 
+    public void SetRoot(AVLTreeNode<T> root) => this.root = root;
+
     public int Count => 0;
 
     public int Height()

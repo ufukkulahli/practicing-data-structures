@@ -100,5 +100,21 @@ namespace practicing_data_structures.tests.trees
       Assert.False( new AVLTree<string>().Contains("hello") );
     }
 
+    [Fact]
+    public void ContainsTest2()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<string>();
+      parent.Value = "world";
+      var tree = new AVLTree<string>();
+      tree.SetRoot(parent);
+
+      // Act
+      var actual = tree.Contains("world");
+
+      // Assert
+      Assert.True(actual);
+    }
+
   }
 }
