@@ -19,6 +19,22 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void HeightTest2()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<string>();
+      parent.Value = "hello";
+      var tree = new AVLTree<string>();
+      tree.SetRoot(parent);
+
+      // Act
+      var actual = tree.Height();
+
+      // Assert
+      Assert.Equal(0, actual);
+    }
+
+    [Fact]
     public void NullParentCausesToBeReturnedNull()
     {
       Assert.Null(new AVLTree<string>().Find(null, ""));
