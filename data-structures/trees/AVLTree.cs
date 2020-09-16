@@ -42,5 +42,17 @@ namespace practicing_data_structures.data_structures.trees
 
     public bool Contains(T value) => Find(root, value) != null;
 
+    public AVLTreeNode<T> FindMax(AVLTreeNode<T> node)
+    {
+      var next = node;
+
+      while(next.Right != null)
+      {
+        next = next.Right;
+      }
+
+      return next;
+    }
+
   }
 }

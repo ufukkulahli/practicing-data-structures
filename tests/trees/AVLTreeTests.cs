@@ -132,5 +132,30 @@ namespace practicing_data_structures.tests.trees
       Assert.True(actual);
     }
 
+    [Fact]
+    public void FindMaxTest()
+    {
+      // Arrange
+      var rightOfRightNode   = new AVLTreeNode<string>();
+      rightOfRightNode.Value = "rightOfRightNode";
+
+      var rightNode          = new AVLTreeNode<string>();
+      rightNode.Value        = "rightNode";
+      rightNode.Right        = rightOfRightNode;
+
+      var parent             = new AVLTreeNode<string>();
+      parent.Value           = "parentNode";
+      parent.Right           = rightNode;
+
+      var tree               = new AVLTree<string>();
+
+      // Act
+      var actual             = tree.FindMax(parent);
+
+      // Assert
+      Assert.Equal("rightOfRightNode", actual.Value);
+      Assert.Null(actual.Right);
+    }
+
   }
 }
