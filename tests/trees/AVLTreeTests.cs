@@ -157,5 +157,31 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(actual.Right);
     }
 
+    [Fact]
+    public void FindMinTest()
+    {
+      // Arrange
+      var leftOfLeftNode   = new AVLTreeNode<string>();
+      leftOfLeftNode.Value = "leftOfLeftNode";
+
+      var leftNode    = new AVLTreeNode<string>();
+      leftNode.Value  = "leftNode";
+      leftNode.Left   = leftOfLeftNode;
+
+      var parent    = new AVLTreeNode<string>();
+      parent.Value  = "parentNode";
+      parent.Left   = leftNode;
+
+      var tree = new AVLTree<string>();
+      tree.SetRoot(parent);
+
+      // Act
+      var actual = tree.FindMin();
+
+      // Assert
+      Assert.Equal("leftOfLeftNode", actual.Value);
+      Assert.Null(actual.Left);
+    }
+
   }
 }

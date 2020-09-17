@@ -54,5 +54,17 @@ namespace practicing_data_structures.data_structures.trees
       return next;
     }
 
+    public AVLTreeNode<T> FindMin()
+    {
+      var next = root;
+
+      while(next.Left != null)
+      {
+        next = next.Left;
+      }
+
+      return next;
+    }
+
   }
 }
