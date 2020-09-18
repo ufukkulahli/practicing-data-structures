@@ -183,5 +183,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(actual.Left);
     }
 
+    [Fact]
+    public void InsertTest()
+    {
+      // Arrange
+      var tree = new AVLTree<string>();
+
+      // Act
+      tree.Insert("hello");
+
+      // Assert
+      Assert.Equal("hello", tree.Root.Value);
+    }
+
   }
 }

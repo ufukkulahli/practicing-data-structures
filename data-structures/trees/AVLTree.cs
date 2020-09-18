@@ -4,20 +4,20 @@ namespace practicing_data_structures.data_structures.trees
 {
   public sealed partial class AVLTree<T>
   {
-    private AVLTreeNode<T> root;
+    public AVLTreeNode<T> Root { get; private set; }
 
-    public void SetRoot(AVLTreeNode<T> root) => this.root = root;
+    public void SetRoot(AVLTreeNode<T> root) => this.Root = root;
 
     public int Count => 0;
 
     public int Height()
     {
-      if (root == null)
+      if (Root == null)
       {
         return -1;
       }
 
-      return root.Height;
+      return Root.Height;
     }
 
     public AVLTreeNode<T> Find(AVLTreeNode<T> parent, T value)
@@ -40,7 +40,7 @@ namespace practicing_data_structures.data_structures.trees
       return Find(parent.Right, value);
     }
 
-    public bool Contains(T value) => Find(root, value) != null;
+    public bool Contains(T value) => Find(Root, value) != null;
 
     public AVLTreeNode<T> FindMax(AVLTreeNode<T> node)
     {
@@ -56,7 +56,7 @@ namespace practicing_data_structures.data_structures.trees
 
     public AVLTreeNode<T> FindMin()
     {
-      var next = root;
+      var next = Root;
 
       while(next.Left != null)
       {
@@ -64,6 +64,14 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       return next;
+    }
+
+    public void Insert(T value)
+    {
+      if(Root == null)
+      {
+        Root = new AVLTreeNode<T>() {Value = value};
+      }
     }
 
   }
