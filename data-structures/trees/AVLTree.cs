@@ -1,8 +1,9 @@
+using System;
 using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.trees
 {
-  public sealed partial class AVLTree<T>
+  public sealed partial class AVLTree<T> where T : IComparable
   {
     public AVLTreeNode<T> Root { get; private set; }
 
@@ -66,12 +67,41 @@ namespace practicing_data_structures.data_structures.trees
       return next;
     }
 
-    public void Insert(T value)
+    public void Insert(AVLTreeNode<T> node, T value)
     {
       if(Root == null)
       {
         Root = new AVLTreeNode<T>() {Value = value};
+        return;
       }
+
+      var result = Root.Value.CompareTo(value);
+
+      if(result < 0)
+      {
+        if (Root.Right == null)
+        {
+          Root.Right = new AVLTreeNode<T>(){Parent = Root, Value = value};
+          return;
+        }
+
+        Insert(Root.Right, value);
+        return;
+      }
+
+      if(result > 0)
+      {
+        if (Root.Left == null)
+        {
+          Root.Left = new AVLTreeNode<T>(){Parent = Root, Value = value};
+          return;
+        }
+
+        Insert(Root.Left, value);
+        return;
+      }
+
+      throw new Exception("Value already exists!");
     }
 
   }
