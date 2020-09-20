@@ -67,7 +67,7 @@ namespace practicing_data_structures.data_structures.trees
       return next;
     }
 
-    public void Insert(AVLTreeNode<T> node, T value)
+    public void Insert(T value)
     {
       if(Root == null)
       {
@@ -75,34 +75,50 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      var result = Root.Value.CompareTo(value);
+      Insert(Root, value);
+    }
 
-      if(result < 0)
+    public void Insert(AVLTreeNode<T> node, T value)
+    {
+      var comparisonResult = Root.Value.CompareTo(value);
+
+      if(comparisonResult < 0)
       {
-        if (Root.Right == null)
-        {
-          Root.Right = new AVLTreeNode<T>(){Parent = Root, Value = value};
-          return;
-        }
-
-        Insert(Root.Right, value);
+        InsertNodeToRight(comparisonResult, value);
         return;
       }
 
-      if(result > 0)
+      if(comparisonResult > 0)
       {
-        if (Root.Left == null)
-        {
-          Root.Left = new AVLTreeNode<T>(){Parent = Root, Value = value};
-          return;
-        }
-
-        Insert(Root.Left, value);
+        InsertNodeToLeft(comparisonResult, value);
         return;
       }
 
       throw new Exception("Value already exists!");
     }
+
+    private void InsertNodeToRight(int comparisonResult, T value)
+    {
+      if (Root.Right == null)
+      {
+        Root.Right = new AVLTreeNode<T>() { Parent = Root, Value = value };
+        return;
+      }
+
+      Insert(Root.Right, value);
+    }
+
+    private void InsertNodeToLeft(int comparisonResult, T value)
+    {
+      if (Root.Left == null)
+      {
+        Root.Left = new AVLTreeNode<T>() { Parent = Root, Value = value };
+        return;
+      }
+
+      Insert(Root.Left, value);
+    }
+
 
   }
 }

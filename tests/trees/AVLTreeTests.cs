@@ -196,5 +196,21 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal("hello", tree.Root.Value);
     }
 
+    [Fact]
+    public void InsertRightTest()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(4);
+
+      // Act
+      tree.Insert(5);
+
+      // Assert
+      Assert.Equal(4, tree.Root.Value);
+      Assert.Equal(5, tree.Root.Right.Value);
+      Assert.Null(tree.Root.Left);
+    }
+
   }
 }
