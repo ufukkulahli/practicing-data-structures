@@ -212,5 +212,21 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Left);
     }
 
+    [Fact]
+    public void InsertLeftTest()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(4);
+
+      // Act
+      tree.Insert(3);
+
+      // Assert
+      Assert.Equal(4, tree.Root.Value);
+      Assert.Equal(3, tree.Root.Left.Value);
+      Assert.Null(tree.Root.Right);
+    }
+
   }
 }
