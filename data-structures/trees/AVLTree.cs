@@ -80,7 +80,7 @@ namespace practicing_data_structures.data_structures.trees
 
     public void Insert(AVLTreeNode<T> node, T value)
     {
-      var comparisonResult = Root.Value.CompareTo(value);
+      var comparisonResult = node.Value.CompareTo(value);
 
       if(comparisonResult < 0)
       {
@@ -94,7 +94,10 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      throw new Exception("Value already exists!");
+      if(comparisonResult == 0)
+      {
+        throw new Exception("Value already exists!");
+      }
     }
 
     private void InsertNodeToRight(int comparisonResult, T value)

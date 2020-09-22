@@ -228,5 +228,17 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Right);
     }
 
+    [Fact]
+    public void NodeAlreadyExistsTest()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(4);
+      tree.Insert(3);
+
+      // Act && Assert
+      Assert.Throws<System.Exception>( () => tree.Insert(3) );
+    }
+
   }
 }
