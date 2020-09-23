@@ -84,13 +84,13 @@ namespace practicing_data_structures.data_structures.trees
 
       if(comparisonResult < 0)
       {
-        InsertNodeToRight(comparisonResult, value);
+        InsertNodeToRight(node, value);
         return;
       }
 
       if(comparisonResult > 0)
       {
-        InsertNodeToLeft(comparisonResult, value);
+        InsertNodeToLeft(node, value);
         return;
       }
 
@@ -100,28 +100,27 @@ namespace practicing_data_structures.data_structures.trees
       }
     }
 
-    private void InsertNodeToRight(int comparisonResult, T value)
+    private void InsertNodeToRight(AVLTreeNode<T> node, T value)
     {
-      if (Root.Right == null)
+      if (node.Right == null)
       {
-        Root.Right = new AVLTreeNode<T>() { Parent = Root, Value = value };
+        node.Right = new AVLTreeNode<T>() { Parent = node, Value = value };
         return;
       }
 
-      Insert(Root.Right, value);
+      Insert(node.Right, value);
     }
 
-    private void InsertNodeToLeft(int comparisonResult, T value)
+    private void InsertNodeToLeft(AVLTreeNode<T> node, T value)
     {
-      if (Root.Left == null)
+      if (node.Left == null)
       {
-        Root.Left = new AVLTreeNode<T>() { Parent = Root, Value = value };
+        node.Left = new AVLTreeNode<T>() { Parent = node, Value = value };
         return;
       }
 
-      Insert(Root.Left, value);
+      Insert(node.Left, value);
     }
-
 
   }
 }

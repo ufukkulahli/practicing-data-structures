@@ -197,35 +197,43 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void InsertRightTest()
+    public void InsertRightSideOfTree()
     {
       // Arrange
       var tree = new AVLTree<int>();
-      tree.Insert(4);
 
       // Act
+      tree.Insert(4);
       tree.Insert(5);
+      tree.Insert(6);
 
       // Assert
       Assert.Equal(4, tree.Root.Value);
       Assert.Equal(5, tree.Root.Right.Value);
+      Assert.Equal(6, tree.Root.Right.Right.Value);
       Assert.Null(tree.Root.Left);
+      Assert.Null(tree.Root.Right.Left);
+      Assert.Null(tree.Root.Right.Right.Left);
     }
 
     [Fact]
-    public void InsertLeftTest()
+    public void InsertLeftSideOfTree()
     {
       // Arrange
       var tree = new AVLTree<int>();
-      tree.Insert(4);
 
       // Act
+      tree.Insert(4);
       tree.Insert(3);
+      tree.Insert(2);
 
       // Assert
       Assert.Equal(4, tree.Root.Value);
       Assert.Equal(3, tree.Root.Left.Value);
+      Assert.Equal(2, tree.Root.Left.Left.Value);
       Assert.Null(tree.Root.Right);
+      Assert.Null(tree.Root.Left.Right);
+      Assert.Null(tree.Root.Left.Left.Right);
     }
 
     [Fact]
