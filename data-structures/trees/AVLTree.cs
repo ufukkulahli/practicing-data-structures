@@ -85,19 +85,19 @@ namespace practicing_data_structures.data_structures.trees
       if(comparisonResult < 0)
       {
         InsertNodeToRight(node, value);
-        return;
       }
 
       if(comparisonResult > 0)
       {
         InsertNodeToLeft(node, value);
-        return;
       }
 
       if(comparisonResult == 0)
       {
         throw new Exception("Value already exists!");
       }
+
+      UpdateHeight(node);
     }
 
     private void InsertNodeToRight(AVLTreeNode<T> node, T value)
@@ -120,6 +120,38 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       Insert(node.Left, value);
+    }
+
+    public void UpdateHeight(AVLTreeNode<T> node)
+    {
+      if(node==null)
+      {
+        return;
+      }
+
+      if(node.Left!=null)
+      {
+        node.Left.Height = Math.Max( node.Left.Left?.Height+1 ?? 0 , node.Left.Right?.Height+1 ?? 0 );
+      }
+
+      if(node.Right!=null)
+      {
+        node.Right.Height = Math.Max( node.Right.Left?.Height+1 ?? 0 , node.Right.Right?.Height+1 ?? 0 );
+      }
+
+      node.Height = Math.Max( node.Left?.Height+1 ?? 0, node.Right?.Height+1 ?? 0 );
+
+    }
+
+    // TODO: USE
+    private int FindBiggest(AVLTreeNode<T> node)
+    {
+      return
+        Math.Max
+        (
+          node.Left?. Height + 1  ??  0,
+          node.Right?.Height + 1  ??  0
+        );
     }
 
   }

@@ -248,5 +248,20 @@ namespace practicing_data_structures.tests.trees
       Assert.Throws<System.Exception>( () => tree.Insert(3) );
     }
 
+    [Fact]
+    public void UpdateHeightOfLeftNode()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+
+      // Act
+      tree.Insert(4); // Root
+      tree.Insert(3); // Left
+
+      // Assert
+      Assert.Equal(0, tree.Root.Height);
+      Assert.Equal(0, tree.Root.Left.Height);
+    }
+
   }
 }
