@@ -131,15 +131,15 @@ namespace practicing_data_structures.data_structures.trees
 
       if(node.Left!=null)
       {
-        node.Left.Height = Math.Max( node.Left.Left?.Height+1 ?? 0 , node.Left.Right?.Height+1 ?? 0 );
+        node.Left.Height = FindBiggest(node.Left);
       }
 
       if(node.Right!=null)
       {
-        node.Right.Height = Math.Max( node.Right.Left?.Height+1 ?? 0 , node.Right.Right?.Height+1 ?? 0 );
+        node.Right.Height = FindBiggest(node.Right);
       }
 
-      node.Height = Math.Max( node.Left?.Height+1 ?? 0, node.Right?.Height+1 ?? 0 );
+      node.Height = FindBiggest(node);
 
     }
 
