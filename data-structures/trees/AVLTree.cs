@@ -153,5 +153,17 @@ namespace practicing_data_structures.data_structures.trees
         );
     }
 
+    public void RecomputeHeight(AVLTreeNode<T> node)
+    {
+      if(node == null)
+      {
+        return;
+      }
+
+      RecomputeHeight(node.Left);
+      RecomputeHeight(node.Right);
+      UpdateHeight(node);
+    }
+
   }
 }
