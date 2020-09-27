@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.trees
 {
-  public sealed partial class AVLTree<T> where T : IComparable
+  public sealed class AVLTree<T> where T : IComparable
   {
     public AVLTreeNode<T> Root { get; private set; }
 
@@ -143,7 +143,6 @@ namespace practicing_data_structures.data_structures.trees
 
     }
 
-    // TODO: USE
     private int FindBiggest(AVLTreeNode<T> node)
     {
       return
