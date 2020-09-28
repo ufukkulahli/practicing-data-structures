@@ -311,5 +311,12 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(0, parent.Right.Right.Height);
     }
 
+    [Fact]
+    public void DeleteNullNodeTest()
+    {
+      // Arrange & Act & Assert
+      Assert.Throws<System.ArgumentNullException>( () => new AVLTree<int>().Delete(null) );
+    }
+
   }
 }
