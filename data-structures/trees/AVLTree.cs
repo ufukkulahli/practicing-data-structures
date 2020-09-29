@@ -165,9 +165,9 @@ namespace practicing_data_structures.data_structures.trees
       UpdateHeight(node);
     }
 
-    public void Delete(AVLTreeNode<T> node)
+    public void Delete(T value)
     {
-      if(node==null)
+      if(Root==null)
       {
         throw new ArgumentNullException();
       }

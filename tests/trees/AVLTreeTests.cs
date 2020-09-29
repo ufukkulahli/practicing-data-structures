@@ -315,7 +315,7 @@ namespace practicing_data_structures.tests.trees
     public void DeleteNullNodeTest()
     {
       // Arrange & Act & Assert
-      Assert.Throws<System.ArgumentNullException>( () => new AVLTree<int>().Delete(null) );
+      Assert.Throws<System.ArgumentNullException>( () => new AVLTree<int>().Delete(1) );
     }
 
   }
