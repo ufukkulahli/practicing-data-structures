@@ -171,6 +171,23 @@ namespace practicing_data_structures.data_structures.trees
       {
         throw new ArgumentNullException();
       }
+
+      Delete(Root, value);
+    }
+
+    public void Delete(AVLTreeNode<T> node, T value)
+    {
+      var comparisonResult = node.Value.CompareTo(value);
+
+      if(comparisonResult<0)
+      {
+        if(node.Right==null)
+        {
+          throw new Exception("Item does not exist!");
+        }
+        
+        Delete(node.Right, value);
+      }
     }
 
   }
