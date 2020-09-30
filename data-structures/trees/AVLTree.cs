@@ -188,6 +188,17 @@ namespace practicing_data_structures.data_structures.trees
         
         Delete(node.Right, value);
       }
+
+      if(comparisonResult>0)
+      {
+        if(node.Left==null)
+        {
+          throw new Exception("Item does not exist!");
+        }
+        
+        Delete(node.Left, value);
+      }
+
     }
 
   }

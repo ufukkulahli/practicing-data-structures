@@ -331,5 +331,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Throws<System.Exception>( () => tree.Delete(6) );
     }
 
+    [Fact]
+    public void DeletingLeftNullNodeCausesException()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<int>();
+      parent.Value = 5;
+      var tree = new AVLTree<int>();
+      tree.SetRoot(parent);
+
+      // Act & Assert
+      Assert.Throws<System.Exception>( () => tree.Delete(4) );
+    }
+    
   }
 }
