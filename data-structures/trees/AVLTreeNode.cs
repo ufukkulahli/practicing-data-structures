@@ -9,5 +9,7 @@ namespace practicing_data_structures.data_structures.trees
     public AVLTreeNode<T> Left { get; set; }
     public AVLTreeNode<T> Right { get; set; }
     public AVLTreeNode<T> Parent { get; set; }
+    public bool IsLeaf => Left==null && Right==null;
+    public bool IsRoot => Parent==null;
   }
 }

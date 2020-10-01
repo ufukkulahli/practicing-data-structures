@@ -199,7 +199,45 @@ namespace practicing_data_structures.data_structures.trees
         Delete(node.Left, value);
       }
 
+      if(comparisonResult==0)
+      {
+        Delete(node);
+        return;
+      }
+
+
+      //TODO
+      throw new NotImplementedException();
     }
+
+    private void Delete(AVLTreeNode<T> node)
+    {
+      if (node.IsLeaf)
+      {
+        if (node.IsRoot)
+        {
+          DeleteRoot();
+          return;
+        }
+
+        if(node.Parent.Left == node)
+        {
+          node.Parent.Left = null;
+          //TODO
+        }
+
+        if(node.Parent.Right == node)
+        {
+          node.Parent.Right = null;
+          //TODO
+        }
+
+        //TODO
+        throw new Exception("Error when deleting the node!");
+      }
+    }
+
+    private void DeleteRoot() => Root = null;
 
   }
 }
