@@ -197,6 +197,7 @@ namespace practicing_data_structures.data_structures.trees
         }
         
         Delete(node.Left, value);
+        return;
       }
 
       if(comparisonResult==0)
@@ -223,7 +224,7 @@ namespace practicing_data_structures.data_structures.trees
         if(node.Parent.Left == node)
         {
           node.Parent.Left = null;
-          //TODO
+          return;
         }
 
         if(node.Parent.Right == node)
