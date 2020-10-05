@@ -216,30 +216,40 @@ namespace practicing_data_structures.data_structures.trees
     {
       if (node.IsLeaf)
       {
-        if (node.IsRoot)
-        {
-          DeleteRoot();
-          return;
-        }
-
-        if(node.Parent.Left == node)
-        {
-          node.Parent.Left = null;
-          return;
-        }
-
-        if(node.Parent.Right == node)
-        {
-          node.Parent.Right = null;
-          return;
-        }
-
-        //TODO
-        throw new Exception("Error when deleting the node!");
+        DeleteRootOrLeftOrRightNode(node);
+        return;
       }
     }
 
+    private void DeleteRootOrLeftOrRightNode(AVLTreeNode<T> node)
+    {
+      if (node.IsRoot)
+      {
+        DeleteRoot();
+        return;
+      }
+
+      if (node.Parent.Left == node)
+      {
+        DeleteLeftNode(node);
+        return;
+      }
+
+      if (node.Parent.Right == node)
+      {
+        DeleteRightNode(node);
+        return;
+      }
+
+      //TODO
+      throw new Exception("Error when deleting the node!");
+    }
+
     private void DeleteRoot() => Root = null;
+
+    private void DeleteLeftNode(AVLTreeNode<T> node) => node.Parent.Left = null;
+
+    private void DeleteRightNode(AVLTreeNode<T> node) => node.Parent.Right = null;
 
   }
 }
