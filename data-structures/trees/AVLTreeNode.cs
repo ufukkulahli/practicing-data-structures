@@ -11,5 +11,6 @@ namespace practicing_data_structures.data_structures.trees
     public AVLTreeNode<T> Parent { get; set; }
     public bool IsLeaf => Left==null && Right==null;
     public bool IsRoot => Parent==null;
+    public bool RightTreeIsNull => Left!=null && Right==null;
   }
 }
