@@ -226,8 +226,15 @@ namespace practicing_data_structures.data_structures.trees
         {
           Root.Left.Parent = null;
           Root = Root.Left;
+          return;
         }
+
+        //TODO
+        throw new NotImplementedException();
       }
+
+      //TODO
+      throw new NotImplementedException();
     }
 
     private void DeleteRootOrLeftOrRightNode(AVLTreeNode<T> node)
