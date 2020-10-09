@@ -492,5 +492,23 @@ namespace practicing_data_structures.tests.trees
       // TODO
     }
 
+    [Fact]
+    public void DeleteTestWhenLeftTreeIsNullAndGivenNodeIsRoot()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(4m);
+      tree.Insert(5m);
+      tree.Insert(6m);
+
+      // Act
+      tree.Delete(4m);
+
+      // Assert
+      Assert.Equal(5m, tree.Root.Value);
+      Assert.Null(tree.Root.Left);
+      Assert.Equal(6m, tree.Root.Right.Value);
+    }
+
   }
 }

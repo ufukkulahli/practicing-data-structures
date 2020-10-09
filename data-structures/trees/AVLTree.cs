@@ -223,6 +223,13 @@ namespace practicing_data_structures.data_structures.trees
       if(node.IsRightTreeNull)
       {
         PerformDeleteWhenRightTreeIsNull(node);
+        return;
+      }
+
+      if(node.IsLeftTreeNull)
+      {
+        PerformDeleteWhenLeftTreeIsNull(node);
+        return;
       }
 
       //TODO
@@ -282,6 +289,16 @@ namespace practicing_data_structures.data_structures.trees
       // TODO: WRITE TEST FOR THIS CASE
       // NOTE: DELETED ABOVE 'return' STATEMENTS FOR THIS LINE TO WORK
       node.Left.Parent = node.Parent;
+    }
+
+    private void PerformDeleteWhenLeftTreeIsNull(AVLTreeNode<T> node)
+    {
+      if(node.IsRoot)
+      {
+        Root.Right.Parent = null;
+        Root = Root.Right;
+        return;
+      }
     }
 
   }
