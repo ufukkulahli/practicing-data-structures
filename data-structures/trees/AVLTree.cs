@@ -220,29 +220,9 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if(node.RightTreeIsNull)
+      if(node.IsRightTreeNull)
       {
-        if(node.IsRoot)
-        {
-          Root.Left.Parent = null;
-          Root = Root.Left;
-          return;
-        }
-
-        if(node.Parent.Left == node)
-        {
-          node.Parent.Left = node.Left;
-          return;
-        }
-
-        if(node.Parent.Right == node)
-        {
-          node.Parent.Right = node.Left;
-          return;
-        }
-
-        //TODO
-        throw new NotImplementedException();
+        PerformDeleteWhenRightTreeIsNull(node);
       }
 
       //TODO
@@ -278,6 +258,31 @@ namespace practicing_data_structures.data_structures.trees
     private void DeleteLeftNode(AVLTreeNode<T> node) => node.Parent.Left = null;
 
     private void DeleteRightNode(AVLTreeNode<T> node) => node.Parent.Right = null;
+
+    private void PerformDeleteWhenRightTreeIsNull(AVLTreeNode<T> node)
+    {
+      if(node.IsRoot)
+      {
+        Root.Left.Parent = null;
+        Root = Root.Left;
+        return;
+      }
+
+      if(node.Parent.Left == node)
+      {
+        node.Parent.Left = node.Left;
+      }
+
+      // TODO: WRITE TEST FOR THIS CASE
+      if(node.Parent.Right == node)
+      {
+        node.Parent.Right = node.Left;
+      }
+
+      // TODO: WRITE TEST FOR THIS CASE
+      // NOTE: DELETED ABOVE 'return' STATEMENTS FOR THIS LINE TO WORK
+      node.Left.Parent = node.Parent;
+    }
 
   }
 }
