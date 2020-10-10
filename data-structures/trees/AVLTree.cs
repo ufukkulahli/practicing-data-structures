@@ -299,6 +299,13 @@ namespace practicing_data_structures.data_structures.trees
         Root = Root.Right;
         return;
       }
+
+      if(node.Parent.Left == node)
+      {
+        node.Parent.Left = node.Right;
+      }
+
+      throw new NotImplementedException();
     }
 
   }
