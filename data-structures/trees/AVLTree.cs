@@ -303,6 +303,7 @@ namespace practicing_data_structures.data_structures.trees
       if(node.Parent.Left == node)
       {
         node.Parent.Left = node.Right;
+        return;
       }
 
       throw new NotImplementedException();
