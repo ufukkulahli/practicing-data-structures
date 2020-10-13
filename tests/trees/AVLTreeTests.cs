@@ -478,18 +478,17 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(5m);         //    5
-      tree.Insert(4m);         // 4     5.5
-      tree.Insert(5.5m);      // 3 4.5
-
-      tree.Insert(3m);
-      tree.Insert(4.5m);
+      tree.Insert(4m);         //    4
+      tree.Insert(6m);         //  n   6
+      tree.Insert(5m);         //     5 n
 
       // Act
-      // TODO
+      tree.Delete(6m);
 
       // Assert
-      // TODO
+      Assert.Equal(4m, tree.Root.Value);
+      Assert.Equal(5m, tree.Root.Right.Value);
+      Assert.Null(tree.Root.Left);
     }
 
     [Fact]
