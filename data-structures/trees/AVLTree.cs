@@ -280,14 +280,11 @@ namespace practicing_data_structures.data_structures.trees
         node.Parent.Left = node.Left;
       }
 
-      // TODO: WRITE TEST FOR THIS CASE
       if(node.Parent.Right == node)
       {
         node.Parent.Right = node.Left;
       }
 
-      // TODO: WRITE TEST FOR THIS CASE
-      // NOTE: DELETED ABOVE 'return' STATEMENTS FOR THIS LINE TO WORK
       node.Left.Parent = node.Parent;
     }
 

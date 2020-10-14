@@ -454,14 +454,14 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void DeleteTestWhenRightTreeIsNullAndGivenNodeIsLeftChildOfParent()
+    public void DeleteTest_WhenRightTreeIsNull_And_GivenNodeIsLeftChildOfParent()
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(5m);
-      tree.Insert(4m);
-      tree.Insert(3m);
-      tree.Insert(3.5m);
+      tree.Insert(5m);            //       5
+      tree.Insert(4m);            //     4   n
+      tree.Insert(3m);            //   3   n
+      tree.Insert(3.5m);          // n  3.5
 
       // Act
       tree.Delete(4m);
@@ -470,11 +470,13 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5m, tree.Root.Value);
       Assert.Null(tree.Root.Right);
       Assert.Equal(3m, tree.Root.Left.Value);
+      Assert.Equal(5m, tree.Root.Left.Parent.Value);
       Assert.Equal(3.5m, tree.Root.Left.Right.Value);
+      Assert.Equal(3m, tree.Root.Left.Right.Parent.Value);
     }
 
     [Fact]
-    public void DeleteTestWhenRightTreeIsNullAndGivenNodeIsRightChildOfParent()
+    public void DeleteTest_WhenRightTreeIsNull_And_GivenNodeIsRightChildOfParent()
     {
       // Arrange
       var tree = new AVLTree<decimal>();
@@ -488,6 +490,7 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(4m, tree.Root.Value);
       Assert.Equal(5m, tree.Root.Right.Value);
+      Assert.Equal(4m, tree.Root.Right.Parent.Value);
       Assert.Null(tree.Root.Left);
     }
 
