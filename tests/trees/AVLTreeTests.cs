@@ -510,6 +510,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
       Assert.Equal(6m, tree.Root.Right.Value);
+      Assert.Equal(5m, tree.Root.Right.Parent.Value);
     }
 
     [Fact]
@@ -527,6 +528,7 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(4m, tree.Root.Value);
       Assert.Equal(3.5m, tree.Root.Left.Value);
+      Assert.Equal(4m, tree.Root.Left.Parent.Value);
     }
 
     [Fact]
@@ -545,6 +547,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(4m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
       Assert.Equal(8m, tree.Root.Right.Value);
+      Assert.Equal(4m, tree.Root.Right.Parent.Value);
     }
 
   }

@@ -300,17 +300,14 @@ namespace practicing_data_structures.data_structures.trees
       if(node.Parent.Left == node)
       {
         node.Parent.Left = node.Right;
-        return;
       }
 
       if(node.Parent.Right == node)
       {
         node.Parent.Right = node.Right;
-        return;
       }
 
-      // TODO: IMPLEMENT
-      throw new NotImplementedException();
+      node.Right.Parent = node.Parent;
     }
 
   }
