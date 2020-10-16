@@ -232,8 +232,9 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      //TODO
-      throw new NotImplementedException();
+      var maxOfLeftNode = FindMax(node.Left);
+      node.Value = maxOfLeftNode.Value;
+      Delete(node.Left, maxOfLeftNode.Value);
     }
 
     private void DeleteRootOrLeftOrRightNode(AVLTreeNode<T> node)

@@ -550,5 +550,28 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(4m, tree.Root.Right.Parent.Value);
     }
 
+    [Fact]
+    public void DeleteFarLeftNode()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(5m);
+      tree.Insert(4m);
+      
+      tree.Insert(6m);
+
+      tree.Insert(3m);
+      tree.Insert(4.5m);
+
+      // Act
+      tree.Delete(4m);
+
+      // Arrange
+      Assert.Equal(5m, tree.Root.Value);
+      Assert.Equal(6m, tree.Root.Right.Value);
+      Assert.Equal(3m, tree.Root.Left.Value);
+      Assert.Equal(4.5m, tree.Root.Left.Right.Value);
+    }
+
   }
 }
