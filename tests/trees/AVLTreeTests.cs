@@ -358,6 +358,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(5);
 
       // Assert
+      Assert.False(tree.Contains(5));
       Assert.Null(tree.Root);
     }
 
@@ -374,6 +375,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(4);
 
       // Assert
+      Assert.False(tree.Contains(4));
       Assert.NotNull(tree.Root);
       Assert.Null(tree.Root.Left);
     }
@@ -391,6 +393,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(6);
 
       // Assert
+      Assert.False(tree.Contains(6));
       Assert.NotNull(tree.Root);
       Assert.Null(tree.Root.Right);
     }
@@ -410,6 +413,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(3);
 
       // Assert
+      Assert.False(tree.Contains(3));
       Assert.NotNull(tree.Root);
       Assert.NotNull(tree.Root.Left);
       Assert.Null(tree.Root.Left.Left);
@@ -430,6 +434,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(7);
 
       // Assert
+      Assert.False(tree.Contains(7));
       Assert.NotNull(tree.Root);
       Assert.NotNull(tree.Root.Right);
       Assert.Null(tree.Root.Right.Right);
@@ -448,6 +453,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(4m);
 
       // Assert
+      Assert.False(tree.Contains(4m));
       Assert.Equal(3m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
       Assert.Equal(3.5m, tree.Root.Right.Value);
@@ -467,6 +473,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(4m);
 
       // Assert
+      Assert.False(tree.Contains(4m));
       Assert.Equal(5m, tree.Root.Value);
       Assert.Null(tree.Root.Right);
       Assert.Equal(3m, tree.Root.Left.Value);
@@ -488,6 +495,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(6m);
 
       // Assert
+      Assert.False(tree.Contains(6m));
       Assert.Equal(4m, tree.Root.Value);
       Assert.Equal(5m, tree.Root.Right.Value);
       Assert.Equal(4m, tree.Root.Right.Parent.Value);
@@ -507,6 +515,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(4m);
 
       // Assert
+      Assert.False(tree.Contains(4m));
       Assert.Equal(5m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
       Assert.Equal(6m, tree.Root.Right.Value);
@@ -526,6 +535,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(3m);
 
       // Assert
+      Assert.False(tree.Contains(3m));
       Assert.Equal(4m, tree.Root.Value);
       Assert.Equal(3.5m, tree.Root.Left.Value);
       Assert.Equal(4m, tree.Root.Left.Parent.Value);
@@ -544,6 +554,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(7m);
 
       // Assert
+      Assert.False(tree.Contains(7m));
       Assert.Equal(4m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
       Assert.Equal(8m, tree.Root.Right.Value);
@@ -567,6 +578,7 @@ namespace practicing_data_structures.tests.trees
       tree.Delete(4m);
 
       // Arrange
+      Assert.False(tree.Contains(4m));
       Assert.Equal(5m, tree.Root.Value);
       Assert.Equal(6m, tree.Root.Right.Value);
       Assert.Equal(3m, tree.Root.Left.Value);
