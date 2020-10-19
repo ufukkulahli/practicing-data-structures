@@ -511,10 +511,14 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(5m);
       tree.Insert(6m);
 
+      Assert.Equal(2, tree.Height());
+
       // Act
       tree.Delete(4m);
 
       // Assert
+      tree.RecomputeHeight(tree.Root);
+      Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(4m));
       Assert.Equal(5m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
@@ -531,10 +535,14 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(3m);             //     l(3)    r(null)
       tree.Insert(3.5m);           // l(null) r(3.5)
 
+      Assert.Equal(2, tree.Height());
+
       // Act
       tree.Delete(3m);
 
       // Assert
+      tree.RecomputeHeight(tree.Root);
+      Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(3m));
       Assert.Equal(4m, tree.Root.Value);
       Assert.Equal(3.5m, tree.Root.Left.Value);
@@ -550,10 +558,14 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(7m);             //   l(null)    r(7)
       tree.Insert(8m);             //        l(null)   r(8)
 
+      Assert.Equal(2, tree.Height());
+
       // Act
       tree.Delete(7m);
 
       // Assert
+      tree.RecomputeHeight(tree.Root);
+      Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(7m));
       Assert.Equal(4m, tree.Root.Value);
       Assert.Null(tree.Root.Left);
