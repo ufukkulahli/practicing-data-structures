@@ -175,43 +175,6 @@ namespace practicing_data_structures.data_structures.trees
       Delete(Root, value);
     }
 
-    public AVLTreeNode<T> Find2(T value)
-    {
-      return Find2(Root, value);
-    }
-
-    public AVLTreeNode<T> Find2(AVLTreeNode<T> node, T value)
-    {
-      var comparisonResult = node.Value.CompareTo(value);
-
-      if(comparisonResult<0)
-      {
-        if(node.Right==null)
-        {
-          throw new Exception("Item does not exist!");
-        }
-        
-        Find2(node.Right, value);
-      }
-
-      if(comparisonResult>0)
-      {
-        if(node.Left==null)
-        {
-          throw new Exception("Item does not exist!");
-        }
-        
-        Find2(node.Left, value);
-      }
-
-      if(comparisonResult==0)
-      {
-        return node;
-      }
-
-      throw new Exception("Something gone wrong!");
-    }
-
     public void Delete(AVLTreeNode<T> node, T value)
     {
       var comparisonResult = node.Value.CompareTo(value);
