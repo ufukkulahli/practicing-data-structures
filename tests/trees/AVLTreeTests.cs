@@ -194,6 +194,7 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       Assert.Equal("hello", tree.Root.Value);
+      Assert.Equal(0, tree.Height());
     }
 
     [Fact]
@@ -214,6 +215,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Left);
       Assert.Null(tree.Root.Right.Left);
       Assert.Null(tree.Root.Right.Right.Left);
+      Assert.Equal(2, tree.Height());
     }
 
     [Fact]
@@ -234,6 +236,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Right);
       Assert.Null(tree.Root.Left.Right);
       Assert.Null(tree.Root.Left.Left.Right);
+      Assert.Equal(2, tree.Height());
     }
 
     [Fact]
@@ -245,6 +248,7 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(3);
 
       // Act && Assert
+      Assert.Equal(1, tree.Height());
       Assert.Throws<System.Exception>( () => tree.Insert(3) );
     }
 
