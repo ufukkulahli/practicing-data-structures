@@ -7,6 +7,8 @@ namespace practicing_data_structures.data_structures.trees
     public string Identity => ToString();
     public T Value { get; set; }
     public int Height { get; set; }
+    public int LeftHeight => Left?.Height + 1 ?? 0;
+    public int RightHeight => Right?.Height + 1 ?? 0;
     public AVLTreeNode<T> Left { get; set; }
     public AVLTreeNode<T> Right { get; set; }
     public AVLTreeNode<T> Parent { get; set; }
