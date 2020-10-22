@@ -26,6 +26,18 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void BalanceFactorTest()
+    {
+      // Arrange
+      var left = new AVLTreeNode<int>();
+      var root = new AVLTreeNode<int>();
+      root.Left = left;
+
+      // Act & Assert
+      Assert.Equal(1, root.BalanceFactor);
+    }
+
+    [Fact]
     public void RightHeightTest()
     {
       // Arrange & Act & Assert
