@@ -129,28 +129,7 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if(node.Left!=null)
-      {
-        node.Left.Height = FindBiggest(node.Left);
-      }
-
-      if(node.Right!=null)
-      {
-        node.Right.Height = FindBiggest(node.Right);
-      }
-
-      node.Height = FindBiggest(node);
-
-    }
-
-    private int FindBiggest(AVLTreeNode<T> node)
-    {
-      return
-        Math.Max
-        (
-          node.Left?. Height + 1  ??  0,
-          node.Right?.Height + 1  ??  0
-        );
+      node.UpdateHeights();
     }
 
     public void RecomputeHeight(AVLTreeNode<T> node)

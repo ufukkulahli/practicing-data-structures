@@ -27,5 +27,31 @@ namespace practicing_data_structures.data_structures.trees
     public string Identity => ToString();
     
     public override string ToString() => $"Value:{Value?.ToString()}, Left:{Left?.Value?.ToString()}, Right:{Right?.Value?.ToString()}, Parent:{Parent?.Value?.ToString()}, Height:{Height.ToString()}";
+  
+    public void UpdateHeights()
+    {
+      if(Left!=null)
+      {
+        Left.Height = FindBiggest(Left);
+      }
+
+      if(Right!=null)
+      {
+        Right.Height = FindBiggest(Right);
+      }
+
+      this.Height = FindBiggest(this);
+    }
+
+    private int FindBiggest(AVLTreeNode<T> node)
+    {
+      return
+        Math.Max
+        (
+          node.Left?. Height + 1  ??  0,
+          node.Right?.Height + 1  ??  0
+        );
+    }
+
   }
 }
