@@ -9,6 +9,7 @@ namespace practicing_data_structures.data_structures.trees
 
     public void SetRoot(AVLTreeNode<T> root) => this.Root = root;
 
+    // TODO
     public int Count => 0;
 
     public int Height()
@@ -151,10 +152,10 @@ namespace practicing_data_structures.data_structures.trees
         throw new ArgumentNullException();
       }
 
-      Delete(Root, value);
+      FindNodeToBeDeleted(Root, value);
     }
 
-    public void Delete(AVLTreeNode<T> node, T value)
+    public void FindNodeToBeDeleted(AVLTreeNode<T> node, T value)
     {
       var comparisonResult = node.Value.CompareTo(value);
 
@@ -165,7 +166,7 @@ namespace practicing_data_structures.data_structures.trees
           throw new Exception("Item does not exist!");
         }
         
-        Delete(node.Right, value);
+        FindNodeToBeDeleted(node.Right, value);
         return;
       }
 
@@ -176,7 +177,7 @@ namespace practicing_data_structures.data_structures.trees
           throw new Exception("Item does not exist!");
         }
         
-        Delete(node.Left, value);
+        FindNodeToBeDeleted(node.Left, value);
         return;
       }
 
@@ -186,9 +187,7 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-
-      //TODO
-      throw new NotImplementedException();
+      throw new Exception("Should not reach here!");
     }
 
     private void Delete(AVLTreeNode<T> node)
@@ -213,7 +212,7 @@ namespace practicing_data_structures.data_structures.trees
 
       var maxOfLeftNode = FindMax(node.Left);
       node.Value = maxOfLeftNode.Value;
-      Delete(node.Left, maxOfLeftNode.Value);
+      FindNodeToBeDeleted(node.Left, maxOfLeftNode.Value);
     }
 
     private void DeleteRootOrLeftOrRightNode(AVLTreeNode<T> node)
@@ -236,7 +235,6 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      //TODO
       throw new Exception("Error when deleting the node!");
     }
 
