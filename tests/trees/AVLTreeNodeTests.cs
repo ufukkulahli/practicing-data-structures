@@ -26,18 +26,6 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void BalanceFactorTest()
-    {
-      // Arrange
-      var left = new AVLTreeNode<int>();
-      var root = new AVLTreeNode<int>();
-      root.Left = left;
-
-      // Act & Assert
-      Assert.Equal(1, root.BalanceFactor);
-    }
-
-    [Fact]
     public void RightHeightTest()
     {
       // Arrange & Act & Assert
@@ -56,6 +44,43 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(1, root.RightHeight);
     }
 
+    [Fact]
+    public void BalanceFactorForLeftHeavyTree()
+    {
+      // Arrange
+      var leftOfLeft = new AVLTreeNode<int>();
+      var left       = new AVLTreeNode<int>();
+      left.Left      = leftOfLeft;
+
+      var root       = new AVLTreeNode<int>();
+      root.Left      = left;
+
+      root.UpdateHeights();
+
+      // Act & Assert
+      Assert.Equal(2, root.BalanceFactor);
+      Assert.True(root.TreeIsLeftHeavy);
+      Assert.False(root.TreeIsRightHeavy);
+    }
+
+    [Fact]
+    public void BalanceFactorForRightHeavyTree()
+    {
+      // Arrange
+      var rightOfRight = new AVLTreeNode<int>();
+      var right        = new AVLTreeNode<int>();
+      right.Right      = rightOfRight;
+      
+      var root         = new AVLTreeNode<int>();
+      root.Right       = right;
+
+      root.UpdateHeights();
+
+      // Act & Assert
+      Assert.Equal(-2, root.BalanceFactor);
+      Assert.True(root.TreeIsRightHeavy);
+      Assert.False(root.TreeIsLeftHeavy);
+    }
 
   }
 }
