@@ -19,6 +19,16 @@ namespace practicing_data_structures.data_structures.trees
     public bool TreeIsLeftHeavy  => BalanceFactor >=  2;
     public bool TreeIsRightHeavy => BalanceFactor <= -2;
 
+    private int LeftOfLeftHeight      => Left?.Left?.Height + 1 ?? 0;
+    private int RightOfLeftHeight     => Left?.Right?.Height +1 ?? 0;
+    public bool LeftChildIsLeftHeavy  => LeftOfLeftHeight > RightOfLeftHeight;
+    public bool LeftChildIsRightHeavy => LeftOfLeftHeight <= RightOfLeftHeight;
+
+    private int LeftOfRightHeight      => Right?.Left?.Height +1 ?? 0;
+    private int RightOfRightHeight     => Right?.Right?.Height+1 ?? 0;
+    public bool RightChildIsRightHeavy => LeftOfRightHeight > RightOfRightHeight;
+    public bool RightChildIsLeftHeavy  => LeftOfRightHeight <= RightOfRightHeight;
+
     public bool IsRoot          => Parent == null;
     public bool IsLeaf          => Left == null && Right == null;
     public bool IsRightTreeNull => Left != null && Right == null;

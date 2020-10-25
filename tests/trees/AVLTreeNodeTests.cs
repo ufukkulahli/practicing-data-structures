@@ -61,6 +61,10 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, root.BalanceFactor);
       Assert.True(root.TreeIsLeftHeavy);
       Assert.False(root.TreeIsRightHeavy);
+      Assert.True(root.LeftChildIsLeftHeavy);
+      Assert.False(root.LeftChildIsRightHeavy);
+      Assert.False(root.RightChildIsRightHeavy);
+      Assert.True(root.RightChildIsLeftHeavy);
     }
 
     [Fact]
@@ -80,6 +84,11 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(-2, root.BalanceFactor);
       Assert.True(root.TreeIsRightHeavy);
       Assert.False(root.TreeIsLeftHeavy);
+
+      Assert.False(root.RightChildIsRightHeavy);
+      Assert.True(root.RightChildIsLeftHeavy);
+      Assert.False(root.LeftChildIsLeftHeavy);
+      Assert.True(root.LeftChildIsRightHeavy);
     }
 
   }
