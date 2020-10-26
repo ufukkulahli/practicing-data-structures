@@ -91,5 +91,11 @@ namespace practicing_data_structures.tests.trees
       Assert.True(root.LeftChildIsRightHeavy);
     }
 
+    [Fact]
+    public void DefaultCountTest()
+    {
+      Assert.Equal(1, new AVLTreeNode<int>().Count);
+    }
+
   }
 }

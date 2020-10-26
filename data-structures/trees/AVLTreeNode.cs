@@ -10,6 +10,11 @@ namespace practicing_data_structures.data_structures.trees
     public AVLTreeNode<T> Left   { get; set; }
     public AVLTreeNode<T> Right  { get; set; }
 
+    public int Count { get; set; } = 1;
+    private int LeftCount         => Left?.Count ?? 0;
+    private int RightCount        => Right?.Count ?? 0;
+    private int LeftAndRightCount => LeftCount + RightCount + 1; // + this.Count???
+
     public int Height { get; set; }
     
     public int LeftHeight    => Left?.Height + 1 ?? 0;
@@ -61,6 +66,17 @@ namespace practicing_data_structures.data_structures.trees
           node.Left?. Height + 1  ??  0,
           node.Right?.Height + 1  ??  0
         );
+    }
+
+    public void UpdateCounts()
+    {
+      var node = this;
+
+      while(node!=null)
+      {
+        node.Count = this.LeftAndRightCount;
+        node = node.Parent;
+      }
     }
 
   }
