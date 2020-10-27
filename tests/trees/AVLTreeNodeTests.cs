@@ -97,5 +97,30 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(1, new AVLTreeNode<int>().Count);
     }
 
+    [Fact]
+    public void CountTest()
+    {
+      // Arrange
+      var leftOfLeft = new AVLTreeNode<int>();
+      var left       = new AVLTreeNode<int>();
+      var root     = new AVLTreeNode<int>();
+
+      root.Value       = 5;
+      left.Value       = 4;
+      leftOfLeft.Value = 3;
+
+      left.Left = leftOfLeft;
+      root.Left = left;
+
+      leftOfLeft.Parent = left;
+      left.Parent       = root;
+
+      // Act
+      leftOfLeft.UpdateCounts();
+
+      // Assert
+      Assert.Equal(3, root.Count);
+    }
+
   }
 }

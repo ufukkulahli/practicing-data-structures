@@ -74,7 +74,7 @@ namespace practicing_data_structures.data_structures.trees
 
       while(node!=null)
       {
-        node.Count = this.LeftAndRightCount;
+        node.Count = node.LeftAndRightCount;
         node = node.Parent;
       }
     }
