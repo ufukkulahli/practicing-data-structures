@@ -195,6 +195,7 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal("hello", tree.Root.Value);
       Assert.Equal(0, tree.Height());
+      Assert.Equal(1, tree.Root.Count);
     }
 
     [Fact]
@@ -216,6 +217,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Right.Left);
       Assert.Null(tree.Root.Right.Right.Left);
       Assert.Equal(2, tree.Height());
+      Assert.Equal(3, tree.Root.Count);
     }
 
     [Fact]
@@ -237,6 +239,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(tree.Root.Left.Right);
       Assert.Null(tree.Root.Left.Left.Right);
       Assert.Equal(2, tree.Height());
+      Assert.Equal(3, tree.Root.Count);
     }
 
     [Fact]
@@ -599,6 +602,13 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(6m, tree.Root.Right.Value);
       Assert.Equal(3m, tree.Root.Left.Value);
       Assert.Equal(4.5m, tree.Root.Left.Right.Value);
+    }
+
+    [Fact]
+    public void BalanceTest()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
     }
 
   }

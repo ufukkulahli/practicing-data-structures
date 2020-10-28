@@ -99,6 +99,9 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       UpdateHeight(node);
+      // TODO
+      // Balance(node);
+      node.UpdateCounts();
     }
 
     private void InsertNodeToRight(AVLTreeNode<T> node, T value)
