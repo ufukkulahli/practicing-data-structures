@@ -525,7 +525,7 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4m);
       tree.Insert(5m);
       tree.Insert(6m);
-
+      Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
       // Act
@@ -533,6 +533,7 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       tree.RecomputeHeight(tree.Root);
+      Assert.Equal(2, tree.Count);
       Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(4m));
       Assert.Equal(5m, tree.Root.Value);
@@ -549,7 +550,7 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4m);             //         r(4)
       tree.Insert(3m);             //     l(3)    r(null)
       tree.Insert(3.5m);           // l(null) r(3.5)
-
+      Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
       // Act
@@ -557,6 +558,7 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       tree.RecomputeHeight(tree.Root);
+      Assert.Equal(2, tree.Count);
       Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(3m));
       Assert.Equal(4m, tree.Root.Value);
@@ -572,7 +574,7 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4m);             //         r(4)
       tree.Insert(7m);             //   l(null)    r(7)
       tree.Insert(8m);             //        l(null)   r(8)
-
+      Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
       // Act
@@ -580,6 +582,7 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       tree.RecomputeHeight(tree.Root);
+      Assert.Equal(2, tree.Count);
       Assert.Equal(1, tree.Height());
       Assert.False(tree.Contains(7m));
       Assert.Equal(4m, tree.Root.Value);
