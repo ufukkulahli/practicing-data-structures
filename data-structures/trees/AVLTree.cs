@@ -207,6 +207,9 @@ namespace practicing_data_structures.data_structures.trees
       if(node.IsRightTreeNull)
       {
         PerformDeleteWhenRightTreeIsNull(node);
+        node.UpdateCounts();
+        //node.UpdateHeights();
+        // Balance(node);
         return;
       }
 
