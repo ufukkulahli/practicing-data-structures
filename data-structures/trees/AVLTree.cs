@@ -300,5 +300,14 @@ namespace practicing_data_structures.data_structures.trees
       node.Right.Parent = node.Parent;
     }
 
+    public void RightRotate(AVLTreeNode<T> node)
+    {
+      var previousRoot   = node;
+      var leftRightChild = previousRoot.Left.Right;
+      var newRoot        = node.Left;
+      
+      // TODO: WRITE TEST, CASE 1
+      previousRoot.Left.Parent = previousRoot.Parent;
+    }
   }
 }
