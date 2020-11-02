@@ -39,6 +39,9 @@ namespace practicing_data_structures.data_structures.trees
     public bool IsRightTreeNull => Left != null && Right == null;
     public bool IsLeftTreeNull  => Left == null && Right != null;
 
+    public bool IsLeftChild =>  Parent!=null && Parent.Left==this;
+    public bool IsRightChild => Parent!=null && Parent.Right==this;
+
     public string Identity => ToString();
     
     public override string ToString() => $"Value:{Value?.ToString()}, Left:{Left?.Value?.ToString()}, Right:{Right?.Value?.ToString()}, Parent:{Parent?.Value?.ToString()}, Height:{Height.ToString()}";

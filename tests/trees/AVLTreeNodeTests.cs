@@ -122,5 +122,45 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, root.Count);
     }
 
+    [Fact]
+    public void NodeIsNotLeftChild()
+    {
+      Assert.False(new AVLTreeNode<int>().IsLeftChild);
+    }
+
+    [Fact]
+    public void NodeIsLeftChild()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<int>();
+      var left  = new AVLTreeNode<int>();
+
+      left.Parent = parent;
+      parent.Left = left;
+
+      // Act & Assert
+      Assert.True(left.IsLeftChild);
+    }
+
+    [Fact]
+    public void NodeIsNotRightChild()
+    {
+      Assert.False(new AVLTreeNode<int>().IsRightChild);
+    }
+
+    [Fact]
+    public void NodeIsRightChild()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<int>();
+      var right  = new AVLTreeNode<int>();
+
+      right.Parent = parent;
+      parent.Right = right;
+
+      // Act & Assert
+      Assert.True(right.IsRightChild);
+    }
+
   }
 }
