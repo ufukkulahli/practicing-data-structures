@@ -303,11 +303,44 @@ namespace practicing_data_structures.data_structures.trees
     public void RightRotate(AVLTreeNode<T> node)
     {
       var previousRoot   = node;
-      var leftRightChild = previousRoot.Left.Right;
       var newRoot        = node.Left;
+      var leftRightChild = previousRoot.Left.Right;
       
       // TODO: WRITE TEST, CASE 1
       previousRoot.Left.Parent = previousRoot.Parent;
+
+      if(previousRoot.Parent != null)
+      {
+        if(previousRoot.IsLeftChild)
+        {
+          previousRoot.Parent.Left = previousRoot.Left;
+        }
+        if(previousRoot.IsRightChild)
+        {
+          previousRoot.Parent.Right = previousRoot.Left;
+        }
+      }
+
+      newRoot.Right       = previousRoot;
+      previousRoot.Parent = newRoot;
+      newRoot.Right.Left  = leftRightChild;
+
+      if(newRoot.Right.Left!=null)
+      {
+        newRoot.Right.Left = newRoot.Right;
+      }
+
+      UpdateHeight(newRoot);
+      newRoot.Left.UpdateCounts();
+      newRoot.Right.UpdateCounts();
+      newRoot.UpdateCounts();
+
+      if(previousRoot==this.Root)
+      {
+        this.Root = newRoot;
+      }
+
     }
+
   }
 }
