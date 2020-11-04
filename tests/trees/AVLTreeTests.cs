@@ -625,32 +625,17 @@ namespace practicing_data_structures.tests.trees
     public void RightRotateTest()
     {
       // Arrange
-      var parentOfRoot = new AVLTreeNode<int>();
-
-      var root  = new AVLTreeNode<int>();
-      var left  = new AVLTreeNode<int>();
-      var right = new AVLTreeNode<int>();
-
-      parentOfRoot.Value = 5;
-      root.Value = 4;
-      left.Value = 3;
-      right.Value= 2;
-
-      left.Parent = root;
-
-      left.Right  = right;
-      root.Left   = left;
-      root.Parent = parentOfRoot;
-      parentOfRoot.Left = root; //todo, will be right in other case
-
-      var tree = new AVLTree<int>();
+      var tree = new AVLTree<decimal>();
+      tree.Insert(5m);            //       5
+      tree.Insert(4m);            //     4   n
+      tree.Insert(3m);            //   3   n
 
       // Act
-      //tree.RightRotate(root);
+      //tree.RightRotate(tree.Root.Left);
 
       // Assert
       // TODO
-      Assert.Throws<System.NullReferenceException>( () => tree.RightRotate(root) );
+      Assert.Throws<System.NullReferenceException>( () => tree.RightRotate(tree.Root.Left) );
     }
 
     [Fact]
