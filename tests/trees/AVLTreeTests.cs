@@ -628,14 +628,19 @@ namespace practicing_data_structures.tests.trees
       var tree = new AVLTree<decimal>();
       tree.Insert(5m);            //       5
       tree.Insert(4m);            //     4   n
-      tree.Insert(3m);            //   3   n
+      tree.Insert(3m);            //   3  4.5
+      tree.Insert(4.5m);
 
       // Act
-      //tree.RightRotate(tree.Root.Left);
+      tree.RightRotate(tree.Root.Left);
 
       // Assert
-      // TODO
-      Assert.Throws<System.NullReferenceException>( () => tree.RightRotate(tree.Root.Left) );
+      Assert.Equal(5m   , tree.Root.Value);
+      Assert.Equal(null , tree.Root.Right);
+      Assert.Equal(3m   , tree.Root.Left.Value);
+      Assert.Equal(null , tree.Root.Left.Left);
+      Assert.Equal(4m   , tree.Root.Left.Right.Value);
+      Assert.Equal(4.5m , tree.Root.Left.Right.Right.Value);
     }
 
     [Fact]
