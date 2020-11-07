@@ -634,6 +634,12 @@ namespace practicing_data_structures.tests.trees
       // Act
       tree.RightRotate(tree.Root.Left);
 
+      // should be
+      //      5
+      //    3   n
+      //  n   4
+      //     n 4.5
+
       // Assert
       Assert.Equal(5m   , tree.Root.Value);
       Assert.Equal(null , tree.Root.Right);
@@ -650,8 +656,9 @@ namespace practicing_data_structures.tests.trees
       var tree = new AVLTree<decimal>();
       tree.Insert(4m);         //     4
       tree.Insert(6m);         //  n     6
-      tree.Insert(5m);         //     5     n
-      tree.Insert(5.5m);       //      5.5
+      tree.Insert(5m);         //     5    6.5
+      tree.Insert(6.5m);       //      5.5
+      tree.Insert(5.5m);
 
       // Act
       tree.RightRotate(tree.Root.Right);
@@ -659,11 +666,17 @@ namespace practicing_data_structures.tests.trees
       // should be
       //     4
       //  n     5
+      //      n    6
+      //        5.5 6.5
 
       // Assert
       Assert.Equal(4m   , tree.Root.Value);
       Assert.Equal(null , tree.Root.Left);
       Assert.Equal(5m   , tree.Root.Right.Value);
+      Assert.Equal(null , tree.Root.Right.Left);
+      Assert.Equal(6m   , tree.Root.Right.Right.Value);
+      Assert.Equal(6.5m , tree.Root.Right.Right.Right.Value);
+      Assert.Equal(5.5m , tree.Root.Right.Right.Left.Value);
     }
 
     [Fact]

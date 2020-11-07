@@ -327,7 +327,7 @@ namespace practicing_data_structures.data_structures.trees
 
       if(newRoot.Right.Left!=null)
       {
-        newRoot.Right.Left = newRoot.Right;
+        newRoot.Right.Left.Parent = newRoot.Right;
       }
 
       UpdateHeight(newRoot);
