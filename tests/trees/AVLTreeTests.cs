@@ -622,7 +622,7 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void RightRotateTest()
+    public void RightRotateWhenNodeIsLeftChild()
     {
       // Arrange
       var tree = new AVLTree<decimal>();
@@ -655,9 +655,9 @@ namespace practicing_data_structures.tests.trees
       // Arrange
       var tree = new AVLTree<decimal>();
       tree.Insert(4m);         //     4
-      tree.Insert(6m);         //  n     6
-      tree.Insert(5m);         //     5    6.5
-      tree.Insert(6.5m);       //      5.5
+      tree.Insert(6m);         //  n      6
+      tree.Insert(5m);         //      5     6.5
+      tree.Insert(6.5m);       //     n 5.5
       tree.Insert(5.5m);
 
       // Act
