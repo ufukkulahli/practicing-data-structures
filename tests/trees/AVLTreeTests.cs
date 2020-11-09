@@ -629,21 +629,22 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4m);            //     4
       tree.Insert(3m);            //   3  4.5
       tree.Insert(4.5m);
+      tree.Insert(2m);
 
       // Act
       tree.RightRotate(tree.Root);
 
       // should be
       //    3
-      //  n   4
+      //  2   4
       //     n 4.5
 
       // Assert
       Assert.Equal(3m   , tree.Root.Value);
-      Assert.Equal(null , tree.Root.Left);
+      Assert.Equal(2m   , tree.Root.Left.Value);
       Assert.Equal(4m   , tree.Root.Right.Value);
       Assert.Equal(null , tree.Root.Right.Left);
-      Assert.Equal(4.5m   , tree.Root.Right.Right.Value);
+      Assert.Equal(4.5m , tree.Root.Right.Right.Value);
     }
 
     [Fact]
@@ -654,7 +655,8 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(5m);            //       5
       tree.Insert(4m);            //     4   n
       tree.Insert(3m);            //   3  4.5
-      tree.Insert(4.5m);
+      tree.Insert(4.5m);          //  2 n
+      tree.Insert(2m);
 
       // Act
       tree.RightRotate(tree.Root.Left);
@@ -662,14 +664,14 @@ namespace practicing_data_structures.tests.trees
       // should be
       //      5
       //    3   n
-      //  n   4
+      //  2   4
       //     n 4.5
 
       // Assert
       Assert.Equal(5m   , tree.Root.Value);
       Assert.Equal(null , tree.Root.Right);
       Assert.Equal(3m   , tree.Root.Left.Value);
-      Assert.Equal(null , tree.Root.Left.Left);
+      Assert.Equal(2m   , tree.Root.Left.Left.Value);
       Assert.Equal(4m   , tree.Root.Left.Right.Value);
       Assert.Equal(4.5m , tree.Root.Left.Right.Right.Value);
     }
@@ -682,8 +684,9 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4m);         //     4
       tree.Insert(6m);         //  n      6
       tree.Insert(5m);         //      5     6.5
-      tree.Insert(6.5m);       //     n 5.5
+      tree.Insert(6.5m);       //   4.5 5.5
       tree.Insert(5.5m);
+      tree.Insert(4.5m);
 
       // Act
       tree.RightRotate(tree.Root.Right);
@@ -691,14 +694,14 @@ namespace practicing_data_structures.tests.trees
       // should be
       //     4
       //  n     5
-      //      n    6
+      //    4.5    6
       //        5.5 6.5
 
       // Assert
       Assert.Equal(4m   , tree.Root.Value);
       Assert.Equal(null , tree.Root.Left);
       Assert.Equal(5m   , tree.Root.Right.Value);
-      Assert.Equal(null , tree.Root.Right.Left);
+      Assert.Equal(4.5m , tree.Root.Right.Left.Value);
       Assert.Equal(6m   , tree.Root.Right.Right.Value);
       Assert.Equal(6.5m , tree.Root.Right.Right.Right.Value);
       Assert.Equal(5.5m , tree.Root.Right.Right.Left.Value);

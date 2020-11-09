@@ -331,7 +331,7 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       UpdateHeight(newRoot);
-      newRoot.Left?.UpdateCounts(); //TODO: NULLABLE?
+      newRoot.Left.UpdateCounts();
       newRoot.Right.UpdateCounts();
       newRoot.UpdateCounts();
 
