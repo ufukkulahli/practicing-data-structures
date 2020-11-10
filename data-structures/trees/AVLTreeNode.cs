@@ -34,6 +34,7 @@ namespace practicing_data_structures.data_structures.trees
     public bool RightChildIsRightHeavy => LeftOfRightHeight > RightOfRightHeight;
     public bool RightChildIsLeftHeavy  => LeftOfRightHeight <= RightOfRightHeight;
 
+    public bool HasParent       => Parent != null;
     public bool IsRoot          => Parent == null;
     public bool IsLeaf          => Left == null && Right == null;
     public bool IsRightTreeNull => Left != null && Right == null;

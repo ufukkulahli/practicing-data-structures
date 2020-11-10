@@ -162,5 +162,26 @@ namespace practicing_data_structures.tests.trees
       Assert.True(right.IsRightChild);
     }
 
+    [Fact]
+    public void NodeDoesNotHaveParent()
+    {
+      // Arrange & Act & Assert
+      Assert.False(new AVLTreeNode<int>().HasParent);
+    }
+
+    [Fact]
+    public void NodeHasParent()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<int>();
+      var right  = new AVLTreeNode<int>();
+
+      right.Parent = parent;
+      parent.Right = right;
+
+      // Act & Assert
+      Assert.True(right.HasParent);
+    }
+
   }
 }
