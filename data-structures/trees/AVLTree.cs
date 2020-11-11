@@ -342,5 +342,45 @@ namespace practicing_data_structures.data_structures.trees
 
     }
 
+    public void LeftRotate(AVLTreeNode<T> node)
+    {
+      var previousRoot   = node;
+      var rightLeftChild = previousRoot.Right.Left;
+      var newRoot        = node.Right;
+
+      previousRoot.Right.Parent = previousRoot.Parent;
+
+      if(previousRoot.HasParent)
+      {
+        if(previousRoot.IsLeftChild)
+        {
+          previousRoot.Parent.Left = previousRoot.Right;
+        }
+        if(previousRoot.IsRightChild)
+        {
+          previousRoot.Parent.Right = previousRoot.Right;
+        }
+      }
+
+      newRoot.Left        = previousRoot;
+      previousRoot.Parent = newRoot;
+      newRoot.Left.Right  = rightLeftChild;
+
+      if(newRoot.Left.Right != null)
+      {
+        newRoot.Left.Right.Parent = newRoot.Left;
+      }
+
+      UpdateHeight(newRoot);
+      newRoot.Left.UpdateCounts();
+      newRoot.Right?.UpdateCounts();
+      newRoot.UpdateCounts();
+
+      if(previousRoot==this.Root)
+      {
+        this.Root = newRoot;
+      }
+    }
+
   }
 }
