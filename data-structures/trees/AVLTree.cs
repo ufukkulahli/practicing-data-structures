@@ -373,7 +373,7 @@ namespace practicing_data_structures.data_structures.trees
 
       UpdateHeight(newRoot);
       newRoot.Left.UpdateCounts();
-      newRoot.Right?.UpdateCounts();
+      newRoot.Right.UpdateCounts();
       newRoot.UpdateCounts();
 
       if(previousRoot==this.Root)
