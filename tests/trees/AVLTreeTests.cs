@@ -734,6 +734,36 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3m   , tree.Root.Left.Left.Value);
       Assert.Equal(2m   , tree.Root.Left.Left.Left.Value);
     }
+
+    [Fact]
+    public void LeftRotateWhenNodeIsLeftChild()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(4m);            //      4
+      tree.Insert(3m);            //    3   n
+      tree.Insert(2m);            //  2  3.5
+      tree.Insert(3.5m);          //     n 3.7 
+      tree.Insert(3.7m);
+
+      // Act
+      tree.LeftRotate(tree.Root.Left);
+
+      // should be
+      //       4
+      //   3.5   n
+      //  3  3.7
+      // 2 n
+
+      // Assert
+      Assert.Equal(4m   , tree.Root.Value);
+      Assert.Equal(null , tree.Root.Right);
+      Assert.Equal(3.5m , tree.Root.Left.Value);
+      Assert.Equal(3.7m , tree.Root.Left.Right.Value);
+      Assert.Equal(3m   , tree.Root.Left.Left.Value);
+      Assert.Equal(2m   , tree.Root.Left.Left.Left.Value);
+    }
+
     [Fact]
     public void BalanceTest()
     {
