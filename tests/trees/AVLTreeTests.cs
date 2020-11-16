@@ -806,10 +806,16 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void BalanceTest()
+    public void Balance_When_TreeIsLeftHeavy_And_LeftChildIsLeftHeavy()
     {
-      // Arrange
-      var tree = new AVLTree<decimal>();
+      // Arrange & Act & Assert
+      var tree = new AVLTree<int>();
+      tree.Insert(5);
+      tree.Insert(4);
+      tree.Insert(6);
+
+      // Act & Assert
+      Assert.Throws<System.NotImplementedException>( () => tree.Balance(tree.Root) );
     }
 
   }
