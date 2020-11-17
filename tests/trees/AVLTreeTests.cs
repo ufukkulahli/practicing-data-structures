@@ -808,14 +808,29 @@ namespace practicing_data_structures.tests.trees
     [Fact]
     public void Balance_When_TreeIsLeftHeavy_And_LeftChildIsLeftHeavy()
     {
-      // Arrange & Act & Assert
+      // Arrange
       var tree = new AVLTree<int>();
+      tree.Insert(9);         //       9
+      tree.Insert(10);        //     7   10
+      tree.Insert(7);         //    6 n
+      tree.Insert(6);         //   5 n
       tree.Insert(5);
-      tree.Insert(4);
-      tree.Insert(6);
 
-      // Act & Assert
-      Assert.Throws<System.NotImplementedException>( () => tree.Balance(tree.Root) );
+      // Act
+      tree.Balance(tree.Root);
+
+      // should be
+      //      7
+      //    6    9
+      //   5 n  n 10
+
+      // Assert
+      Assert.Equal(7 , tree.Root.Value);
+      Assert.Equal(9 , tree.Root.Right.Value);
+      Assert.Equal(10, tree.Root.Right.Right.Value);
+
+      Assert.Equal(6, tree.Root.Left.Value);
+      Assert.Equal(5, tree.Root.Left.Left.Value);
     }
 
   }
