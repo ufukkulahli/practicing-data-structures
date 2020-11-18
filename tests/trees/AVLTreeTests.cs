@@ -833,5 +833,30 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, tree.Root.Left.Left.Value);
     }
 
+    [Fact]
+    public void Balance_When_TreeIsLeftHeavy_And_LeftChildIsRightHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(14);        //       14
+      tree.Insert(15);        //     7    15
+      tree.Insert(7);         //    n 8
+      tree.Insert(8);         //     n 9
+      tree.Insert(9);
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // should be
+      //       8
+      //    7    14
+      //   5 n  9 15
+
+      // Assert
+      Assert.Equal(8 , tree.Root.Value);
+      Assert.Equal(14, tree.Root.Right.Value);
+      Assert.Equal(15, tree.Root.Right.Right.Value);
+    }
+
   }
 }

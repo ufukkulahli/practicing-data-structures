@@ -316,9 +316,8 @@ namespace practicing_data_structures.data_structures.trees
 
         if(node.LeftChildIsRightHeavy)
         {
-          // TODO;
-          // LeftRotate(node.Left);
-          // RightRotate(node);
+          LeftRotate(node.Left);
+          RightRotate(node);
         }
       }
 
