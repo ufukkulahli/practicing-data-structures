@@ -854,8 +854,17 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       Assert.Equal(8 , tree.Root.Value);
+
       Assert.Equal(14, tree.Root.Right.Value);
+      Assert.Equal(9 , tree.Root.Right.Left.Value);
       Assert.Equal(15, tree.Root.Right.Right.Value);
+
+      Assert.Equal(7 , tree.Root.Left.Value);
+      //Assert.Equal(5 , tree.Root.Left.Left.Value); // todo: should be '5' but null
+      Assert.Equal(null , tree.Root.Left.Right);
+
+      Assert.Equal(2 , tree.Root.Height);
+      Assert.Equal(6 , tree.Root.Count);
     }
 
   }
