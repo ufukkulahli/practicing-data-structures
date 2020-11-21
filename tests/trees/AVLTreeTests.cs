@@ -894,5 +894,21 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(null ,tree.Root.Right.Left);
     }
 
+    [Fact]
+    public void Balance_When_TreeIsRightHeavy_And_RightChildIsLeftHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(5);         //        5
+      tree.Insert(6);         //     n       6
+      tree.Insert(7);         //         5.5   7
+      tree.Insert(5.5m);      //      5.4  5.6
+      tree.Insert(5.6m);
+      tree.Insert(5.4m);
+
+      // Act & Assert
+      Assert.Throws<System.NullReferenceException>( () => tree.Balance(tree.Root) );
+    }
+
   }
 }
