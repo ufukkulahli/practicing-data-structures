@@ -899,15 +899,30 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(5);         //        5
+      tree.Insert(5);         //         5
       tree.Insert(6);         //     n       6
       tree.Insert(7);         //         5.5   7
-      tree.Insert(5.5m);      //      5.4  5.6
-      tree.Insert(5.6m);
+      tree.Insert(8);         //       5.4  n    8
+      tree.Insert(9);         //                  9
+      tree.Insert(5.5m);
       tree.Insert(5.4m);
 
-      // Act & Assert
-      Assert.Throws<System.NullReferenceException>( () => tree.Balance(tree.Root) );
+      // should be
+      //       5.5
+      //     5     6
+      //   n 5.4  n 7
+      //             8
+      //              9
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // Assert
+      Assert.Equal(5.5m, tree.Root.Value);
+
+      Assert.Equal(5,    tree.Root.Left.Value);
+
+      Assert.Equal(6m,   tree.Root.Right.Value);
     }
 
   }
