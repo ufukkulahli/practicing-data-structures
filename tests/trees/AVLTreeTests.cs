@@ -850,7 +850,7 @@ namespace practicing_data_structures.tests.trees
       // should be
       //       8
       //    7    14
-      //   5 n  9 15
+      //   n n  9 15
 
       // Assert
       Assert.Equal(8 , tree.Root.Value);
@@ -860,11 +860,11 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(15, tree.Root.Right.Right.Value);
 
       Assert.Equal(7 , tree.Root.Left.Value);
-      //Assert.Equal(5 , tree.Root.Left.Left.Value); // todo: should be '5' but null
+      Assert.Equal(null , tree.Root.Left.Left);
       Assert.Equal(null , tree.Root.Left.Right);
 
       Assert.Equal(2 , tree.Root.Height);
-      Assert.Equal(6 , tree.Root.Count);
+      Assert.Equal(5 , tree.Root.Count);
     }
 
     [Fact]
