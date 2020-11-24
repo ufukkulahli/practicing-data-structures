@@ -831,6 +831,9 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(6, tree.Root.Left.Value);
       Assert.Equal(5, tree.Root.Left.Left.Value);
+
+      Assert.Equal(2,    tree.Root.Height);
+      Assert.Equal(5,    tree.Root.Count);
     }
 
     [Fact]
@@ -892,6 +895,9 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(7    ,tree.Root.Right.Value);
       Assert.Equal(null ,tree.Root.Right.Right);
       Assert.Equal(null ,tree.Root.Right.Left);
+
+      Assert.Equal(3,    tree.Root.Height);
+      Assert.Equal(5,    tree.Root.Count);
     }
 
     [Fact]
@@ -928,6 +934,9 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(7m,   tree.Root.Right.Right.Value);
       Assert.Equal(8m,   tree.Root.Right.Right.Right.Value);
       Assert.Equal(9m,   tree.Root.Right.Right.Right.Right.Value);
+
+      Assert.Equal(4,    tree.Root.Height);
+      Assert.Equal(7,    tree.Root.Count);
     }
 
   }
