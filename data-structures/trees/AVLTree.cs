@@ -9,7 +9,6 @@ namespace practicing_data_structures.data_structures.trees
 
     public void SetRoot(AVLTreeNode<T> root) => this.Root = root;
 
-    // TODO
     public int Count => Root == null ? 0 : Root.Count;
 
     public int Height()
@@ -344,7 +343,7 @@ namespace practicing_data_structures.data_structures.trees
 
       previousRoot.Left.Parent = previousRoot.Parent;
 
-      if(previousRoot.Parent != null)
+      if(previousRoot.Parent.HasParent)
       {
         if(previousRoot.IsLeftChild)
         {
