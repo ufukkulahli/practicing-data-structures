@@ -868,6 +868,9 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(2 , tree.Root.Height);
       Assert.Equal(5 , tree.Root.Count);
+
+      Assert.Equal(false,tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(true, tree.Root.TreeIsRightHeavy);
     }
 
     [Fact]
@@ -898,6 +901,9 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(3,    tree.Root.Height);
       Assert.Equal(5,    tree.Root.Count);
+
+      Assert.Equal(true, tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(false,tree.Root.TreeIsRightHeavy);
     }
 
     [Fact]
@@ -937,6 +943,9 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(4,    tree.Root.Height);
       Assert.Equal(7,    tree.Root.Count);
+
+      Assert.Equal(false,tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(true, tree.Root.TreeIsRightHeavy);
     }
 
   }
