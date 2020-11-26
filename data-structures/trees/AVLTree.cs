@@ -343,7 +343,7 @@ namespace practicing_data_structures.data_structures.trees
 
       previousRoot.Left.Parent = previousRoot.Parent;
 
-      if(previousRoot.Parent.HasParent)
+      if(previousRoot.HasParent)
       {
         if(previousRoot.IsLeftChild)
         {
