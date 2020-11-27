@@ -313,21 +313,21 @@ namespace practicing_data_structures.data_structures.trees
           RightRotate(node);
         }
 
-        if(node.LeftChildIsRightHeavy)
+        else if(node.LeftChildIsRightHeavy)
         {
           LeftRotate(node.Left);
           RightRotate(node);
         }
       }
 
-      if(node.TreeIsRightHeavy)
+      else if(node.TreeIsRightHeavy)
       {
         if(node.RightChildIsRightHeavy)
         {
           LeftRotate(node);
         }
 
-        if(node.RightChildIsLeftHeavy)
+        else if(node.RightChildIsLeftHeavy)
         {
           RightRotate(node.Right);
           LeftRotate(node);
