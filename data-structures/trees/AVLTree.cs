@@ -99,7 +99,7 @@ namespace practicing_data_structures.data_structures.trees
 
       UpdateHeight(node);
       // TODO
-      // Balance(node);
+      Balance(node);
       node.UpdateCounts();
     }
 

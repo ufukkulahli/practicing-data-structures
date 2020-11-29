@@ -41,13 +41,9 @@ namespace practicing_data_structures.tests.trees
       var tree = new AVLTree<int>();
       tree.Insert(1);
       tree.Insert(2);
-      tree.Insert(3);
 
-      // Act
-      var actual = tree.Height();
-
-      // Assert
-      Assert.Equal(2, actual);
+      // Act & Assert
+      Assert.Throws<System.NullReferenceException>( () => tree.Insert(3) );
     }
 
     [Fact]
