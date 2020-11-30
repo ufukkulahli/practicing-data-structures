@@ -35,15 +35,20 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void HeightTest3()
+    public void InsertWhileBalancing()
     {
       // Arrange
       var tree = new AVLTree<int>();
+
+      // Assert
       tree.Insert(1);
       tree.Insert(2);
+      tree.Insert(3);
 
-      // Act & Assert
-      Assert.Throws<System.NullReferenceException>( () => tree.Insert(3) );
+      // Assert
+      Assert.Equal(2, tree.Root.Value);
+      Assert.Equal(1, tree.Root.Left.Value);
+      Assert.Equal(3, tree.Root.Right.Value);
     }
 
     [Fact]

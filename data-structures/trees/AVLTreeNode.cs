@@ -31,8 +31,8 @@ namespace practicing_data_structures.data_structures.trees
 
     private int LeftOfRightHeight      => Right?.Left?.Height +1 ?? 0;
     private int RightOfRightHeight     => Right?.Right?.Height+1 ?? 0;
-    public bool RightChildIsRightHeavy => LeftOfRightHeight > RightOfRightHeight;
-    public bool RightChildIsLeftHeavy  => LeftOfRightHeight <= RightOfRightHeight;
+    public bool RightChildIsRightHeavy => RightOfRightHeight > LeftOfRightHeight;
+    public bool RightChildIsLeftHeavy  => LeftOfRightHeight > RightOfRightHeight;
 
     public bool HasParent       => Parent != null;
     public bool IsRoot          => Parent == null;
