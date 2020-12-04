@@ -250,13 +250,10 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(2);
 
       // Assert
-      Assert.Equal(4, tree.Root.Value);
-      Assert.Equal(3, tree.Root.Left.Value);
-      Assert.Equal(2, tree.Root.Left.Left.Value);
-      Assert.Null(tree.Root.Right);
-      Assert.Null(tree.Root.Left.Right);
-      Assert.Null(tree.Root.Left.Left.Right);
-      Assert.Equal(2, tree.Height());
+      Assert.Equal(3, tree.Root.Value);
+      Assert.Equal(2, tree.Root.Left.Value);
+      Assert.Equal(4, tree.Root.Right.Value);
+      Assert.Equal(1, tree.Height());
       Assert.Equal(3, tree.Root.Count);
     }
 
