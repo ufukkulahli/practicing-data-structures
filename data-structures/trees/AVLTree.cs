@@ -67,7 +67,7 @@ namespace practicing_data_structures.data_structures.trees
       return next;
     }
 
-    public void Insert(T value)
+    public void Insert(T value, bool balanceWhileInserting=true)
     {
       if(Root == null)
       {
@@ -75,10 +75,10 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      Insert(Root, value);
+      Insert(Root, value, balanceWhileInserting);
     }
 
-    public void Insert(AVLTreeNode<T> node, T value)
+    public void Insert(AVLTreeNode<T> node, T value, bool balanceWhileInserting=true)
     {
       var comparisonResult = node.Value.CompareTo(value);
 
@@ -98,8 +98,12 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       UpdateHeight(node);
-      // TODO
-      Balance(node);
+
+      if(balanceWhileInserting)
+      {
+        Balance(node);
+      }
+
       node.UpdateCounts();
     }
 
