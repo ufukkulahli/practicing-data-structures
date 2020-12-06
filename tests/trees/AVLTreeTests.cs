@@ -204,58 +204,6 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(actual.Left);
     }
 
-    [Fact]
-    public void InsertTest()
-    {
-      // Arrange
-      var tree = new AVLTree<string>();
-
-      // Act
-      tree.Insert("hello");
-
-      // Assert
-      Assert.Equal("hello", tree.Root.Value);
-      Assert.Equal(0, tree.Height());
-      Assert.Equal(1, tree.Root.Count);
-    }
-
-    [Fact]
-    public void InsertRightSideOfTree()
-    {
-      // Arrange
-      var tree = new AVLTree<int>();
-
-      // Act
-      tree.Insert(4);
-      tree.Insert(5);
-      tree.Insert(6);
-
-      // Assert
-      Assert.Equal(5, tree.Root.Value);
-      Assert.Equal(4, tree.Root.Left.Value);
-      Assert.Equal(6, tree.Root.Right.Value);
-      Assert.Equal(1, tree.Height());
-      Assert.Equal(3, tree.Root.Count);
-    }
-
-    [Fact]
-    public void InsertLeftSideOfTree()
-    {
-      // Arrange
-      var tree = new AVLTree<int>();
-
-      // Act
-      tree.Insert(4);
-      tree.Insert(3);
-      tree.Insert(2);
-
-      // Assert
-      Assert.Equal(3, tree.Root.Value);
-      Assert.Equal(2, tree.Root.Left.Value);
-      Assert.Equal(4, tree.Root.Right.Value);
-      Assert.Equal(1, tree.Height());
-      Assert.Equal(3, tree.Root.Count);
-    }
 
     [Fact]
     public void NodeAlreadyExistsTest()
