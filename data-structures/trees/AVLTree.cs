@@ -84,12 +84,12 @@ namespace practicing_data_structures.data_structures.trees
 
       if(comparisonResult < 0)
       {
-        InsertNodeToRight(node, value);
+        InsertNodeToRight(node, value, balanceWhileInserting);
       }
 
       if(comparisonResult > 0)
       {
-        InsertNodeToLeft(node, value);
+        InsertNodeToLeft(node, value, balanceWhileInserting);
       }
 
       if(comparisonResult == 0)
@@ -107,7 +107,7 @@ namespace practicing_data_structures.data_structures.trees
       node.UpdateCounts();
     }
 
-    private void InsertNodeToRight(AVLTreeNode<T> node, T value)
+    private void InsertNodeToRight(AVLTreeNode<T> node, T value, bool balanceWhileInserting=true)
     {
       if (node.Right == null)
       {
@@ -115,10 +115,10 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      Insert(node.Right, value);
+      Insert(node.Right, value, balanceWhileInserting);
     }
 
-    private void InsertNodeToLeft(AVLTreeNode<T> node, T value)
+    private void InsertNodeToLeft(AVLTreeNode<T> node, T value, bool balanceWhileInserting=true)
     {
       if (node.Left == null)
       {
@@ -126,7 +126,7 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      Insert(node.Left, value);
+      Insert(node.Left, value, balanceWhileInserting);
     }
 
     public void UpdateHeight(AVLTreeNode<T> node)

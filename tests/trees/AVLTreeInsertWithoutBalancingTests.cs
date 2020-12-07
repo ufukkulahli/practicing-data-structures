@@ -65,5 +65,148 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, tree.Root.Count);
     }
 
+    [Fact]
+    public void Balance_When_TreeIsLeftHeavy_And_LeftChildIsLeftHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(9, false);         //       9
+      tree.Insert(10, false);        //     7   10
+      tree.Insert(7, false);         //    6 n
+      tree.Insert(6, false);         //   5 n
+      tree.Insert(5, false);
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // should be
+      //      7
+      //    6    9
+      //   5 n  n 10
+
+      // Assert
+      Assert.Equal(7 , tree.Root.Value);
+      Assert.Equal(9 , tree.Root.Right.Value);
+      Assert.Equal(10, tree.Root.Right.Right.Value);
+
+      Assert.Equal(6, tree.Root.Left.Value);
+      Assert.Equal(5, tree.Root.Left.Left.Value);
+
+      Assert.Equal(2,    tree.Root.Height);
+      Assert.Equal(5,    tree.Root.Count);
+    }
+
+    [Fact]
+    public void Balance_When_TreeIsLeftHeavy_And_LeftChildIsRightHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+      tree.Insert(14, false);        //       14
+      tree.Insert(15, false);        //     7    15
+      tree.Insert(7, false);         //    n 8
+      tree.Insert(8, false);         //     n 9
+      tree.Insert(9, false);
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // should be
+      //       8
+      //    7    14
+      //   n n  9 15
+
+      // Assert
+      Assert.Equal(8 , tree.Root.Value);
+
+      Assert.Equal(14, tree.Root.Right.Value);
+      Assert.Equal(9 , tree.Root.Right.Left.Value);
+      Assert.Equal(15, tree.Root.Right.Right.Value);
+
+      Assert.Equal(7 , tree.Root.Left.Value);
+      Assert.Equal(null , tree.Root.Left.Left);
+      Assert.Equal(null , tree.Root.Left.Right);
+
+      Assert.Equal(2 , tree.Root.Height);
+      Assert.Equal(5 , tree.Root.Count);
+
+      Assert.Equal(false, tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(false, tree.Root.TreeIsRightHeavy);
+    }
+
+    [Fact]
+    public void Balance_When_TreeIsRightHeavy_And_RightChildIsRightHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(5, false);         //        5
+      tree.Insert(6, false);         //     n    6
+      tree.Insert(7, false);         //       5.5 7
+      tree.Insert(5.5m, false);      //     5.4 n
+      tree.Insert(5.4m, false);
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // Assert
+      Assert.Equal(6    ,tree.Root.Value);
+
+      Assert.Equal(5    ,tree.Root.Left.Value);
+      Assert.Equal(null ,tree.Root.Left.Left);
+      Assert.Equal(5.5m ,tree.Root.Left.Right.Value);
+      Assert.Equal(5.4m ,tree.Root.Left.Right.Left.Value);
+
+      Assert.Equal(7    ,tree.Root.Right.Value);
+      Assert.Equal(null ,tree.Root.Right.Right);
+      Assert.Equal(null ,tree.Root.Right.Left);
+
+      Assert.Equal(3,    tree.Root.Height);
+      Assert.Equal(5,    tree.Root.Count);
+
+      Assert.Equal(true, tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(false,tree.Root.TreeIsRightHeavy);
+    }
+
+    [Fact]
+    public void Balance_When_TreeIsRightHeavy_And_RightChildIsLeftHeavy()
+    {
+      // Arrange
+      var tree = new AVLTree<decimal>();
+      tree.Insert(5, false);         //         5
+      tree.Insert(6, false);         //     n       6
+      tree.Insert(7, false);         //         5.5   7
+      tree.Insert(8, false);         //       5.4  n    8
+      tree.Insert(9, false);         //                  9
+      tree.Insert(5.5m, false);
+      tree.Insert(5.4m, false);
+
+      // should be
+      //       5.5
+      //     5     6
+      //   n 5.4  n 7
+      //             8
+      //              9
+
+      // Act
+      tree.Balance(tree.Root);
+
+      // Assert
+      Assert.Equal(5.5m, tree.Root.Value);
+
+      Assert.Equal(5,    tree.Root.Left.Value);
+      Assert.Equal(null, tree.Root.Left.Left);
+      Assert.Equal(5.4m, tree.Root.Left.Right.Value);
+
+      Assert.Equal(6m,   tree.Root.Right.Value);
+      Assert.Equal(7m,   tree.Root.Right.Right.Value);
+      Assert.Equal(8m,   tree.Root.Right.Right.Right.Value);
+      Assert.Equal(9m,   tree.Root.Right.Right.Right.Right.Value);
+
+      Assert.Equal(4,    tree.Root.Height);
+      Assert.Equal(7,    tree.Root.Count);
+
+      Assert.Equal(false,tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(true, tree.Root.TreeIsRightHeavy);
+    }
+
   }
 }
