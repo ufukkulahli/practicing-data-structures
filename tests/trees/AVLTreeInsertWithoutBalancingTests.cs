@@ -141,28 +141,34 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(5, false);         //        5
       tree.Insert(6, false);         //     n    6
       tree.Insert(7, false);         //       5.5 7
-      tree.Insert(5.5m, false);      //     5.4 n
-      tree.Insert(5.4m, false);
+      tree.Insert(5.5m, false);      //          n 8
+      tree.Insert(8m, false);
 
       // Act
       tree.Balance(tree.Root);
 
+      // should be
+      //         6
+      //      5     7
+      //    n 5.5  n 8
+
       // Assert
       Assert.Equal(6    ,tree.Root.Value);
 
+      // Left side
       Assert.Equal(5    ,tree.Root.Left.Value);
       Assert.Equal(null ,tree.Root.Left.Left);
       Assert.Equal(5.5m ,tree.Root.Left.Right.Value);
-      Assert.Equal(5.4m ,tree.Root.Left.Right.Left.Value);
 
+      // Right side
       Assert.Equal(7    ,tree.Root.Right.Value);
-      Assert.Equal(null ,tree.Root.Right.Right);
+      Assert.Equal(8m   ,tree.Root.Right.Right.Value);
       Assert.Equal(null ,tree.Root.Right.Left);
 
-      Assert.Equal(3,    tree.Root.Height);
+      Assert.Equal(2,    tree.Root.Height);
       Assert.Equal(5,    tree.Root.Count);
 
-      Assert.Equal(true, tree.Root.TreeIsLeftHeavy);
+      Assert.Equal(false, tree.Root.TreeIsLeftHeavy);
       Assert.Equal(false,tree.Root.TreeIsRightHeavy);
     }
 
