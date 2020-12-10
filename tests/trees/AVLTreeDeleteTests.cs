@@ -38,7 +38,7 @@ namespace practicing_data_structures.tests.trees
       // Act & Assert
       Assert.Throws<System.Exception>( () => tree.Delete(4) );
     }
-    
+
     [Fact]
     public void DeleteRootNode()
     {
@@ -102,9 +102,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<int>();
-      tree.Insert(5);
-      tree.Insert(4);
-      tree.Insert(3);
+      tree.Insert(5, false);
+      tree.Insert(4, false);
+      tree.Insert(3, false);
+
       Assert.NotNull(tree.Root.Left);
       Assert.NotNull(tree.Root.Left.Left);
       Assert.Equal(3, tree.Count);
@@ -125,9 +126,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<int>();
-      tree.Insert(5);
-      tree.Insert(6);
-      tree.Insert(7);
+      tree.Insert(5, false);
+      tree.Insert(6, false);
+      tree.Insert(7, false);
+
       Assert.NotNull(tree.Root.Right);
       Assert.NotNull(tree.Root.Right.Right);
       Assert.Equal(3, tree.Count);
@@ -148,9 +150,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);
-      tree.Insert(3m);
-      tree.Insert(3.5m);
+      tree.Insert(4m, false);
+      tree.Insert(3m, false);
+      tree.Insert(3.5m, false);
+
       Assert.Equal(3, tree.Count);
 
       // Act
@@ -169,10 +172,11 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(5m);            //       5
-      tree.Insert(4m);            //     4   n
-      tree.Insert(3m);            //   3   n
-      tree.Insert(3.5m);          // n  3.5
+      tree.Insert(5m, false);            //       5
+      tree.Insert(4m, false);            //     4   n
+      tree.Insert(3m, false);            //   3   n
+      tree.Insert(3.5m, false);          // n  3.5
+
       Assert.Equal(4, tree.Count);
 
       // Act
@@ -194,9 +198,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);         //    4
-      tree.Insert(6m);         //  n   6
-      tree.Insert(5m);         //     5 n
+      tree.Insert(4m, false);         //    4
+      tree.Insert(6m, false);         //  n   6
+      tree.Insert(5m, false);         //     5 n
+
       Assert.Equal(3, tree.Count);
 
       // Act
@@ -216,9 +221,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);
-      tree.Insert(5m);
-      tree.Insert(6m);
+      tree.Insert(4m, false);
+      tree.Insert(5m, false);
+      tree.Insert(6m, false);
+
       Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
@@ -241,9 +247,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);             //         r(4)
-      tree.Insert(3m);             //     l(3)    r(null)
-      tree.Insert(3.5m);           // l(null) r(3.5)
+      tree.Insert(4m, false);             //         r(4)
+      tree.Insert(3m, false);             //     l(3)    r(null)
+      tree.Insert(3.5m, false);           // l(null) r(3.5)
+
       Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
@@ -265,9 +272,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);             //         r(4)
-      tree.Insert(7m);             //   l(null)    r(7)
-      tree.Insert(8m);             //        l(null)   r(8)
+      tree.Insert(4m, false);             //         r(4)
+      tree.Insert(7m, false);             //   l(null)    r(7)
+      tree.Insert(8m, false);             //        l(null)   r(8)
+
       Assert.Equal(3, tree.Count);
       Assert.Equal(2, tree.Height());
 
@@ -292,9 +300,7 @@ namespace practicing_data_structures.tests.trees
       var tree = new AVLTree<decimal>();
       tree.Insert(5m);
       tree.Insert(4m);
-      
       tree.Insert(6m);
-
       tree.Insert(3m);
       tree.Insert(4.5m);
 
