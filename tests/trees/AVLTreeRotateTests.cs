@@ -11,10 +11,10 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);            //     4
-      tree.Insert(3m);            //   3  4.5
-      tree.Insert(4.5m);
-      tree.Insert(2m);
+      tree.Insert(4m, false);            //     4
+      tree.Insert(3m, false);            //   3  4.5
+      tree.Insert(4.5m, false);          //  2 n
+      tree.Insert(2m, false);
 
       // Act
       tree.RightRotate(tree.Root);
@@ -38,11 +38,11 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(5m);            //       5
-      tree.Insert(4m);            //     4   n
-      tree.Insert(3m);            //   3  4.5
-      tree.Insert(4.5m);          //  2 n
-      tree.Insert(2m);
+      tree.Insert(5m, false);            //       5
+      tree.Insert(4m, false);            //     4   n
+      tree.Insert(3m, false);            //   3  4.5
+      tree.Insert(4.5m, false);          //  2 n
+      tree.Insert(2m, false);
 
       // Act
       tree.RightRotate(tree.Root.Left);
@@ -68,12 +68,12 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);         //     4
-      tree.Insert(6m);         //  n      6
-      tree.Insert(5m);         //      5     6.5
-      tree.Insert(6.5m);       //   4.5 5.5
-      tree.Insert(5.5m);
-      tree.Insert(4.5m);
+      tree.Insert(4m, false);         //     4
+      tree.Insert(6m, false);         //  n      6
+      tree.Insert(5m, false);         //      5     6.5
+      tree.Insert(6.5m, false);       //   4.5 5.5
+      tree.Insert(5.5m, false);
+      tree.Insert(4.5m, false);
 
       // Act
       tree.RightRotate(tree.Root.Right);
@@ -100,11 +100,11 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);            //     4
-      tree.Insert(3m);            //   3     4.5
-      tree.Insert(4.5m);          //  2 n   n   6
-      tree.Insert(2m);
-      tree.Insert(6m);
+      tree.Insert(4m, false);            //     4
+      tree.Insert(3m, false);            //   3     4.5
+      tree.Insert(4.5m, false);          //  2 n   n   6
+      tree.Insert(2m, false);
+      tree.Insert(6m, false);
 
       // Act
       tree.LeftRotate(tree.Root);
@@ -129,11 +129,11 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);            //      4
-      tree.Insert(3m);            //    3   n
-      tree.Insert(2m);            //  2  3.5
-      tree.Insert(3.5m);          //     n 3.7 
-      tree.Insert(3.7m);
+      tree.Insert(4m, false);            //      4
+      tree.Insert(3m, false);            //    3   n
+      tree.Insert(2m, false);            //  2  3.5
+      tree.Insert(3.5m, false);          //     n 3.7 
+      tree.Insert(3.7m, false);
 
       // Act
       tree.LeftRotate(tree.Root.Left);
@@ -159,13 +159,13 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var tree = new AVLTree<decimal>();
-      tree.Insert(4m);         //     4
-      tree.Insert(6m);         //  n      6
-      tree.Insert(5m);         //      5     6.5
-      tree.Insert(6.5m);       //   4.5 5.5
-      tree.Insert(5.5m);
-      tree.Insert(4.5m);
-      tree.Insert(7m);
+      tree.Insert(4m, false);         //     4
+      tree.Insert(6m, false);         //  n      6
+      tree.Insert(5m, false);         //      5     6.5
+      tree.Insert(6.5m, false);       //   4.5 5.5
+      tree.Insert(5.5m, false);
+      tree.Insert(4.5m, false);
+      tree.Insert(7m, false);
 
       // Act
       tree.LeftRotate(tree.Root.Right);
