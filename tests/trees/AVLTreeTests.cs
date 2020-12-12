@@ -79,19 +79,6 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void NodeAlreadyExistsTest()
-    {
-      // Arrange
-      var tree = new AVLTree<int>();
-      tree.Insert(4);
-      tree.Insert(3);
-
-      // Act && Assert
-      Assert.Equal(1, tree.Height());
-      Assert.Throws<System.Exception>( () => tree.Insert(3) );
-    }
-
-    [Fact]
     public void UpdateHeightOfRootNode()
     {
       // Arrange
