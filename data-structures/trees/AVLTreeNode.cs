@@ -10,13 +10,13 @@ namespace practicing_data_structures.data_structures.trees
     public AVLTreeNode<T> Left   { get; set; }
     public AVLTreeNode<T> Right  { get; set; }
 
-    public int Count { get; set; } = 1;
-    private int LeftCount         => Left?.Count ?? 0;
-    private int RightCount        => Right?.Count ?? 0;
-    private int LeftAndRightCount => LeftCount + RightCount + 1; // + this.Count???
+    public int Count { get; private set; } = 1;
+    public int LeftCount         => Left?.Count ?? 0;
+    public int RightCount        => Right?.Count ?? 0;
+    public int LeftAndRightCount => LeftCount + RightCount + 1;
 
     public int Height { get; set; }
-    
+
     public int LeftHeight    => Left?.Height + 1 ?? 0;
     public int RightHeight   => Right?.Height + 1 ?? 0;
     public int BalanceFactor => LeftHeight - RightHeight;
@@ -24,13 +24,13 @@ namespace practicing_data_structures.data_structures.trees
     public bool TreeIsLeftHeavy  => BalanceFactor >=  2;
     public bool TreeIsRightHeavy => BalanceFactor <= -2;
 
-    private int LeftOfLeftHeight      => Left?.Left?.Height + 1 ?? 0;
-    private int RightOfLeftHeight     => Left?.Right?.Height +1 ?? 0;
+    public int LeftOfLeftHeight       => Left?.Left?.Height + 1 ?? 0;
+    public int RightOfLeftHeight      => Left?.Right?.Height +1 ?? 0;
     public bool LeftChildIsLeftHeavy  => LeftOfLeftHeight > RightOfLeftHeight;
     public bool LeftChildIsRightHeavy => LeftOfLeftHeight < RightOfLeftHeight;
 
-    private int LeftOfRightHeight      => Right?.Left?.Height +1 ?? 0;
-    private int RightOfRightHeight     => Right?.Right?.Height+1 ?? 0;
+    public int LeftOfRightHeight       => Right?.Left?.Height +1 ?? 0;
+    public int RightOfRightHeight      => Right?.Right?.Height+1 ?? 0;
     public bool RightChildIsRightHeavy => RightOfRightHeight > LeftOfRightHeight;
     public bool RightChildIsLeftHeavy  => LeftOfRightHeight > RightOfRightHeight;
 
@@ -44,9 +44,9 @@ namespace practicing_data_structures.data_structures.trees
     public bool IsRightChild => Parent!=null && Parent.Right==this;
 
     public string Identity => ToString();
-    
+
     public override string ToString() => $"Value:{Value?.ToString()}, Left:{Left?.Value?.ToString()}, Right:{Right?.Value?.ToString()}, Parent:{Parent?.Value?.ToString()}, Height:{Height.ToString()}";
-  
+
     public void UpdateHeights()
     {
       if(Left!=null)
