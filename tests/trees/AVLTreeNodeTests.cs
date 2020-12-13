@@ -88,7 +88,7 @@ namespace practicing_data_structures.tests.trees
       Assert.True(root.RightChildIsRightHeavy);
       Assert.False(root.RightChildIsLeftHeavy);
       Assert.False(root.LeftChildIsLeftHeavy);
-      Assert.True(root.LeftChildIsRightHeavy);
+      Assert.False(root.LeftChildIsRightHeavy);
     }
 
     [Fact]
