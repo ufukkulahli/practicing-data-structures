@@ -183,5 +183,31 @@ namespace practicing_data_structures.tests.trees
       Assert.True(right.HasParent);
     }
 
+    [Fact]
+    public void FindBiggestTest()
+    {
+      // Arrange
+      var parent = new AVLTreeNode<int>();
+      var right  = new AVLTreeNode<int>();
+      var left   = new AVLTreeNode<int>();
+      var leftOfLeft = new AVLTreeNode<int>();
+
+      left.Left = leftOfLeft;
+      left.Parent  = parent;
+      right.Parent = parent;
+
+      parent.Right = right;
+      parent.Left  = left;
+
+      // To properly use 'height' info
+      parent.UpdateHeights();
+
+      // Act
+      var actual = parent.GetBiggestHeightOfChilds(parent);
+
+      // Assert
+      Assert.Equal(2, actual);
+    }
+
   }
 }

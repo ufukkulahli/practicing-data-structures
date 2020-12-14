@@ -51,18 +51,18 @@ namespace practicing_data_structures.data_structures.trees
     {
       if(Left!=null)
       {
-        Left.Height = FindBiggest(Left);
+        Left.Height = GetBiggestHeightOfChilds(Left);
       }
 
       if(Right!=null)
       {
-        Right.Height = FindBiggest(Right);
+        Right.Height = GetBiggestHeightOfChilds(Right);
       }
 
-      this.Height = FindBiggest(this);
+      this.Height = GetBiggestHeightOfChilds(this);
     }
 
-    private int FindBiggest(AVLTreeNode<T> node)
+    public int GetBiggestHeightOfChilds(AVLTreeNode<T> node)
     {
       return
         Math.Max
