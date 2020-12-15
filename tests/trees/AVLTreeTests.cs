@@ -35,27 +35,6 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void InsertWhileBalancing()
-    {
-      // Arrange
-      var tree = new AVLTree<int>();
-
-      // Assert
-      tree.Insert(1);
-      tree.Insert(2);
-      tree.Insert(3);
-      tree.Insert(4);
-      tree.Insert(5);
-
-      // Assert
-      Assert.Equal(2, tree.Root.Value);
-      Assert.Equal(1, tree.Root.Left.Value);
-      Assert.Equal(4, tree.Root.Right.Value);
-      Assert.Equal(3, tree.Root.Right.Left.Value);
-      Assert.Equal(5, tree.Root.Right.Right.Value);
-    }
-
-    [Fact]
     public void ContainsTest()
     {
       // Arrange & Act & Assert
