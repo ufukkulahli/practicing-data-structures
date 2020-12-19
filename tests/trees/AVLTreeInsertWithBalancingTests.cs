@@ -28,6 +28,29 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void SimpleInsert2()
+    {
+      // Arrange
+      var tree = new AVLTree<int>();
+
+      // Assert
+      tree.Insert(5);
+      tree.Insert(4);
+      tree.Insert(3);
+      tree.Insert(2);
+      tree.Insert(1);
+
+      // Assert
+      Assert.Equal(4, tree.Root.Value);
+
+      Assert.Equal(2, tree.Root.Left.Value);
+      Assert.Equal(1, tree.Root.Left.Left.Value);
+      Assert.Equal(3, tree.Root.Left.Right.Value);
+
+      Assert.Equal(5, tree.Root.Right.Value);
+    }
+
+    [Fact]
     public void BalanceExample1()
     {
       // Ex: Balance_When_TreeIsLeftHeavy_And_LeftChildIsLeftHeavy
