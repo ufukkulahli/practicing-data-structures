@@ -168,13 +168,24 @@ namespace practicing_data_structures.tests.trees
       var tree = new AVLTree<decimal>();
 
       // Act
-      tree.Insert(5);
-      tree.Insert(6);
-      tree.Insert(7);
-      tree.Insert(5.5m);
+      tree.Insert(10);
+      tree.Insert(14);
+      tree.Insert(18);
+      tree.Insert(13);
+      tree.Insert(12);
+      tree.Insert(11);
 
       // Assert
-      Assert.Throws<System.NullReferenceException>( () => tree.Insert(5.4m) );
+      Assert.Equal(12   , tree.Root.Value);
+
+      // Left
+      Assert.Equal(10   , tree.Root.Left.Value);
+      Assert.Equal(null , tree.Root.Left.Left);
+
+      // Right
+      Assert.Equal(14   , tree.Root.Right.Value);
+      Assert.Equal(13   , tree.Root.Right.Left.Value);
+      Assert.Equal(18   , tree.Root.Right.Right.Value);
     }
 
   }
