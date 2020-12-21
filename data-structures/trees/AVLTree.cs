@@ -238,13 +238,13 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if (node.Parent.Left == node)
+      if (node.IsLeftChild)
       {
         DeleteLeftNode(node);
         return;
       }
 
-      if (node.Parent.Right == node)
+      if (node.IsRightChild)
       {
         DeleteRightNode(node);
         return;
@@ -268,12 +268,12 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if(node.Parent.Left == node)
+      if(node.IsLeftChild)
       {
         node.Parent.Left = node.Left;
       }
 
-      if(node.Parent.Right == node)
+      if(node.IsRightChild)
       {
         node.Parent.Right = node.Left;
       }
@@ -290,12 +290,12 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if(node.Parent.Left == node)
+      if(node.IsLeftChild)
       {
         node.Parent.Left = node.Right;
       }
 
-      if(node.Parent.Right == node)
+      if(node.IsRightChild)
       {
         node.Parent.Right = node.Right;
       }
@@ -317,21 +317,21 @@ namespace practicing_data_structures.data_structures.trees
           RightRotate(node);
         }
 
-        else if(node.LeftChildIsRightHeavy)
+        if(node.LeftChildIsRightHeavy)
         {
           LeftRotate(node.Left);
           RightRotate(node);
         }
       }
 
-      else if(node.TreeIsRightHeavy)
+      if(node.TreeIsRightHeavy)
       {
         if(node.RightChildIsRightHeavy)
         {
           LeftRotate(node);
         }
 
-        else if(node.RightChildIsLeftHeavy)
+        if(node.RightChildIsLeftHeavy)
         {
           RightRotate(node.Right);
           LeftRotate(node);
@@ -369,7 +369,7 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       UpdateHeight(newRoot);
-      newRoot.Left.UpdateCounts();
+      newRoot.Left?.UpdateCounts();
       newRoot.Right.UpdateCounts();
       newRoot.UpdateCounts();
 
