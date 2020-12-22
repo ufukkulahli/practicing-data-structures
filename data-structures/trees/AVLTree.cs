@@ -202,8 +202,8 @@ namespace practicing_data_structures.data_structures.trees
       {
         DeleteRootOrLeftOrRightNode(node);
         node.UpdateCounts();
-        //node.UpdateHeights();
-        // Balance(node);
+        node.UpdateHeights();
+        Balance(node);
         return;
       }
 
