@@ -10,7 +10,7 @@ namespace practicing_data_structures.tests.trees
     public void DeleteNullNodeTest()
     {
       // Arrange & Act & Assert
-      Assert.Throws<System.ArgumentNullException>( () => new AVLTree<int>().Delete(1) );
+      Assert.Throws<System.ArgumentNullException>( () => new AVLTree<int>().Delete(1, false) );
     }
 
     [Fact]
@@ -23,7 +23,7 @@ namespace practicing_data_structures.tests.trees
       tree.SetRoot(parent);
 
       // Act & Assert
-      Assert.Throws<System.Exception>( () => tree.Delete(6) );
+      Assert.Throws<System.Exception>( () => tree.Delete(6, false) );
     }
 
     [Fact]
@@ -36,7 +36,7 @@ namespace practicing_data_structures.tests.trees
       tree.SetRoot(parent);
 
       // Act & Assert
-      Assert.Throws<System.Exception>( () => tree.Delete(4) );
+      Assert.Throws<System.Exception>( () => tree.Delete(4, false) );
     }
 
     [Fact]
@@ -50,7 +50,7 @@ namespace practicing_data_structures.tests.trees
       tree.SetRoot(root);
 
       // Act
-      tree.Delete(5);
+      tree.Delete(5, false);
 
       // Assert
       Assert.False(tree.Contains(5));
@@ -68,7 +68,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, tree.Count);
 
       // Act
-      tree.Delete(4);
+      tree.Delete(4, false);
 
       // Assert
       Assert.False(tree.Contains(4));
@@ -88,7 +88,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, tree.Count);
 
       // Act
-      tree.Delete(6);
+      tree.Delete(6, false);
 
       // Assert
       Assert.False(tree.Contains(6));
@@ -111,7 +111,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, tree.Count);
 
       // Act
-      tree.Delete(3);
+      tree.Delete(3, false);
 
       // Assert
       Assert.False(tree.Contains(3));
@@ -135,7 +135,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, tree.Count);
 
       // Act
-      tree.Delete(7);
+      tree.Delete(7, false);
 
       // Assert
       Assert.False(tree.Contains(7));
@@ -157,7 +157,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, tree.Count);
 
       // Act
-      tree.Delete(4m);
+      tree.Delete(4m, false);
 
       // Assert
       Assert.Equal(2, tree.Count);
@@ -180,7 +180,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(4, tree.Count);
 
       // Act
-      tree.Delete(4m);
+      tree.Delete(4m, false);
 
       // Assert
       Assert.Equal(3, tree.Count);
@@ -205,7 +205,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, tree.Count);
 
       // Act
-      tree.Delete(6m);
+      tree.Delete(6m, false);
 
       // Assert
       Assert.Equal(2, tree.Count);
@@ -229,7 +229,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, tree.Height());
 
       // Act
-      tree.Delete(4m);
+      tree.Delete(4m, false);
 
       // Assert
       tree.RecomputeHeight(tree.Root);
@@ -255,7 +255,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, tree.Height());
 
       // Act
-      tree.Delete(3m);
+      tree.Delete(3m, false);
 
       // Assert
       tree.RecomputeHeight(tree.Root);
@@ -280,7 +280,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, tree.Height());
 
       // Act
-      tree.Delete(7m);
+      tree.Delete(7m, false);
 
       // Assert
       tree.RecomputeHeight(tree.Root);
@@ -305,7 +305,7 @@ namespace practicing_data_structures.tests.trees
       tree.Insert(4.5m);
 
       // Act
-      tree.Delete(4m);
+      tree.Delete(4m, false);
 
       // Arrange
       Assert.False(tree.Contains(4m));

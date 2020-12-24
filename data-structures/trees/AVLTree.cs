@@ -151,17 +151,17 @@ namespace practicing_data_structures.data_structures.trees
       UpdateHeight(node);
     }
 
-    public void Delete(T value)
+    public void Delete(T value, bool balanceWhileDeleting=true)
     {
       if(Root==null)
       {
         throw new ArgumentNullException();
       }
 
-      FindNodeToBeDeleted(Root, value);
+      FindNodeToBeDeleted(Root, value, balanceWhileDeleting);
     }
 
-    public void FindNodeToBeDeleted(AVLTreeNode<T> node, T value)
+    public void FindNodeToBeDeleted(AVLTreeNode<T> node, T value, bool balanceWhileDeleting=true)
     {
       var comparisonResult = node.Value.CompareTo(value);
 
@@ -172,7 +172,7 @@ namespace practicing_data_structures.data_structures.trees
           throw new Exception("Item does not exist!");
         }
         
-        FindNodeToBeDeleted(node.Right, value);
+        FindNodeToBeDeleted(node.Right, value, balanceWhileDeleting);
         return;
       }
 
@@ -183,27 +183,30 @@ namespace practicing_data_structures.data_structures.trees
           throw new Exception("Item does not exist!");
         }
         
-        FindNodeToBeDeleted(node.Left, value);
+        FindNodeToBeDeleted(node.Left, value, balanceWhileDeleting);
         return;
       }
 
       if(comparisonResult==0)
       {
-        Delete(node);
+        Delete(node, balanceWhileDeleting);
         return;
       }
 
       throw new Exception("Should not reach here!");
     }
 
-    private void Delete(AVLTreeNode<T> node)
+    private void Delete(AVLTreeNode<T> node, bool balanceWhileDeleting=true)
     {
       if (node.IsLeaf)
       {
         DeleteRootOrLeftOrRightNode(node);
         node.UpdateCounts();
         node.UpdateHeights();
-        Balance(node);
+        if(balanceWhileDeleting)
+        {
+          Balance(node);
+        }
         return;
       }
 
@@ -211,8 +214,11 @@ namespace practicing_data_structures.data_structures.trees
       {
         PerformDeleteWhenRightTreeIsNull(node);
         node.UpdateCounts();
-        //node.UpdateHeights();
-        // Balance(node);
+        node.UpdateHeights();
+         if(balanceWhileDeleting)
+         {
+           Balance(node);
+         }
         return;
       }
 
@@ -227,7 +233,7 @@ namespace practicing_data_structures.data_structures.trees
 
       var maxOfLeftNode = FindMax(node.Left);
       node.Value = maxOfLeftNode.Value;
-      FindNodeToBeDeleted(node.Left, maxOfLeftNode.Value);
+      FindNodeToBeDeleted(node.Left, maxOfLeftNode.Value, balanceWhileDeleting);
     }
 
     private void DeleteRootOrLeftOrRightNode(AVLTreeNode<T> node)
