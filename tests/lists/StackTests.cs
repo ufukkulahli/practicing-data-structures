@@ -3,7 +3,7 @@ using System.Linq;
 using Xunit;
 using practicing_data_structures.data_structures.lists;
 
-namespace practicing_data_structures.tests
+namespace practicing_data_structures.tests.lists
 {
   public class StackTests
   {
