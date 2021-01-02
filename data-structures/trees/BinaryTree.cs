@@ -11,5 +11,10 @@ namespace practicing_data_structures.data_structures.trees
   {
     public readonly Node<T> root;
     public BinaryTree(Node<T> r) => root = r;
+
+    public Node<T> Find(T value)
+    {
+      throw new System.NotImplementedException();
+    }
   }
 }

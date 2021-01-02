@@ -46,5 +46,16 @@ namespace practicing_data_structures.tests.trees
 
       return tree;
     }
+
+    [Fact]
+    public void FindTest()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
+
+      // Act && Assert
+      Assert.Throws<System.NotImplementedException>( () => bt.Find(5) );
+    }
+
   }
 }
