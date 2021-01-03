@@ -24,25 +24,25 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(9, bt.root.Left.Left.Right.value);
     }
 
-    public Node<int> BuildBinaryTreeFromNodes()
+    public BinaryTreeNode<int> BuildBinaryTreeFromNodes()
     {
       // Depth: 1
-		  var tree = new Node<int>(1);
+		  var tree = new BinaryTreeNode<int>(1);
 		
         // Depth: 2
-        tree.Left = new Node<int>(2);
-        tree.Right = new Node<int>(3);
+        tree.Left = new BinaryTreeNode<int>(2);
+        tree.Right = new BinaryTreeNode<int>(3);
 		
           // Depth: 3
-          tree.Left.Left = new Node<int>(4);
-          tree.Left.Right = new Node<int>(5);
+          tree.Left.Left = new BinaryTreeNode<int>(4);
+          tree.Left.Right = new BinaryTreeNode<int>(5);
       
-          tree.Right.Left = new Node<int>(6);
-          tree.Right.Right = new Node<int>(7);
+          tree.Right.Left = new BinaryTreeNode<int>(6);
+          tree.Right.Right = new BinaryTreeNode<int>(7);
       
             // Depth: 4
-            tree.Left.Left.Left = new Node<int>(8);
-            tree.Left.Left.Right = new Node<int>(9);
+            tree.Left.Left.Left = new BinaryTreeNode<int>(8);
+            tree.Left.Left.Right = new BinaryTreeNode<int>(9);
 
       return tree;
     }
