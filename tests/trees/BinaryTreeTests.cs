@@ -53,8 +53,11 @@ namespace practicing_data_structures.tests.trees
       // Arrange
       var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
 
-      // Act && Assert
-      Assert.Throws<System.NotImplementedException>( () => bt.Find(5) );
+      // Act
+      var actual = bt.Find(1);
+
+      // Assert
+      Assert.Equal( 1, actual.value );
     }
 
   }

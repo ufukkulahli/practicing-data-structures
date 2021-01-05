@@ -9,6 +9,21 @@ namespace practicing_data_structures.data_structures.trees
 
     public BinaryTreeNode<T> Find(T value)
     {
+      return root == null ? null : Find(root, value);
+    }
+
+    private BinaryTreeNode<T> Find(BinaryTreeNode<T> parent, T value)
+    {
+      if(parent == null)
+      {
+        return parent;
+      }
+
+      if(parent.Same(value))
+      {
+        return parent;
+      }
+
       throw new System.NotImplementedException();
     }
   }
