@@ -24,6 +24,12 @@ namespace practicing_data_structures.data_structures.trees
         return parent;
       }
 
+      var nodeFromLeftSide = Find(parent.Left, value);
+      if( nodeFromLeftSide != null )
+      {
+        return nodeFromLeftSide;
+      }
+
       throw new System.NotImplementedException();
     }
   }

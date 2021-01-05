@@ -48,7 +48,7 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void FindTest()
+    public void FindRootNode()
     {
       // Arrange
       var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
@@ -58,6 +58,19 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       Assert.Equal( 1, actual.value );
+    }
+
+    [Fact]
+    public void FindLeftNode()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(BuildBinaryTreeFromNodes());
+
+      // Act
+      var actual = bt.Find(8);
+
+      // Assert
+      Assert.Equal( 8, actual.value );
     }
 
   }
