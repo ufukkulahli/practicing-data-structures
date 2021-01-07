@@ -4,7 +4,7 @@ namespace practicing_data_structures.data_structures.trees
 {
   public sealed class BinaryTree<T> where T : IComparable
   {
-    public readonly BinaryTreeNode<T> root;
+    public BinaryTreeNode<T> root { get; private set; }
     public BinaryTree(BinaryTreeNode<T> r) => root = r;
 
     public BinaryTreeNode<T> Find(T value)
@@ -32,5 +32,15 @@ namespace practicing_data_structures.data_structures.trees
 
       return Find(parent.Right, value);
     }
+
+    public void Insert(T parent, T child)
+    {
+      if(root==null)
+      {
+        this.root = new BinaryTreeNode<T>(null, child);
+        return;
+      }
+    }
+
   }
 }

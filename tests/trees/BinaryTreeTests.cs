@@ -86,5 +86,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal( 7, actual.value );
     }
 
+    [Fact]
+    public void InsertRoot()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+
+      // Act
+      bt.Insert(1,2);
+
+      // Assert
+      Assert.Equal(2, bt.root.value);
+    }
+
   }
 }
