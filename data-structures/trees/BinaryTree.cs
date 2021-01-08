@@ -40,6 +40,13 @@ namespace practicing_data_structures.data_structures.trees
         this.root = new BinaryTreeNode<T>(null, child);
         return;
       }
+
+      if(Find(parent)==null)
+      {
+        throw new Exception("Parent node does not exists!");
+      }
+
+      throw new NotImplementedException();
     }
 
   }

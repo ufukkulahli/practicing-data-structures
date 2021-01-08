@@ -99,5 +99,16 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, bt.root.value);
     }
 
+    [Fact]
+    public void AbsentParentCausesException()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(1,2);
+
+      // Act & Assert
+      Assert.Throws<System.Exception>( () => bt.Insert(5,6) );
+    }
+
   }
 }
