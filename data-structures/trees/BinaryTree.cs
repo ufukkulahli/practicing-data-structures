@@ -46,6 +46,11 @@ namespace practicing_data_structures.data_structures.trees
         throw new Exception("Parent node does not exists!");
       }
 
+      if(Find(root, child)!=null)
+      {
+        throw new Exception("Node already exists!");
+      }
+
       throw new NotImplementedException();
     }
 
