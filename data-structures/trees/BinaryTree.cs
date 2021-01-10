@@ -41,7 +41,9 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      if(Find(parent)==null)
+      var parentNode = Find(parent);
+
+      if(parentNode==null)
       {
         throw new Exception("Parent node does not exists!");
       }
@@ -49,6 +51,12 @@ namespace practicing_data_structures.data_structures.trees
       if(Find(root, child)!=null)
       {
         throw new Exception("Node already exists!");
+      }
+
+      if(parentNode.Left==null && parentNode.Right==null)
+      {
+        parentNode.Left = new BinaryTreeNode<T>(parentNode, child);
+        return;
       }
 
       throw new NotImplementedException();

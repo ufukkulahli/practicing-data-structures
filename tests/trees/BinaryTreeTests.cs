@@ -121,5 +121,20 @@ namespace practicing_data_structures.tests.trees
       Assert.Throws<System.Exception>( () => bt.Insert(1,2) );
     }
 
+    [Fact]
+    public void InsertNode_To_ParentNodesLeft_When_ParentsLeftAndRightAreNull()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(1,2);
+
+      // Act
+      bt.Insert(2,5);
+
+      // Assert
+      Assert.Equal(2, bt.root.value);
+      Assert.Equal(5, bt.root.Left.value);
+    }
+
   }
 }
