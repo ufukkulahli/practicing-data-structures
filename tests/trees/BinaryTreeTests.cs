@@ -136,5 +136,22 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.Left.value);
     }
 
+    [Fact]
+    public void InsertNode_To_ParentsRight_When_ParentsLeftIsNotNull_And_RightIs()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(1,2);
+      bt.Insert(2,5);
+
+      // Act
+      bt.Insert(2,6);
+
+      // Assert
+      Assert.Equal(2, bt.root.value);
+      Assert.Equal(5, bt.root.Left.value);
+      Assert.Equal(6, bt.root.Right.value);
+    }
+
   }
 }

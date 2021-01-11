@@ -59,6 +59,12 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
+      if(parentNode.Left!=null && parentNode.Right==null)
+      {
+        parentNode.Right = new BinaryTreeNode<T>(parentNode, child);
+        return;
+      }
+
       throw new NotImplementedException();
     }
 
