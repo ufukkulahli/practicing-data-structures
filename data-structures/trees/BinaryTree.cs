@@ -33,6 +33,17 @@ namespace practicing_data_structures.data_structures.trees
       return Find(parent.Right, value);
     }
 
+    public void Insert(T parent)
+    {
+      if(root==null)
+      {
+        this.root = new BinaryTreeNode<T>(parent);
+        return;
+      }
+
+      throw new Exception("There is already a root node!");
+    }
+
     public void Insert(T parent, T child)
     {
       if(root==null)
