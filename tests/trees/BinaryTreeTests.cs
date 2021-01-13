@@ -100,6 +100,17 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void TryingToInsertOneMoreRootNodeCausesException()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(2);
+
+      // Act & Assert
+      Assert.Throws<System.Exception>( () => bt.Insert(2) );
+    }
+
+    [Fact]
     public void AbsentParentCausesException()
     {
       // Arrange
