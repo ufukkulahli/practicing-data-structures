@@ -76,7 +76,7 @@ namespace practicing_data_structures.data_structures.trees
         return;
       }
 
-      throw new NotImplementedException();
+      throw new Exception("Parent have already two children!");
     }
 
   }

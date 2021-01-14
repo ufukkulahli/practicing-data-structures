@@ -164,5 +164,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(6, bt.root.Right.value);
     }
 
+    [Fact]
+    public void TryingToInsertNode_To_ParentWithTwoChildren_CausesException()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(2);
+      bt.Insert(2,5);
+      bt.Insert(2,6);
+
+      // Act & Assert
+      Assert.Throws<System.Exception>( () => bt.Insert(2,7) );
+    }
+
   }
 }
