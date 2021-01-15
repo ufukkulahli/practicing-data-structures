@@ -79,5 +79,7 @@ namespace practicing_data_structures.data_structures.trees
       throw new Exception("Parent have already two children!");
     }
 
+    public bool Contains(T value) => Find(value) == null ? false : true;
+
   }
 }

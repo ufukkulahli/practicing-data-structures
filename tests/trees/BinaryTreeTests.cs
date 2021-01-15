@@ -177,5 +177,21 @@ namespace practicing_data_structures.tests.trees
       Assert.Throws<System.Exception>( () => bt.Insert(2,7) );
     }
 
+    [Fact]
+    public void ContainsTest()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(2);
+      bt.Insert(2,5);
+      bt.Insert(2,6);
+
+      // Act & Assert
+      Assert.True(bt.Contains(2));
+      Assert.True(bt.Contains(5));
+      Assert.True(bt.Contains(6));
+      Assert.False(bt.Contains(7));
+    }
+
   }
 }
