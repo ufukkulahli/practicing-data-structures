@@ -193,5 +193,15 @@ namespace practicing_data_structures.tests.trees
       Assert.False(bt.Contains(7));
     }
 
+    [Fact]
+    public void HeightOfEmptyTreeIsMinusOne()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+
+      // Act & Assert
+      Assert.Equal(-1, bt.Height());
+    }
+
   }
 }

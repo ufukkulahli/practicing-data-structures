@@ -81,5 +81,15 @@ namespace practicing_data_structures.data_structures.trees
 
     public bool Contains(T value) => Find(value) == null ? false : true;
 
+    public int Height()
+    {
+      if(this.root == null)
+      {
+        return -1;
+      }
+
+      throw new System.NotImplementedException();
+    }
+
   }
 }
