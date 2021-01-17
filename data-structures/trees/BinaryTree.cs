@@ -81,14 +81,21 @@ namespace practicing_data_structures.data_structures.trees
 
     public bool Contains(T value) => Find(value) == null ? false : true;
 
-    public int Height()
+    public int Height() => Height(this.root);
+
+    public int Height(BinaryTreeNode<T> node)
     {
-      if(this.root == null)
+      if(node == null)
       {
         return -1;
       }
 
-      throw new System.NotImplementedException();
+      return
+        Math.Max
+        (
+          Height(node.Left),
+          Height(node.Right)
+        ) + 1;
     }
 
   }

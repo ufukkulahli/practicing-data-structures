@@ -203,5 +203,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(-1, bt.Height());
     }
 
+    [Fact]
+    public void HeightOfTree()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(2);
+      bt.Insert(2,5);
+      bt.Insert(2,6);
+
+      // Act & Assert
+      Assert.Equal(1, bt.Height());
+    }
+
   }
 }
