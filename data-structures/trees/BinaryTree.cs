@@ -98,5 +98,10 @@ namespace practicing_data_structures.data_structures.trees
         ) + 1;
     }
 
+    public void Delete(T value)
+    {
+      throw new System.NotImplementedException();
+    }
+
   }
 }

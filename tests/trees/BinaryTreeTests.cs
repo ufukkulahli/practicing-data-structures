@@ -228,5 +228,15 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, bt.Height());
     }
 
+    [Fact]
+    public void DeleteTest()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+
+      // Act & Assert
+      Assert.Throws<System.NotImplementedException>( () => bt.Delete(10) );
+    }
+
   }
 }
