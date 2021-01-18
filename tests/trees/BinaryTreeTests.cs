@@ -208,12 +208,24 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var bt = new BinaryTree<int>(null);
+
+      // Height:0
       bt.Insert(2);
+
+      // Height:1
       bt.Insert(2,5);
       bt.Insert(2,6);
 
+      // Height:2
+      bt.Insert(5,10);
+      bt.Insert(5,11);
+
+      // Height:3
+      bt.Insert(10,20);
+      bt.Insert(10,21);
+
       // Act & Assert
-      Assert.Equal(1, bt.Height());
+      Assert.Equal(3, bt.Height());
     }
 
   }
