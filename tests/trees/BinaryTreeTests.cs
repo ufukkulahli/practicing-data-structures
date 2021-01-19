@@ -229,13 +229,13 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
-    public void DeleteTest()
+    public void NotFoundNodeCausesException()
     {
       // Arrange
       var bt = new BinaryTree<int>(null);
 
       // Act & Assert
-      Assert.Throws<System.NotImplementedException>( () => bt.Delete(10) );
+      Assert.Throws<System.Exception>( () => bt.Delete(10) );
     }
 
   }

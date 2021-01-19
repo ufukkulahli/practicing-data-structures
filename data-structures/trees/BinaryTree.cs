@@ -100,6 +100,12 @@ namespace practicing_data_structures.data_structures.trees
 
     public void Delete(T value)
     {
+      var node = Find(value);
+
+      if(node==null)
+      {
+        throw new System.Exception("Node could not be found!");
+      }
       throw new System.NotImplementedException();
     }
 
