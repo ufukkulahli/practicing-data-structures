@@ -106,8 +106,20 @@ namespace practicing_data_structures.data_structures.trees
       {
         throw new System.Exception("Node could not be found!");
       }
+
+      if(node.IsLeaf)
+      {
+        if(node.IsRoot)
+        {
+          DeleteRoot();
+          return;
+        }
+      }
+
       throw new System.NotImplementedException();
     }
+
+    private void DeleteRoot() => this.root=null;
 
   }
 }

@@ -238,5 +238,19 @@ namespace practicing_data_structures.tests.trees
       Assert.Throws<System.Exception>( () => bt.Delete(10) );
     }
 
+    [Fact]
+    public void DeleteRootNode_When_LeftAndRightChildrenAreNull_And_NodeIsRoot()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(5);
+
+      // Act
+      bt.Delete(5);
+
+      // Assert
+      Assert.Null(bt.root);
+    }
+
   }
 }
