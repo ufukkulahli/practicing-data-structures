@@ -18,5 +18,45 @@ namespace practicing_data_structures.tests.trees
       Assert.False( new BinaryTreeNode<int>(10).Same(-10) );
     }
 
+    [Fact]
+    public void NodeIsRoot()
+    {
+      Assert.True( new BinaryTreeNode<int>(10).IsRoot );
+    }
+
+    [Fact]
+    public void NodeIsNotRoot()
+    {
+      // Arrange
+      var parent = new BinaryTreeNode<int>(10);
+      var leftChild = new BinaryTreeNode<int>(5);
+      leftChild.Parent = parent;
+      parent.Left = leftChild;
+
+      // Act & Assert
+      Assert.False( leftChild.IsRoot );
+      Assert.True( parent.IsRoot );
+    }
+
+    [Fact]
+    public void NodeIsLeaf()
+    {
+      Assert.True( new BinaryTreeNode<int>(10).IsLeaf );
+    }
+
+    [Fact]
+    public void NodeIsNotLeaf()
+    {
+      // Arrange
+      var parent = new BinaryTreeNode<int>(10);
+      var leftChild = new BinaryTreeNode<int>(5);
+      leftChild.Parent = parent;
+      parent.Left = leftChild;
+
+      // Act & Assert
+      Assert.False( parent.IsLeaf );
+      Assert.True ( leftChild.IsLeaf );
+    }
+
   }
 }

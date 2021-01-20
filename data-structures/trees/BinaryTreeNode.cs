@@ -15,5 +15,8 @@ namespace practicing_data_structures.data_structures.trees
     }
 
     public bool Same(T other) => this.value.CompareTo(other) == 0;
+
+    public bool IsRoot => this.Parent == null;
+    public bool IsLeaf => this.Left==null && this.Right==null;
   }
 }
