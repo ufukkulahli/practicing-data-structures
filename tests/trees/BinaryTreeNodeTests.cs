@@ -71,5 +71,18 @@ namespace practicing_data_structures.tests.trees
       Assert.True ( leftChild.IsLeftChild );
     }
 
+    [Fact]
+    public void NodeIsRightChild()
+    {
+      // Arrange
+      var parent        = new BinaryTreeNode<int>(10);
+      var rightChild    = new BinaryTreeNode<int>(5);
+      rightChild.Parent = parent;
+      parent.Right      = rightChild;
+
+      // Act & Assert
+      Assert.True ( rightChild.IsRightChild );
+    }
+
   }
 }
