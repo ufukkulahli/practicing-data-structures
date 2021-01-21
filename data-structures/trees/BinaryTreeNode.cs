@@ -18,5 +18,7 @@ namespace practicing_data_structures.data_structures.trees
 
     public bool IsRoot => this.Parent == null;
     public bool IsLeaf => this.Left==null && this.Right==null;
+    public bool IsLeftChild => this.Parent.Left == this;
+
   }
 }
