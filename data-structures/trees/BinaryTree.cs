@@ -114,12 +114,19 @@ namespace practicing_data_structures.data_structures.trees
           DeleteRoot();
           return;
         }
+
+        if(node.IsLeftChild)
+        {
+          DeleteLeftNode(node);
+          return;
+        }
       }
 
       throw new System.NotImplementedException();
     }
 
     private void DeleteRoot() => this.root=null;
+    private void DeleteLeftNode(BinaryTreeNode<T> node) => node.Parent.Left = null;
 
   }
 }

@@ -252,5 +252,23 @@ namespace practicing_data_structures.tests.trees
       Assert.Null(bt.root);
     }
 
+    [Fact]
+    public void DeleteLeftNode_When_LeftAndRightChildrenAreNull_And_NodeIsLeftChild()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(5);
+      bt.Insert(5, 10);
+
+      Assert.Equal(10, bt.root.Left.value);
+
+      // Act
+      bt.Delete(10);
+
+      // Assert
+      Assert.Equal(5, bt.root.value);
+      Assert.Null(bt.root.Left);
+    }
+
   }
 }
