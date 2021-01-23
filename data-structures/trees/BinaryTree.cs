@@ -120,6 +120,12 @@ namespace practicing_data_structures.data_structures.trees
           DeleteLeftNode(node);
           return;
         }
+
+        if(node.IsRightChild)
+        {
+          DeleteRightNode(node);
+          return;
+        }
       }
 
       throw new System.NotImplementedException();
@@ -127,6 +133,7 @@ namespace practicing_data_structures.data_structures.trees
 
     private void DeleteRoot() => this.root=null;
     private void DeleteLeftNode(BinaryTreeNode<T> node) => node.Parent.Left = null;
+    private void DeleteRightNode(BinaryTreeNode<T> node) => node.Parent.Right = null;
 
   }
 }
