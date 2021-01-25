@@ -137,6 +137,12 @@ namespace practicing_data_structures.data_structures.trees
           node.Parent.Left = node.Right;
           return;
         }
+
+        if(node.IsRightChild)
+        {
+          node.Parent.Right = node.Right;
+          return;
+        }
       }
 
       throw new System.NotImplementedException();

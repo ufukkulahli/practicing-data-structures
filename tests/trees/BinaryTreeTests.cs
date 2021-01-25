@@ -317,5 +317,38 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(22, bt.root.Left.value);
     }
 
+    [Fact]
+    public void DeleteRightNode_When_LeftIsNull_And_RightIsNot_And_NodeIsRightChild()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(5);
+      bt.Insert(5, 10);
+      bt.Insert(5, 12);
+
+      bt.Insert(12, 20);
+      bt.Insert(12, 22);
+
+      // Delete left child node to match the delete case
+      bt.Delete(20);
+
+      // should be
+      //       5
+      //    10   12
+      //        n  22
+
+      // Act
+      bt.Delete(12);
+
+      // should be
+      //       5
+      //    10   22
+
+      // Assert
+      Assert.Equal(5, bt.root.value);
+      Assert.Equal(10, bt.root.Left.value);
+      Assert.Equal(22, bt.root.Right.value);
+    }
+
   }
 }
