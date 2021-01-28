@@ -162,7 +162,7 @@ namespace practicing_data_structures.data_structures.trees
         }
       }
 
-      throw new System.NotImplementedException();
+      throw new System.Exception();
     }
 
     private void DeleteRoot() => this.root=null;

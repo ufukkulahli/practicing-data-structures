@@ -406,5 +406,18 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(20, bt.root.Right.value);
     }
 
+    [Fact]
+    public void TryingToDeleteNodeWithTwoChildrenCausesException()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(5);
+      bt.Insert(5, 10);
+      bt.Insert(5, 12);
+
+      // Act
+      Assert.Throws<System.Exception>( () => bt.Delete(5) );
+    }
+
   }
 }
