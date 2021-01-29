@@ -5,6 +5,9 @@ namespace practicing_data_structures.data_structures.trees
   public sealed class BinaryTree<T> where T : IComparable
   {
     public BinaryTreeNode<T> root { get; private set; }
+
+    public int Count { get; private set; }
+
     public BinaryTree(BinaryTreeNode<T> r) => root = r;
 
     public BinaryTreeNode<T> Find(T value)
@@ -38,6 +41,7 @@ namespace practicing_data_structures.data_structures.trees
       if(root==null)
       {
         this.root = new BinaryTreeNode<T>(parent);
+        this.Count++;
         return;
       }
 
@@ -49,6 +53,7 @@ namespace practicing_data_structures.data_structures.trees
       if(root==null)
       {
         this.root = new BinaryTreeNode<T>(null, child);
+        this.Count++;
         return;
       }
 
@@ -67,12 +72,14 @@ namespace practicing_data_structures.data_structures.trees
       if(parentNode.Left==null && parentNode.Right==null)
       {
         parentNode.Left = new BinaryTreeNode<T>(parentNode, child);
+        this.Count++;
         return;
       }
 
       if(parentNode.Left!=null && parentNode.Right==null)
       {
         parentNode.Right = new BinaryTreeNode<T>(parentNode, child);
+        this.Count++;
         return;
       }
 
@@ -109,6 +116,8 @@ namespace practicing_data_structures.data_structures.trees
 
       if(node.IsLeaf)
       {
+        this.Count--;
+
         if(node.IsRoot)
         {
           DeleteRoot();
@@ -126,10 +135,13 @@ namespace practicing_data_structures.data_structures.trees
           DeleteRightNode(node);
           return;
         }
+
+        throw new Exception("Unknown state!");
       }
 
       if(node.Left==null && node.Right!=null)
       {
+        this.Count--;
         node.Right.Parent = node.Parent;
 
         if(node.IsLeftChild)
@@ -143,10 +155,13 @@ namespace practicing_data_structures.data_structures.trees
           node.Parent.Right = node.Right;
           return;
         }
+
+        throw new Exception("Unknown state!");
       }
 
       if(node.Left!=null && node.Right==null)
       {
+        this.Count--;
         node.Left.Parent = node.Parent;
 
         if(node.IsLeftChild)
@@ -160,6 +175,8 @@ namespace practicing_data_structures.data_structures.trees
           node.Parent.Right = node.Left;
           return;
         }
+
+        throw new Exception("Unknown state!");
       }
 
       throw new System.Exception();

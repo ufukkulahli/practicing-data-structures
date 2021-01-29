@@ -315,6 +315,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.value);
       Assert.Equal(12, bt.root.Right.value);
       Assert.Equal(22, bt.root.Left.value);
+      Assert.Equal(3, bt.Count);
     }
 
     [Fact]
@@ -348,6 +349,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.value);
       Assert.Equal(10, bt.root.Left.value);
       Assert.Equal(22, bt.root.Right.value);
+      Assert.Equal(3, bt.Count);
     }
 
     [Fact]
@@ -376,6 +378,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.value);
       Assert.Equal(20, bt.root.Left.value);
       Assert.Equal(12, bt.root.Right.value);
+      Assert.Equal(3, bt.Count);
     }
 
     [Fact]
@@ -404,6 +407,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.value);
       Assert.Equal(10, bt.root.Left.value);
       Assert.Equal(20, bt.root.Right.value);
+      Assert.Equal(3, bt.Count);
     }
 
     [Fact]
