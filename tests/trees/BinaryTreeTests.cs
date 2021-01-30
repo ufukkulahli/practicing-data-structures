@@ -145,6 +145,9 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(2, bt.root.value);
       Assert.Equal(5, bt.root.Left.value);
+      Assert.Null(bt.root.Right);
+      Assert.Equal(2, bt.Count);
+      Assert.Equal(1, bt.Height());
     }
 
     [Fact]
@@ -162,6 +165,8 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, bt.root.value);
       Assert.Equal(5, bt.root.Left.value);
       Assert.Equal(6, bt.root.Right.value);
+      Assert.Equal(3, bt.Count);
+      Assert.Equal(1, bt.Height());
     }
 
     [Fact]
@@ -191,6 +196,8 @@ namespace practicing_data_structures.tests.trees
       Assert.True(bt.Contains(5));
       Assert.True(bt.Contains(6));
       Assert.False(bt.Contains(7));
+      Assert.Equal(3, bt.Count);
+      Assert.Equal(1, bt.Height());
     }
 
     [Fact]
@@ -201,6 +208,7 @@ namespace practicing_data_structures.tests.trees
 
       // Act & Assert
       Assert.Equal(-1, bt.Height());
+      Assert.Equal(0, bt.Count);
     }
 
     [Fact]
@@ -226,6 +234,7 @@ namespace practicing_data_structures.tests.trees
 
       // Act & Assert
       Assert.Equal(3, bt.Height());
+      Assert.Equal(7, bt.Count);
     }
 
     [Fact]
@@ -250,6 +259,8 @@ namespace practicing_data_structures.tests.trees
 
       // Assert
       Assert.Null(bt.root);
+      Assert.Equal(0, bt.Count);
+      Assert.Equal(-1, bt.Height());
     }
 
     [Fact]
@@ -268,6 +279,8 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(5, bt.root.value);
       Assert.Null(bt.root.Left);
+      Assert.Equal(1, bt.Count);
+      Assert.Equal(0, bt.Height());
     }
 
     [Fact]
@@ -291,6 +304,8 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(5, bt.root.value);
       Assert.Equal(10, bt.root.Left.value);
       Assert.Null(bt.root.Right);
+      Assert.Equal(2, bt.Count);
+      Assert.Equal(1, bt.Height());
     }
 
     [Fact]
