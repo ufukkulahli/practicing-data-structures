@@ -36,5 +36,19 @@ namespace practicing_data_structures.data_structures.trees
       Inorder(node.Right);
     }
 
+    public void Postorder(BinaryTreeNode<T> node)
+    {
+      if(node==null)
+      {
+        return;
+      }
+
+      Postorder(node.Left);
+
+      Postorder(node.Right);
+
+      this.sb.Append(node.value + "->");
+    }
+
   }
 }
