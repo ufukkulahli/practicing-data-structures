@@ -50,5 +50,31 @@ namespace practicing_data_structures.data_structures.trees
       this.sb.Append(node.value + "->");
     }
 
+    public void Levelorder(BinaryTreeNode<T> node)
+    {
+      if(node==null)
+      {
+        return;
+      }
+
+      if(node.IsRoot)
+      {
+        this.sb.Append(node.value + "->");
+      }
+
+      if(node.Left!=null)
+      {
+        this.sb.Append(node.Left.value + "->");
+      }
+
+      if(node.Right!=null)
+      {
+        this.sb.Append(node.Right.value + "->");
+      }
+
+      Levelorder(node.Left);
+      Levelorder(node.Right);
+    }
+
   }
 }

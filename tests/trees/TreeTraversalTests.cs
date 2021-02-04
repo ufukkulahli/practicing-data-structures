@@ -65,6 +65,44 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void LevelorderTraversal()
+    {
+      // Arrange
+      var bt = new BinaryTree<int>(null);
+      bt.Insert(1);
+      bt.Insert(1, 10); //delete
+      bt.Insert(1, 2);
+      
+      bt.Insert(2, 11); //delete
+      bt.Insert(2, 5);
+      
+      bt.Insert(5, 3);
+      bt.Insert(5, 6);
+
+      bt.Insert(3, 12); //delete
+      bt.Insert(3, 4);
+
+      bt.Delete(10);
+      bt.Delete(11);
+      bt.Delete(12);
+
+      // Should be
+      //           1
+      //         n    2
+      //            n   5
+      //              3   6
+      //             n 4
+
+      var sb = new StringBuilder();
+
+      // Act
+      new TreeTraversal<int>(sb).Levelorder(bt.root);
+
+      // Assert
+      Assert.Equal("1->2->5->3->6->4", sb.ToString().TrimEnd('>').TrimEnd('-'));
+    }
+
+    [Fact]
     public void PostorderTraversal()
     {
       // Arrange
