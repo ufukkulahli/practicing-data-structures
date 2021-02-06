@@ -1,3 +1,4 @@
+using practicing_data_structures.data_structures.graphs;
 using practicing_data_structures.data_structures.graphs.search;
 using Xunit;
 
@@ -8,7 +9,22 @@ namespace practicing_data_structures.tests.graphs.search
     [Fact]
     public void Test()
     {
-      Assert.Throws<System.NotImplementedException>( () => new BreadthFirst().Find() );
+      // Arrange
+      var graph = new Graph<char>();
+
+      graph.AddVertex('A');
+      graph.AddVertex('B');
+      graph.AddVertex('C');
+      graph.AddVertex('D');
+
+      graph.AddEdge('A', 'B');
+      graph.AddEdge('B', 'C');
+      graph.AddEdge('C', 'D');
+
+      var breadthFirst = new BreadthFirst<char>();
+
+      // Act & Assert
+      Assert.Throws<System.NotImplementedException>( () => breadthFirst.Find(graph, 'A') );
     }
   }
 }
