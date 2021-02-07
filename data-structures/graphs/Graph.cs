@@ -9,6 +9,22 @@ namespace practicing_data_structures.data_structures.graphs
 
     private readonly IDictionary<T, Vertex<T>> vertices = new Dictionary<T, Vertex<T>>();
 
+    public Vertex<T> NextVertex
+    {
+      get
+      {
+        using(var enumerator = vertices.GetEnumerator())
+        {
+          if(enumerator.MoveNext())
+          {
+            return enumerator.Current.Value;
+          }
+        }
+
+        return null;
+      }
+    }
+
     public int VerticesCount => vertices.Count;
     public bool ContainsVertex(T item) => vertices.ContainsKey(item);
     public Vertex<T> GetVertex(T item) => vertices[item];

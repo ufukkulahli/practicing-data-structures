@@ -262,5 +262,28 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal("stars" ,edges.Single());
     }
 
+    [Fact]
+    public void ObtainNextVertex()
+    {
+      // Arrange
+      var graph = new Graph<char>();
+
+      graph.AddVertex('A');
+      graph.AddVertex('B');
+
+      // Act & Assert
+      Assert.Equal('A', graph.NextVertex.Value);
+    }
+
+    [Fact]
+    public void NextVertexIsNull()
+    {
+      // Arrange
+      var graph = new Graph<char>();
+
+      // Act
+      Assert.Null(graph.NextVertex);
+    }
+
   }
 }
