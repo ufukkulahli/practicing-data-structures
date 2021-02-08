@@ -24,7 +24,7 @@ namespace practicing_data_structures.tests.graphs.search
       var breadthFirst = new BreadthFirst<char>();
 
       // Act & Assert
-      Assert.Throws<System.NotImplementedException>( () => breadthFirst.Find(graph, 'A') );
+      Assert.True(breadthFirst.Find(graph, 'A'));
     }
   }
 }
