@@ -21,7 +21,16 @@ namespace practicing_data_structures.data_structures.graphs.search
           return true;
         }
 
-        throw new System.NotImplementedException("Searching queue functionality not implemented completely!");
+        foreach(var edge in currentVertex.Edges)
+        {
+          if(visitedVertexValues.Contains(edge.Value))
+          {
+            continue;
+          }
+
+          visitedVertexValues.Add(edge.Value);
+          vertexQueue.Enqueue(edge);
+        }
       }
 
       throw new System.NotImplementedException("Find functionality not implemented completely!");
