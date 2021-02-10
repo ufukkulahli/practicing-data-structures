@@ -48,5 +48,22 @@ namespace practicing_data_structures.tests.graphs.search
       Assert.True(breadthFirst.Find(graph, 'B'));
     }
 
+    [Fact]
+    public void VertexDoesNotExist()
+    {
+      // Arrange
+      var graph = new Graph<char>();
+
+      graph.AddVertex('A');
+      graph.AddVertex('B');
+
+      graph.AddEdge('A', 'B');
+
+      var breadthFirst = new BreadthFirst<char>();
+
+      // Act & Assert
+      Assert.False(breadthFirst.Find(graph, 'X'));
+    }
+
   }
 }

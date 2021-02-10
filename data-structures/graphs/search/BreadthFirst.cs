@@ -33,7 +33,7 @@ namespace practicing_data_structures.data_structures.graphs.search
         }
       }
 
-      throw new System.NotImplementedException("Find functionality not implemented completely!");
+      return false;
     }
   }
 }
