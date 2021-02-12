@@ -9,8 +9,8 @@ namespace practicing_data_structures.data_structures.graphs.search
       var vertexQueue = new Queue<Vertex<T>>();
       var visitedVertexValues = new HashSet<T>();
 
-      vertexQueue.Enqueue(graph.NextVertex);
-      visitedVertexValues.Add(graph.NextVertex.Value);
+      vertexQueue.Enqueue(graph.FirstVertexOrNull);
+      visitedVertexValues.Add(graph.FirstVertexOrNull.Value);
 
       while(vertexQueue.Count>0)
       {

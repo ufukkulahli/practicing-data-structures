@@ -272,7 +272,7 @@ namespace practicing_data_structures.tests.graphs
       graph.AddVertex('B');
 
       // Act & Assert
-      Assert.Equal('A', graph.NextVertex.Value);
+      Assert.Equal('A', graph.FirstVertexOrNull.Value);
     }
 
     [Fact]
@@ -282,7 +282,7 @@ namespace practicing_data_structures.tests.graphs
       var graph = new Graph<char>();
 
       // Act
-      Assert.Null(graph.NextVertex);
+      Assert.Null(graph.FirstVertexOrNull);
     }
 
   }
