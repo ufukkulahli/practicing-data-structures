@@ -16,12 +16,27 @@ namespace practicing_data_structures.tests.graphs.search
       graph.AddVertex('A');
       graph.AddVertex('B');
 
-      //graph.AddEdge('A', 'B');
-
       var depthFirst = new DepthSearch<char>();
 
       // Act & Assert
       Assert.True(depthFirst.Find(graph.FirstVertexOrNull, 'A'));
+    }
+
+    [Fact]
+    public void SearchedVertexValueIsTheEdgeOfFirstVertex()
+    {
+      // Arrange
+      var graph = new Graph<char>();
+
+      graph.AddVertex('A');
+      graph.AddVertex('B');
+
+      graph.AddEdge('A', 'B');
+
+      var depthFirst = new DepthSearch<char>();
+
+      // Act & Assert
+      Assert.True(depthFirst.Find(graph.FirstVertexOrNull, 'B'));
     }
 
   }
