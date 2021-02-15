@@ -39,5 +39,22 @@ namespace practicing_data_structures.tests.graphs.search
       Assert.True(depthFirst.Find(graph.FirstVertexOrNull, 'B'));
     }
 
+    [Fact]
+    public void SearchedVertexValueIsNotFound()
+    {
+      // Arrange
+      var graph = new Graph<char>();
+
+      graph.AddVertex('A');
+      graph.AddVertex('B');
+
+      graph.AddEdge('A', 'B');
+
+      var depthFirst = new DepthSearch<char>();
+
+      // Act & Assert
+      Assert.False(depthFirst.Find(graph.FirstVertexOrNull, 'X'));
+    }
+
   }
 }
