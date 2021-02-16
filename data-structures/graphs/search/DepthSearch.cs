@@ -2,7 +2,7 @@ using System.Collections.Generic;
 
 namespace practicing_data_structures.data_structures.graphs.search
 {
-  public sealed class DepthSearch<T>
+  public sealed class DepthFirst<T>
   {
 
     public bool Find(Vertex<T> startVertex, T searchedVertexValue)
