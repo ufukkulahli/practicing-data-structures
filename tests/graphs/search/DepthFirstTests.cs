@@ -16,7 +16,7 @@ namespace practicing_data_structures.tests.graphs.search
       graph.AddVertex('A');
       graph.AddVertex('B');
 
-      var depthFirst = new DepthSearch<char>();
+      var depthFirst = new DepthFirst<char>();
 
       // Act & Assert
       Assert.True(depthFirst.Find(graph.FirstVertexOrNull, 'A'));
@@ -33,7 +33,7 @@ namespace practicing_data_structures.tests.graphs.search
 
       graph.AddEdge('A', 'B');
 
-      var depthFirst = new DepthSearch<char>();
+      var depthFirst = new DepthFirst<char>();
 
       // Act & Assert
       Assert.True(depthFirst.Find(graph.FirstVertexOrNull, 'B'));
@@ -50,7 +50,7 @@ namespace practicing_data_structures.tests.graphs.search
 
       graph.AddEdge('A', 'B');
 
-      var depthFirst = new DepthSearch<char>();
+      var depthFirst = new DepthFirst<char>();
 
       // Act & Assert
       Assert.False(depthFirst.Find(graph.FirstVertexOrNull, 'X'));
