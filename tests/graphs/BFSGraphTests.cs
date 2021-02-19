@@ -22,5 +22,20 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(2, bfsGraph.references.Last().Key);
       Assert.Equal(1, bfsGraph.references.Last().Value.First());
     }
+
+    [Fact]
+    public void AddingExistingEdgesDoNothing()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+
+      // Act
+      bfsGraph.AddEdge(1, 2);
+      bfsGraph.AddEdge(1, 2);
+
+      // Assert
+      Assert.Equal(2, bfsGraph.references.Count());
+    }
+
   }
 }
