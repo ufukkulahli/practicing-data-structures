@@ -16,11 +16,11 @@ namespace practicing_data_structures.tests.graphs
       bfsGraph.AddEdge(1, 2);
 
       // Assert
-      Assert.Equal(1, bfsGraph.references.First().Key);
-      Assert.Equal(2, bfsGraph.references.First().Value.First());
+      Assert.Equal(1, bfsGraph.References.First().Key);
+      Assert.Equal(2, bfsGraph.References.First().Value.First());
 
-      Assert.Equal(2, bfsGraph.references.Last().Key);
-      Assert.Equal(1, bfsGraph.references.Last().Value.First());
+      Assert.Equal(2, bfsGraph.References.Last().Key);
+      Assert.Equal(1, bfsGraph.References.Last().Value.First());
     }
 
     [Fact]
@@ -34,7 +34,25 @@ namespace practicing_data_structures.tests.graphs
       bfsGraph.AddEdge(1, 2);
 
       // Assert
-      Assert.Equal(2, bfsGraph.references.Count());
+      Assert.Equal(2, bfsGraph.References.Count());
+    }
+
+    [Fact]
+    public void ResetDistances()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+
+      // Act
+      bfsGraph.ResetDistances();
+
+      // Assert
+      Assert.Equal(1, bfsGraph.Distances.First().Key);
+      Assert.Equal(-1, bfsGraph.Distances.First().Value);
+
+      Assert.Equal(2, bfsGraph.Distances.Last().Key);
+      Assert.Equal(-1, bfsGraph.Distances.Last().Value);
     }
 
   }
