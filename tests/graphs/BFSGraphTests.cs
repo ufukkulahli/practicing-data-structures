@@ -55,5 +55,24 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(-1, bfsGraph.Distances.Last().Value);
     }
 
+    [Fact]
+    public void ResetSourcesDistance()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+      bfsGraph.ResetDistances();
+
+      // Act
+      bfsGraph.ResetSourcesDistance(2);
+
+      // Assert
+      Assert.Equal(1, bfsGraph.Distances.First().Key);
+      Assert.Equal(-1, bfsGraph.Distances.First().Value);
+
+      Assert.Equal(2, bfsGraph.Distances.Last().Key);
+      Assert.Equal(0, bfsGraph.Distances.Last().Value); // Was reset
+    }
+
   }
 }

@@ -35,5 +35,10 @@ namespace practicing_data_structures.data_structures.graphs
       }
     }
 
+    public void ResetSourcesDistance(int source)
+    {
+      Distances[source] = 0;
+    }
+
   }
 }
