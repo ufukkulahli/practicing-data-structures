@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace practicing_data_structures.data_structures.graphs
 {
@@ -38,6 +39,18 @@ namespace practicing_data_structures.data_structures.graphs
     public void ResetSourcesDistance(int source)
     {
       Distances[source] = 0;
+    }
+
+    public void UpdateDistancesAndPaths(int node)
+    {
+      var nodes = References[node];
+      var adjacents = nodes.Where( n => Distances[n] == -1 );
+
+      foreach(var adjacent in adjacents)
+      {
+        var distanceOfNode = Distances[node];
+        Distances[adjacent] = distanceOfNode + 1;
+      }
     }
 
   }
