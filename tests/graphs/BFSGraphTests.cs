@@ -92,6 +92,10 @@ namespace practicing_data_structures.tests.graphs
 
       Assert.Equal(2, bfsGraph.Distances.Last().Key);
       Assert.Equal(0, bfsGraph.Distances.Last().Value);
+
+      // Paths
+      Assert.Equal(1, bfsGraph.Paths.Last().Key);
+      Assert.Equal(2, bfsGraph.Paths.Last().Value);
     }
 
   }

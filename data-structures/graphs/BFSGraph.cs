@@ -50,6 +50,8 @@ namespace practicing_data_structures.data_structures.graphs
       {
         var distanceOfNode = Distances[node];
         Distances[adjacent] = distanceOfNode + 1;
+
+        Paths[adjacent] = node;
       }
     }
 
