@@ -75,6 +75,34 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
+    public void VisitAllNodes()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+      bfsGraph.ResetDistances();
+      bfsGraph.ResetSourcesDistance(2);
+
+      // Act
+      bfsGraph.VisitAllNodes(2);
+
+      // Assert
+      Assert.Equal(2, bfsGraph.Distances.Count);
+
+      Assert.Equal(1, bfsGraph.Distances.First().Key);
+      Assert.Equal(1, bfsGraph.Distances.First().Value);
+
+      Assert.Equal(2, bfsGraph.Distances.Last().Key);
+      Assert.Equal(0, bfsGraph.Distances.Last().Value);
+
+      // Paths
+      Assert.Equal(1, bfsGraph.Paths.Count);
+
+      Assert.Equal(1, bfsGraph.Paths.Last().Key);
+      Assert.Equal(2, bfsGraph.Paths.Last().Value);
+    }
+
+    [Fact]
     public void UpdateDistancesAndPaths()
     {
       // Arrange

@@ -8,6 +8,7 @@ namespace practicing_data_structures.data_structures.graphs
     public readonly IDictionary<int, List<int>> References = new Dictionary<int, List<int>>();
     public readonly IDictionary<int, int> Paths = new Dictionary<int, int>();
     public readonly IDictionary<int, int> Distances = new Dictionary<int, int>();
+    public readonly Queue<int> WillBeVisitedNodes = new Queue<int>();
 
     public void AddEdge(int node1, int node2)
     {
@@ -41,6 +42,19 @@ namespace practicing_data_structures.data_structures.graphs
       Distances[source] = 0;
     }
 
+    public void VisitAllNodes(int node)
+    {
+      WillBeVisitedNodes.Enqueue(node);
+
+      while(WillBeVisitedNodes.Any())
+      {
+        var currentNode = WillBeVisitedNodes.Dequeue();
+
+        UpdateDistancesAndPaths(node);
+      }
+
+    }
+
     public void UpdateDistancesAndPaths(int node)
     {
       var nodes = References[node];
@@ -52,6 +66,8 @@ namespace practicing_data_structures.data_structures.graphs
         Distances[adjacent] = distanceOfNode + 1;
 
         Paths[adjacent] = node;
+
+        WillBeVisitedNodes.Enqueue(adjacent);
       }
     }
 
