@@ -71,5 +71,21 @@ namespace practicing_data_structures.data_structures.graphs
       }
     }
 
+    public Stack<int> BuildPath(int source, int destination)
+    {
+      var paths = new Stack<int>(); 
+
+      var currentNode = destination;
+
+      while(currentNode != source)
+      {
+        paths.Push(currentNode);
+        //todo
+        break;
+      }
+
+      return paths;
+    }
+
   }
 }

@@ -126,5 +126,18 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(2, bfsGraph.Paths.Last().Value);
     }
 
+    [Fact]
+    public void BuildPath()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+
+      // Act
+      var paths = bfsGraph.BuildPath(1, 2);
+
+      // Assert
+      Assert.Equal(2, paths.First());
+    }
+
   }
 }
