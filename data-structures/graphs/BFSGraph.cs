@@ -73,18 +73,19 @@ namespace practicing_data_structures.data_structures.graphs
 
     public Stack<int> BuildPath(int source, int destination)
     {
-      var paths = new Stack<int>(); 
+      var builtPaths = new Stack<int>(); 
 
       var currentNode = destination;
 
       while(currentNode != source)
       {
-        paths.Push(currentNode);
-        //todo
-        break;
+        builtPaths.Push(currentNode);
+        currentNode = Paths[currentNode];
       }
 
-      return paths;
+      builtPaths.Push(source);
+
+      return builtPaths;
     }
 
   }

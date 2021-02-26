@@ -131,12 +131,20 @@ namespace practicing_data_structures.tests.graphs
     {
       // Arrange
       var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+
+      bfsGraph.ResetDistances();
+      bfsGraph.ResetSourcesDistance(1);
+      bfsGraph.VisitAllNodes(1);
 
       // Act
-      var paths = bfsGraph.BuildPath(1, 2);
+      var paths = bfsGraph.BuildPath(1,2);
 
       // Assert
-      Assert.Equal(2, paths.First());
+      Assert.Equal(2, paths.Count);
+
+      Assert.Equal(1, paths.First());
+      Assert.Equal(2, paths.Last());
     }
 
   }
