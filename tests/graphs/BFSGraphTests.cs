@@ -155,7 +155,13 @@ namespace practicing_data_structures.tests.graphs
       bfsGraph.AddEdge(1, 2);
 
       // Act & Assert
-      Assert.Throws<System.NotImplementedException>( () => bfsGraph.ShortestPath(1,2) );
+      var paths = bfsGraph.ShortestPath(1,2);
+
+      // Assert
+      Assert.Equal(2, paths.Count);
+
+      Assert.Equal(1, paths.First());
+      Assert.Equal(2, paths.Last());
     }
 
   }

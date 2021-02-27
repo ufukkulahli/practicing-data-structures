@@ -24,9 +24,12 @@ namespace practicing_data_structures.data_structures.graphs
 
     }
 
-    public void ShortestPath(int source, int destination)
+    public Stack<int> ShortestPath(int source, int destination)
     {
-      throw new System.NotImplementedException();
+      ResetDistances();
+      ResetSourcesDistance(source);
+      VisitAllNodes(source);
+      return BuildPath(source, destination);
     }
 
     public void ResetDistances()
