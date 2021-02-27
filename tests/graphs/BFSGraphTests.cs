@@ -147,5 +147,16 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(2, paths.Last());
     }
 
+    [Fact]
+    public void ShortestPath()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+
+      // Act & Assert
+      Assert.Throws<System.NotImplementedException>( () => bfsGraph.ShortestPath(1,2) );
+    }
+
   }
 }
