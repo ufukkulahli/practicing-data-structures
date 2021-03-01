@@ -25,6 +25,27 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
+    public void AddEdgeTest2()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+      bfsGraph.AddEdge(1, 3);
+      bfsGraph.AddEdge(1, 4);
+      bfsGraph.AddEdge(4, 5);
+      bfsGraph.AddEdge(2, 6);
+      bfsGraph.AddEdge(4, 7);
+      bfsGraph.AddEdge(5, 6);
+      bfsGraph.AddEdge(6, 7);
+
+      // Act & Assert
+      var references = bfsGraph.References.ToList();
+      Assert.Equal(1, references[0].Key);
+      Assert.Equal(2, references[0].Value.First());
+      // TODO: ASSERT REMAINING
+    }
+
+    [Fact]
     public void AddingExistingEdgesDoNothing()
     {
       // Arrange
