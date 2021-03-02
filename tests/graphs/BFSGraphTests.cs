@@ -25,7 +25,7 @@ namespace practicing_data_structures.tests.graphs
     }
 
     [Fact]
-    public void AddEdgeTest2()
+    public void AddEdgeTestDetailed()
     {
       // Arrange
       var bfsGraph = new BFSGraph();
@@ -38,11 +38,39 @@ namespace practicing_data_structures.tests.graphs
       bfsGraph.AddEdge(5, 6);
       bfsGraph.AddEdge(6, 7);
 
-      // Act & Assert
+      // Act
       var references = bfsGraph.References.ToList();
+
+      // Assert
       Assert.Equal(1, references[0].Key);
-      Assert.Equal(2, references[0].Value.First());
-      // TODO: ASSERT REMAINING
+      Assert.Equal(2, references[0].Value[0]);
+      Assert.Equal(3, references[0].Value[1]);
+      Assert.Equal(4, references[0].Value[2]);
+      
+      Assert.Equal(2, references[1].Key);
+      Assert.Equal(1, references[1].Value[0]);
+      Assert.Equal(6, references[1].Value[1]);
+
+      Assert.Equal(3, references[2].Key);
+      Assert.Equal(1, references[2].Value[0]);
+
+      Assert.Equal(4, references[3].Key);
+      Assert.Equal(1, references[3].Value[0]);
+      Assert.Equal(5, references[3].Value[1]);
+      Assert.Equal(7, references[3].Value[2]);
+
+      Assert.Equal(5, references[4].Key);
+      Assert.Equal(4, references[4].Value[0]);
+      Assert.Equal(6, references[4].Value[1]);
+
+      Assert.Equal(6, references[5].Key);
+      Assert.Equal(2, references[5].Value[0]);
+      Assert.Equal(5, references[5].Value[1]);
+      Assert.Equal(7, references[5].Value[2]);
+
+      Assert.Equal(7, references[6].Key);
+      Assert.Equal(4, references[6].Value[0]);
+      Assert.Equal(6, references[6].Value[1]);
     }
 
     [Fact]

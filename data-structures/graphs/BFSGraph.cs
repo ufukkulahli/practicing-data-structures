@@ -14,14 +14,16 @@ namespace practicing_data_structures.data_structures.graphs
     {
       if (!References.ContainsKey(node1))
       {
-        References[node1] = new List<int>() { node2 };
+        References[node1] = new List<int>();
       }
 
       if (!References.ContainsKey(node2))
       {
-        References[node2] = new List<int>() { node1 };
+        References[node2] = new List<int>();
       }
 
+      References[node1].Add(node2);
+      References[node2].Add(node1);
     }
 
     public Stack<int> ShortestPath(int source, int destination)
