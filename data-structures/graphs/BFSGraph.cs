@@ -55,7 +55,7 @@ namespace practicing_data_structures.data_structures.graphs
       {
         var currentNode = WillBeVisitedNodes.Dequeue();
 
-        UpdateDistancesAndPaths(node);
+        UpdateDistancesAndPaths(currentNode);
       }
 
     }

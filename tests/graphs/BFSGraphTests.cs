@@ -229,7 +229,11 @@ namespace practicing_data_structures.tests.graphs
       bfsGraph.AddEdge(6, 7);
 
       // Act & Assert
-      Assert.Throws<KeyNotFoundException>( () => bfsGraph.ShortestPath(1,7) );
+      var paths = bfsGraph.ShortestPath(1,7).ToList();
+
+      Assert.Equal(1, paths[0]);
+      Assert.Equal(4, paths[1]);
+      Assert.Equal(7, paths[2]);
     }
 
   }
