@@ -283,5 +283,28 @@ namespace practicing_data_structures.tests.graphs
       Assert.Equal(6, paths[2]);
     }
 
+    [Fact]
+    public void ShortestPath5()
+    {
+      // Arrange
+      var bfsGraph = new BFSGraph();
+      bfsGraph.AddEdge(1, 2);
+      bfsGraph.AddEdge(1, 3);
+      bfsGraph.AddEdge(1, 4);
+      bfsGraph.AddEdge(4, 5);
+      bfsGraph.AddEdge(2, 6);
+      bfsGraph.AddEdge(4, 7);
+      bfsGraph.AddEdge(5, 6);
+      bfsGraph.AddEdge(6, 7);
+
+      // Act
+      var paths = bfsGraph.ShortestPath(2,7).ToList();
+
+      // Assert
+      Assert.Equal(2, paths[0]);
+      Assert.Equal(6, paths[1]);
+      Assert.Equal(7, paths[2]);
+    }
+
   }
 }
