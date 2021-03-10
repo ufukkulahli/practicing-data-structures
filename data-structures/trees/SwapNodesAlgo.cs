@@ -29,6 +29,7 @@ namespace practicing_data_structures.data_structures.trees
 
       PrintInOrder(currentNode.Left, indexes);
       indexes.Add(currentNode.Index);
+      PrintInOrder(currentNode.Right, indexes);
     }
 
     public void Swap()

@@ -17,7 +17,8 @@ namespace practicing_data_structures.tests.trees
     {
       // Arrange
       var left   = new SwapNodesAlgo.Node(2, 2, null, null);
-      var parent = new SwapNodesAlgo.Node(1, 1, left, null);
+      var right  = new SwapNodesAlgo.Node(3, 3, null, null);
+      var parent = new SwapNodesAlgo.Node(1, 1, left, right);
       var swapNodes = new SwapNodesAlgo();
       var indexes = new List<int>();
 
@@ -27,6 +28,7 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(2, indexes[0]);
       Assert.Equal(1, indexes[1]);
+      Assert.Equal(3, indexes[2]);
     }
 
   }
