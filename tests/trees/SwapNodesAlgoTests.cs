@@ -31,6 +31,24 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, indexes[2]);
     }
 
+    [Fact]
+    public void SwapInOrderTest()
+    {
+      // Arrange
+      var left   = new SwapNodesAlgo.Node(2, 2, null, null);
+      var right  = new SwapNodesAlgo.Node(3, 3, null, null);
+      var parent = new SwapNodesAlgo.Node(1, 1, left, right);
+      var swapNodes = new SwapNodesAlgo();
+      var indexes = new List<int>();
+
+      // Act
+      swapNodes.SwapInOrder(parent, 1, 1);
+
+      // Assert
+      Assert.Equal(3, parent.Left.Index);
+      Assert.Equal(2, parent.Right.Index);
+    }
+
   }
 
 }
