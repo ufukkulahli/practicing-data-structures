@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using practicing_data_structures.data_structures.trees;
 using Xunit;
 
@@ -71,6 +72,21 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(2, parent.Right.Index);
       Assert.Equal(4, parent.Right.Right.Index);
+    }
+
+    [Fact]
+    public void BuildTreeTest()
+    {
+      // Arrange
+      var indexes = new int[0][];
+      var swapNodes = new SwapNodesAlgo();
+      
+      // Act
+      var tree = swapNodes.BuildTree(indexes).ToList();
+
+      // Assert
+      Assert.Equal(1, tree[0].Index);
+      Assert.Equal(1, tree[0].Depth);
     }
 
   }

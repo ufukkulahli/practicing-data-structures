@@ -20,6 +20,27 @@ namespace practicing_data_structures.data_structures.trees
 
     }
 
+    public Queue<Node> BuildTree(int[][] indexes)
+    {
+      var root = BuildRoot();
+
+      var currentNode = root;
+
+      var nodesQueue = new Queue<Node>();
+      nodesQueue.Enqueue(currentNode);
+
+      var numberOfNodes = indexes.Length;
+
+      for(var index=0; index<numberOfNodes; index++)
+      {
+
+      }
+
+      return nodesQueue;
+    }
+
+    private Node BuildRoot() => new Node(1, 1, null, null);
+
     public void SwapInOrder(Node currentNode, int depth, int k)
     {
       if(currentNode == null)
