@@ -41,6 +41,16 @@ namespace practicing_data_structures.data_structures.trees
 
     private Node BuildRoot() => new Node(1, 1, null, null);
 
+    public Node BuildNode(int nodeIndex, int depth)
+    {
+      if(nodeIndex == -1)
+      {
+        return null;
+      }
+
+      return new Node(nodeIndex, (depth+1), null, null);
+    }
+
     public void SwapInOrder(Node currentNode, int depth, int k)
     {
       if(currentNode == null)

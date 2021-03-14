@@ -89,6 +89,28 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(1, tree[0].Depth);
     }
 
+    [Fact]
+    public void GivenMinusOneAsNodeIndexCausesReturningNull()
+    {
+      Assert.Null( new SwapNodesAlgo().BuildNode(-1, 0) );
+    }
+
+    [Fact]
+    public void BuildNodeAsNormal()
+    {
+      // Arrange
+      var nodeIndex = 1;
+      var depth     = 1;
+      var swapNodes = new SwapNodesAlgo();
+
+      // Act
+      var builtNode = swapNodes.BuildNode(nodeIndex, depth);
+
+      // Assert
+      Assert.Equal(1, builtNode.Index);
+      Assert.Equal(2, builtNode.Depth);
+    }
+
   }
 
 }
