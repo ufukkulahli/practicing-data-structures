@@ -33,7 +33,23 @@ namespace practicing_data_structures.data_structures.trees
 
       for(var index=0; index<numberOfNodes; index++)
       {
+        currentNode        = nodesQueue.Dequeue();
 
+        var leftNodeIndex  = indexes[index][0];
+        var rightNodeIndex = indexes[index][1];
+
+        currentNode.Left  = BuildNode(leftNodeIndex,  currentNode.Depth);
+        currentNode.Right = BuildNode(rightNodeIndex, currentNode.Depth);
+
+        if(currentNode.Left != null  &&  currentNode.Left.Index != -1)
+        {
+          nodesQueue.Enqueue(currentNode.Left);
+        }
+
+        if(currentNode.Right != null  &&  currentNode.Right.Index != -1)
+        {
+          nodesQueue.Enqueue(currentNode.Right);
+        }
       }
 
       return nodesQueue;
