@@ -93,11 +93,15 @@ namespace practicing_data_structures.tests.trees
     public void BuildTreeTest2()
     {
       // Arrange
-      var indexes = new int[1][];
-      indexes[0]  = new int[2];
+      var indexes = new int[2][];
 
+      indexes[0]    = new int[2];
       indexes[0][0] = 2;
       indexes[0][1] = 3;
+
+      indexes[1]    = new int[2];
+      indexes[1][0] = 4;
+      indexes[1][1] = 5;
 
       var swapNodes = new SwapNodesAlgo();
 
@@ -105,11 +109,14 @@ namespace practicing_data_structures.tests.trees
       var tree = swapNodes.BuildTree(indexes).ToList();
 
       // Assert
-      Assert.Equal(2, tree[0].Index);
       Assert.Equal(2, tree[0].Depth);
+      Assert.Equal(3, tree[0].Index);
 
-      Assert.Equal(3, tree[1].Index);
-      Assert.Equal(2, tree[1].Depth);
+      Assert.Equal(3, tree[1].Depth);
+      Assert.Equal(4, tree[1].Index);
+
+      Assert.Equal(3, tree[2].Depth);
+      Assert.Equal(5, tree[2].Index);
     }
 
     [Fact]
