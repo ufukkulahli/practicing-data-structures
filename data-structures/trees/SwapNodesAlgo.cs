@@ -20,20 +20,21 @@ namespace practicing_data_structures.data_structures.trees
 
     }
 
-    public Queue<Node> BuildTree(int[][] indexes)
+    public LinkedList<Node> BuildTree(int[][] indexes)
     {
       var root = BuildRoot();
 
       var currentNode = root;
 
-      var nodesQueue = new Queue<Node>();
-      nodesQueue.Enqueue(currentNode);
+      var nodesQueue = new LinkedList<Node>();
+      nodesQueue.AddLast(currentNode);
 
       var numberOfNodes = indexes.Length;
 
       for(var index=0; index<numberOfNodes; index++)
       {
-        currentNode        = nodesQueue.Dequeue();
+        currentNode        = nodesQueue.First.Value;
+        nodesQueue.RemoveFirst();
 
         var leftNodeIndex  = indexes[index][0];
         var rightNodeIndex = indexes[index][1];
@@ -43,12 +44,12 @@ namespace practicing_data_structures.data_structures.trees
 
         if(currentNode.Left != null  &&  currentNode.Left.Index != -1)
         {
-          nodesQueue.Enqueue(currentNode.Left);
+          nodesQueue.AddLast(currentNode.Left);
         }
 
         if(currentNode.Right != null  &&  currentNode.Right.Index != -1)
         {
-          nodesQueue.Enqueue(currentNode.Right);
+          nodesQueue.AddLast(currentNode.Right);
         }
       }
 
