@@ -98,6 +98,24 @@ namespace practicing_data_structures.data_structures.trees
       PrintInOrder(currentNode.Right, indexes);
     }
 
+    public int[][] Check(int[][] indexes, int[] queries, Node root)
+    {
+      int[][] result = new int[queries.Length][];
+
+      for(var index=0;  index<queries.Length;  index++)
+      {
+        SwapInOrder(root, 1, queries[index]);
+        var tempIndexes = new List<int>();
+        PrintInOrder(root, tempIndexes);
+
+        var vals = new int[tempIndexes.Count];
+        vals = tempIndexes.ToArray();
+        result[index] = vals;
+      }
+
+      return result;
+    }
+
     public void Swap()
     {
       throw new System.NotImplementedException();

@@ -141,6 +141,21 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, builtNode.Depth);
     }
 
+    [Fact]
+    public void CheckTest()
+    {
+      // Arrange
+      var indexes   = new int[0][];
+      var queries   = new int[0];
+      var swapNodes = new SwapNodesAlgo();
+
+      // Act
+      var result = swapNodes.Check(indexes, queries, null);
+
+      // Assert
+      Assert.Empty(result);
+    }
+
   }
 
 }
