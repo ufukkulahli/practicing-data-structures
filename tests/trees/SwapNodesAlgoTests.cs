@@ -82,7 +82,7 @@ namespace practicing_data_structures.tests.trees
       var swapNodes = new SwapNodesAlgo();
 
       // Act
-      var tree = swapNodes.BuildTree(indexes).ToList();
+      var tree = swapNodes.BuildTree(indexes).Item2.ToList();
 
       // Assert
       Assert.Equal(1, tree[0].Index);
@@ -106,7 +106,7 @@ namespace practicing_data_structures.tests.trees
       var swapNodes = new SwapNodesAlgo();
 
       // Act
-      var tree = swapNodes.BuildTree(indexes).ToList();
+      var tree = swapNodes.BuildTree(indexes).Item2.ToList();
 
       // Assert
       Assert.Equal(2, tree[0].Depth);
@@ -117,6 +117,39 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(3, tree[2].Depth);
       Assert.Equal(5, tree[2].Index);
+    }
+
+    [Fact]
+    public void BuildRootNode()
+    {
+      // Arrange
+      var indexes = new int[2][];
+
+      indexes[0]    = new int[2];
+      indexes[0][0] = 2;
+      indexes[0][1] = 3;
+
+      indexes[1]    = new int[2];
+      indexes[1][0] = 4;
+      indexes[1][1] = 5;
+
+      var swapNodes = new SwapNodesAlgo();
+
+      // Act
+      var root = swapNodes.BuildTree(indexes).Item1;
+
+      // Assert
+      Assert.Equal(2, root.Right.Depth);
+      Assert.Equal(3, root.Right.Index);
+
+      Assert.Equal(2, root.Left.Depth);
+      Assert.Equal(2, root.Left.Index);
+
+      Assert.Equal(3, root.Left.Left.Depth);
+      Assert.Equal(4, root.Left.Left.Index);
+
+      Assert.Equal(3, root.Left.Right.Depth);
+      Assert.Equal(5, root.Left.Right.Index);
     }
 
     [Fact]

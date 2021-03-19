@@ -20,7 +20,7 @@ namespace practicing_data_structures.data_structures.trees
 
     }
 
-    public LinkedList<Node> BuildTree(int[][] indexes)
+    public (Node, LinkedList<Node>) BuildTree(int[][] indexes)
     {
       var root = BuildRoot();
 
@@ -53,7 +53,7 @@ namespace practicing_data_structures.data_structures.trees
         }
       }
 
-      return nodesQueue;
+      return (root, nodesQueue);
     }
 
     private Node BuildRoot() => new Node(1, 1, null, null);
