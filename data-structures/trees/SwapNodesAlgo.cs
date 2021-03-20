@@ -18,6 +18,7 @@ namespace practicing_data_structures.data_structures.trees
         this.Right = right;
       }
 
+      public override string ToString() => $"Index:{Index.ToString()}, Depth:{Depth.ToString()}";
     }
 
     public (Node, LinkedList<Node>) BuildTree(int[][] indexes)

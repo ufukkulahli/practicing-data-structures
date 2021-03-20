@@ -153,6 +153,26 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void NodeToString()
+    {
+      // Arrange
+      var indexes = new int[1][];
+
+      indexes[0]    = new int[2];
+      indexes[0][0] = 2;
+      indexes[0][1] = 3;
+
+      var swapNodes = new SwapNodesAlgo();
+
+      // Act
+      var root = swapNodes.BuildTree(indexes).Item1;
+
+      // Assert
+      Assert.Equal("Index:2, Depth:2", root.Left.ToString());
+      Assert.Equal("Index:3, Depth:2", root.Right.ToString());
+    }
+
+    [Fact]
     public void GivenMinusOneAsNodeIndexCausesReturningNull()
     {
       Assert.Null( new SwapNodesAlgo().BuildNode(-1, 0) );
