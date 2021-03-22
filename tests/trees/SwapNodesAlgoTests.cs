@@ -213,6 +213,37 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(3, result[0][2]);
     }
 
+    [Fact]
+    public void CheckTest2()
+    {
+      // Arrange
+      var indexes = new int[2][];
+
+      indexes[0]    = new int[2];
+      indexes[0][0] = 2;
+      indexes[0][1] = 3;
+
+      indexes[1]    = new int[2];
+      indexes[1][0] = 4;
+      indexes[1][1] = 5;
+
+      var swapNodes = new SwapNodesAlgo();
+
+      var root = swapNodes.BuildTree(indexes).Item1;
+      var queries   = new int[1];
+      queries[0]    = 2;
+
+      // Act
+      var result = swapNodes.Check(indexes, queries, root);
+
+      // Assert
+      Assert.Equal(5, result[0][0]);
+      Assert.Equal(2, result[0][1]);
+      Assert.Equal(4, result[0][2]);
+      Assert.Equal(1, result[0][3]);
+      Assert.Equal(3, result[0][4]);
+    }
+
   }
 
 }
