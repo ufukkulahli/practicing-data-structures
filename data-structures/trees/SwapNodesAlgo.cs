@@ -117,9 +117,5 @@ namespace practicing_data_structures.data_structures.trees
       return result;
     }
 
-    public void Swap()
-    {
-      throw new System.NotImplementedException();
-    }
   }
 }

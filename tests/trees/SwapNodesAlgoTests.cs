@@ -8,12 +8,6 @@ namespace practicing_data_structures.tests.trees
   public class SwapNodesAlgoTests
   {
     [Fact]
-    public void Test()
-    {
-      Assert.Throws<System.NotImplementedException>( () => new SwapNodesAlgo().Swap() );
-    }
-
-    [Fact]
     public void PrintInOrderTest()
     {
       // Arrange
