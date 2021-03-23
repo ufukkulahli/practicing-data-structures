@@ -27,6 +27,31 @@ namespace practicing_data_structures.tests.trees
     }
 
     [Fact]
+    public void PrintInOrderTest2()
+    {
+      // Arrange
+      var rightOfLeft  = new SwapNodesAlgo.Node(index: 4, depth: 3, left: null, right: null);
+      var left         = new SwapNodesAlgo.Node(index: 2, depth: 2, left: null, right: rightOfLeft);
+
+      var rightOfRight = new SwapNodesAlgo.Node(index: 5, depth: 3, left: null, right: null);
+      var right        = new SwapNodesAlgo.Node(index: 3, depth: 2, left: null, right: rightOfRight);
+
+      var parent       = new SwapNodesAlgo.Node(index: 1, depth: 1, left, right);
+      var swapNodes    = new SwapNodesAlgo();
+      var indexes      = new List<int>();
+
+      // Act
+      swapNodes.PrintInOrder(parent, indexes);
+
+      // Assert
+      Assert.Equal(2, indexes[0]);
+      Assert.Equal(4, indexes[1]);
+      Assert.Equal(1, indexes[2]);
+      Assert.Equal(3, indexes[3]);
+      Assert.Equal(5, indexes[4]);
+    }
+
+    [Fact]
     public void SwapInOrderTest()
     {
       // Arrange
