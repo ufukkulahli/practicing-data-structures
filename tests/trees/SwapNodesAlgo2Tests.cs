@@ -38,18 +38,22 @@ namespace practicing_data_structures.tests.trees
     public void SwapTest2()
     {
       // Arrange
-      var indexes     = new int[0][];
-      var node        = 1;
+      var indexes     = new int[1][];
+      indexes[0]      = new int[2];
+      indexes[0][0]   = 2;
+      indexes[0][1]   = 3;
+
+      var index       = 0;
       var targetDepth = 1;
       var depth       = 1;
-      var results     = new int[0][];
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      swapNodesAlgo2.Swap(indexes, node, targetDepth, depth, results);
+      swapNodesAlgo2.Swap(indexes, index, targetDepth, depth);
 
       // Assert
-      Assert.Empty(results);
+      Assert.Equal(3, indexes[0][0]);
+      Assert.Equal(2, indexes[0][1]);
     }
 
   }

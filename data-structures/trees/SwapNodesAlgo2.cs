@@ -8,15 +8,20 @@ namespace practicing_data_structures.data_structures.trees
       throw new System.NotImplementedException();
     }
 
-    public void Swap(int[][] indexes, int node, int targetDepth, int depth, int[][] result)
+    public void Swap(int[][] indexes, int index, int targetDepth, int depth)
     {
-      if (node == -1)
+      if (index == -1)
       {
           return;
       }
 
-      SwapNodes(indexes, node, targetDepth, depth);
+      SwapNodes(indexes, index, targetDepth, depth);
 
+      //Swap(indexes, indexes[index][0], targetDepth, (depth+1) );
+      // TODO: Add indexes to a result list
+      //Swap(indexes, indexes[index][1], targetDepth, (depth+1) );
+
+      return;
       throw new System.NotImplementedException();
     }
 
