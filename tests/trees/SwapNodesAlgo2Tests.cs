@@ -49,11 +49,11 @@ namespace practicing_data_structures.tests.trees
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      swapNodesAlgo2.Swap(indexes, index, targetDepth, depth);
-
-      // Assert
-      Assert.Equal(3, indexes[0][0]);
-      Assert.Equal(2, indexes[0][1]);
+      Assert.Throws<System.IndexOutOfRangeException>
+      (
+        () =>
+        swapNodesAlgo2.Swap(indexes, index, targetDepth, depth)
+      );
     }
 
   }

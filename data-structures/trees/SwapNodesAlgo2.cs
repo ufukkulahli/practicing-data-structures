@@ -17,9 +17,8 @@ namespace practicing_data_structures.data_structures.trees
 
       SwapNodes(indexes, index, targetDepth, depth);
 
-      //Swap(indexes, indexes[index][0], targetDepth, (depth+1) );
-      // TODO: Add indexes to a result list
-      //Swap(indexes, indexes[index][1], targetDepth, (depth+1) );
+      Swap(indexes, indexes[index][0], targetDepth, (depth+1) );
+      Swap(indexes, indexes[index][1], targetDepth, (depth+1) );
 
       return;
       throw new System.NotImplementedException();
