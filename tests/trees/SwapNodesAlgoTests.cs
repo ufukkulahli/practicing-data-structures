@@ -259,7 +259,7 @@ namespace practicing_data_structures.tests.trees
       queries[0]    = 3;
 
       // Act
-      var result = swapNodes.Check(indexes, queries, root);
+      var result = swapNodes.Swap(indexes, queries);
 
       // Assert
       Assert.Equal(2, result[0][0]);
@@ -288,7 +288,7 @@ namespace practicing_data_structures.tests.trees
       queries[0]    = 2;
 
       // Act
-      var result = swapNodes.Check(indexes, queries, root);
+      var result = swapNodes.Swap(indexes, queries);
 
       // Assert
       Assert.Equal(5, result[0][0]);

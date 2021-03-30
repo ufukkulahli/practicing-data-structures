@@ -99,9 +99,10 @@ namespace practicing_data_structures.data_structures.trees
       PrintInOrder(currentNode.Right, indexes);
     }
 
-    public int[][] Check(int[][] indexes, int[] queries, Node root)
+    public int[][] Swap(int[][] indexes, int[] queries)
     {
       int[][] result = new int[queries.Length][];
+      var root       = this.BuildTree(indexes).Item1;
 
       for(var index=0;  index<queries.Length;  index++)
       {
