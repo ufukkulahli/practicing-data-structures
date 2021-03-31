@@ -16,21 +16,17 @@ namespace practicing_data_structures.data_structures.trees
       }
 
       SwapNodes(indexes, index, targetDepth, depth);
-
-      Swap(indexes, indexes[index][0], targetDepth, (depth+1) );
-      Swap(indexes, indexes[index][1], targetDepth, (depth+1) );
-
-      return;
-      throw new System.NotImplementedException();
+      Swap(indexes, indexes[index+1][0], targetDepth, (depth+1) );
+      Swap(indexes, indexes[index+1][1], targetDepth, (depth+1) );
     }
 
-    public void SwapNodes(int[][] indexes, int node, int targetDepth, int depth)
+    public void SwapNodes(int[][] indexes, int index, int targetDepth, int depth)
     {
-      if (depth % targetDepth == 0)
+      if (depth >= targetDepth  &&  depth % targetDepth == 0)
       {
-        var tempLeftIndex = indexes[node][0];
-        indexes[node][0]  = indexes[node][1];
-        indexes[node][1]  = tempLeftIndex;
+        var tempLeftIndex  = indexes[index][0];
+        indexes[index][0]  = indexes[index][1];
+        indexes[index][1]  = tempLeftIndex;
       }
     }
 

@@ -38,10 +38,14 @@ namespace practicing_data_structures.tests.trees
     public void SwapTest2()
     {
       // Arrange
-      var indexes     = new int[1][];
+      var indexes     = new int[2][];
       indexes[0]      = new int[2];
+      indexes[1]      = new int[2];
+
       indexes[0][0]   = 2;
       indexes[0][1]   = 3;
+      indexes[1][0]   = -1;
+      indexes[1][1]   = -1;
 
       var index       = 0;
       var targetDepth = 1;
@@ -49,11 +53,11 @@ namespace practicing_data_structures.tests.trees
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      Assert.Throws<System.IndexOutOfRangeException>
-      (
-        () =>
-        swapNodesAlgo2.Swap(indexes, index, targetDepth, depth)
-      );
+      swapNodesAlgo2.Swap(indexes, index, targetDepth, depth);
+
+      // Assert
+      Assert.Equal(3, indexes[0][0]);
+      Assert.Equal(2, indexes[0][1]);
     }
 
   }
