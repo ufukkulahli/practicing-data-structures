@@ -5,7 +5,12 @@ namespace practicing_data_structures.data_structures.trees
 
     public int[][] Swap(int[][] indexes, int[] queries)
     {
-      throw new System.NotImplementedException();
+      for(var i=0; i<queries.Length; i++)
+      {
+        Swap(indexes, 1, queries[i], 1);
+      }
+
+      return indexes;
     }
 
     public void Swap(int[][] indexes, int index, int targetDepth, int depth)

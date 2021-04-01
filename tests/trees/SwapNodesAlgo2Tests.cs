@@ -9,7 +9,29 @@ namespace practicing_data_structures.tests.trees
     [Fact]
     public void SwapTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SwapNodesAlgo2().Swap(null, null) );
+      // Arrange
+      var indexes     = new int[3][];
+      indexes[0]      = new int[1];
+      indexes[1]      = new int[2];
+      indexes[2]      = new int[2];
+
+      indexes[0][0]   = 1;
+      indexes[1][0]   = 2;
+      indexes[1][1]   = 3;
+      indexes[2][0]   = -1;
+      indexes[2][1]   = -1;
+
+      var queries     = new int[1];
+      queries[0]      = 1;
+
+      var swapNodesAlgo2 = new SwapNodesAlgo2();
+
+      // Act
+      swapNodesAlgo2.Swap(indexes, queries);
+
+      // Assert
+      Assert.Equal(3, indexes[1][0]);
+      Assert.Equal(2, indexes[1][1]);
     }
 
     [Fact]
