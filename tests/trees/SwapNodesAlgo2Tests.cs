@@ -82,5 +82,41 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2, indexes[0][1]);
     }
 
+    [Fact]
+    public void SwapTest3()
+    {
+      // Arrange
+      var indexes     = new int[6][];
+      indexes[0]      = new int[1];
+      indexes[1]      = new int[2];
+      indexes[2]      = new int[2];
+      indexes[3]      = new int[2];
+      indexes[4]      = new int[1];
+      indexes[5]      = new int[1];
+
+      indexes[0][0]   = 1;
+
+      indexes[1][0]   = 2;
+      indexes[1][1]   = 3;
+
+      indexes[2][0]   = -1;
+      indexes[2][1]   = 4;
+
+      indexes[3][0]   = -1;
+      indexes[3][1]   = 5;
+
+      indexes[4][0]   = -1;
+      indexes[5][0]   = -1;
+
+
+      var queries     = new int[1];
+      queries[0]      = 1;
+
+      var swapNodesAlgo2 = new SwapNodesAlgo2();
+
+      // Act & Assert
+      Assert.Throws<System.IndexOutOfRangeException>( () => swapNodesAlgo2.Swap(indexes, queries) );
+    }
+
   }
 }
