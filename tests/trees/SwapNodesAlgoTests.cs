@@ -115,10 +115,10 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(2    , parent.Left.Index);
       Assert.Equal(4    , parent.Left.Left.Index);
-      Assert.Equal(null , parent.Left.Right);
+      Assert.Null(parent.Left.Right);
 
       Assert.Equal(3    , parent.Right.Index);
-      Assert.Equal(null , parent.Right.Right);
+      Assert.Null(parent.Right.Right);
       Assert.Equal(5    , parent.Right.Left.Index);
     }
 

@@ -258,7 +258,6 @@ namespace practicing_data_structures.tests.graphs
       var edges = graph.Edges("planets");
 
       // ASSERT
-      Assert.Equal(1, edges.Count());
       Assert.Equal("stars" ,edges.Single());
     }
 

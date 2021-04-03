@@ -30,7 +30,7 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(12, tree.Root.Value);
       // Left side
-      Assert.Equal(null, tree.Root.Left);
+      Assert.Null(tree.Root.Left);
       // Right side
       Assert.Equal(16, tree.Root.Right.Value);
       Assert.Equal(14, tree.Root.Right.Left.Value);
@@ -65,7 +65,7 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(10, tree.Root.Left.Left.Value);
       Assert.Equal(14, tree.Root.Left.Right.Value); 
       // Right
-      Assert.Equal(null, tree.Root.Right);
+      Assert.Null(tree.Root.Right);
     }
 
 
@@ -80,7 +80,7 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(18, tree.Root.Value);
       Assert.Equal(16, tree.Root.Left.Value);
-      Assert.Equal(null, tree.Root.Right);
+      Assert.Null(tree.Root.Right);
 
       // Act
       tree.Delete(18);
@@ -88,9 +88,9 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(16, tree.Root.Value);
       // Left
-      Assert.Equal(null, tree.Root.Left);
+      Assert.Null(tree.Root.Left);
       // Right
-      Assert.Equal(null, tree.Root.Right);
+      Assert.Null(tree.Root.Right);
     }
 
     [Fact]
@@ -152,7 +152,7 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(16, tree.Root.Value);
       Assert.Equal(18, tree.Root.Right.Value);
-      Assert.Equal(null, tree.Root.Left);
+      Assert.Null(tree.Root.Left);
 
       // Act
       tree.Delete(16);
@@ -160,9 +160,9 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(18, tree.Root.Value);
       // Left
-      Assert.Equal(null, tree.Root.Left);
+      Assert.Null(tree.Root.Left);
       // Right
-      Assert.Equal(null, tree.Root.Right);
+      Assert.Null(tree.Root.Right);
     }
 
     [Fact]

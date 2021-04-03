@@ -115,8 +115,8 @@ namespace practicing_data_structures.tests.trees
       Assert.Equal(2 , tree.Root.Height);
       Assert.Equal(5 , tree.Root.Count);
 
-      Assert.Equal(false, tree.Root.TreeIsLeftHeavy);
-      Assert.Equal(false, tree.Root.TreeIsRightHeavy);
+      Assert.False(tree.Root.TreeIsLeftHeavy);
+      Assert.False(tree.Root.TreeIsRightHeavy);
     }
 
     [Fact]
@@ -144,19 +144,19 @@ namespace practicing_data_structures.tests.trees
 
       // Left side
       Assert.Equal(5    ,tree.Root.Left.Value);
-      Assert.Equal(null ,tree.Root.Left.Left);
+      Assert.Null(tree.Root.Left.Left);
       Assert.Equal(5.5m ,tree.Root.Left.Right.Value);
 
       // Right side
       Assert.Equal(7    ,tree.Root.Right.Value);
       Assert.Equal(8m   ,tree.Root.Right.Right.Value);
-      Assert.Equal(null ,tree.Root.Right.Left);
+      Assert.Null(tree.Root.Right.Left);
 
       Assert.Equal(2,    tree.Root.Height);
       Assert.Equal(5,    tree.Root.Count);
 
-      Assert.Equal(false, tree.Root.TreeIsLeftHeavy);
-      Assert.Equal(false,tree.Root.TreeIsRightHeavy);
+      Assert.False(tree.Root.TreeIsLeftHeavy);
+      Assert.False(tree.Root.TreeIsRightHeavy);
     }
 
     [Fact]
@@ -180,7 +180,7 @@ namespace practicing_data_structures.tests.trees
 
       // Left
       Assert.Equal(10   , tree.Root.Left.Value);
-      Assert.Equal(null , tree.Root.Left.Left);
+      Assert.Null( tree.Root.Left.Left);
 
       // Right
       Assert.Equal(14   , tree.Root.Right.Value);
