@@ -7,31 +7,38 @@ namespace practicing_data_structures.data_structures.trees
     {
       for(var i=0; i<queries.Length; i++)
       {
-        Swap(indexes, 1, queries[i], 1);
+        Swap
+        (
+          indexes      : indexes,
+          currIndex    : 1,
+          targetDepth  : queries[i],
+          currDepth    : 1
+        );
       }
 
       return indexes;
     }
 
-    public void Swap(int[][] indexes, int index, int targetDepth, int depth)
+    public void Swap(int[][] indexes, int currIndex, int targetDepth, int currDepth)
     {
-      if (index == -1)
+      if (indexes[currIndex][0]==-1  &&  (indexes[currIndex][1]==-1))
       {
           return;
       }
 
-      SwapNodes(indexes, index, targetDepth, depth);
-      Swap(indexes, indexes[index+1][0], targetDepth, (depth+1) );
-      Swap(indexes, indexes[index+1][1], targetDepth, (depth+1) );
+      SwapNodes(indexes, currIndex, targetDepth, currDepth);
+
+      Swap(indexes, (currIndex+1), targetDepth, (currDepth+1) );
+      Swap(indexes, (currIndex+1), targetDepth, (currDepth+1) );
     }
 
-    public void SwapNodes(int[][] indexes, int index, int targetDepth, int depth)
+    public void SwapNodes(int[][] indexes, int currIndex, int targetDepth, int currDepth)
     {
-      if (depth >= targetDepth  &&  depth % targetDepth == 0)
+      if (currDepth >= targetDepth  &&  currDepth % targetDepth == 0)
       {
-        var tempLeftIndex  = indexes[index][0];
-        indexes[index][0]  = indexes[index][1];
-        indexes[index][1]  = tempLeftIndex;
+        var tempLeftNodeValue = indexes[currIndex][0];
+        indexes[currIndex][0] = indexes[currIndex][1];
+        indexes[currIndex][1] = tempLeftNodeValue;
       }
     }
 
