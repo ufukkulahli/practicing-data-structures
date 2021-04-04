@@ -29,7 +29,6 @@ namespace practicing_data_structures.data_structures.trees
       SwapNodes(indexes, currIndex, targetDepth, currDepth);
 
       Swap(indexes, (currIndex+1), targetDepth, (currDepth+1) );
-      Swap(indexes, (currIndex+1), targetDepth, (currDepth+1) );
     }
 
     public void SwapNodes(int[][] indexes, int currIndex, int targetDepth, int currDepth)
