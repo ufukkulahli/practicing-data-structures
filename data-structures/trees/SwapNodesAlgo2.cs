@@ -5,6 +5,8 @@ namespace practicing_data_structures.data_structures.trees
 
     public int[][] Swap(int[][] indexes, int[] queries)
     {
+      var visitedNodes = new int[indexes.Length][];
+
       for(var i=0; i<queries.Length; i++)
       {
         Swap
@@ -12,14 +14,15 @@ namespace practicing_data_structures.data_structures.trees
           indexes      : indexes,
           currIndex    : 1,
           targetDepth  : queries[i],
-          currDepth    : 1
+          currDepth    : 1,
+          visitedNodes : visitedNodes
         );
       }
 
-      return indexes;
+      return visitedNodes;
     }
 
-    public void Swap(int[][] indexes, int currIndex, int targetDepth, int currDepth)
+    public void Swap(int[][] indexes, int currIndex, int targetDepth, int currDepth, int[][] visitedNodes)
     {
       if (indexes[currIndex][0]==-1  &&  (indexes[currIndex][1]==-1))
       {
@@ -28,7 +31,7 @@ namespace practicing_data_structures.data_structures.trees
 
       SwapNodes(indexes, currIndex, targetDepth, currDepth);
 
-      Swap(indexes, (currIndex+1), targetDepth, (currDepth+1) );
+      Swap(indexes, (currIndex+1), targetDepth, (currDepth+1), visitedNodes);
     }
 
     public void SwapNodes(int[][] indexes, int currIndex, int targetDepth, int currDepth)

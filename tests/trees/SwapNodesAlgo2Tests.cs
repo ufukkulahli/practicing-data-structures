@@ -60,6 +60,7 @@ namespace practicing_data_structures.tests.trees
     public void SwapTest2()
     {
       // Arrange
+      var visitedNodes= new int[2][];
       var indexes     = new int[2][];
       indexes[0]      = new int[2];
       indexes[1]      = new int[2];
@@ -75,7 +76,7 @@ namespace practicing_data_structures.tests.trees
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      swapNodesAlgo2.Swap(indexes, index, targetDepth, depth);
+      swapNodesAlgo2.Swap(indexes, index, targetDepth, depth, visitedNodes);
 
       // Assert
       Assert.Equal(3, indexes[0][0]);
