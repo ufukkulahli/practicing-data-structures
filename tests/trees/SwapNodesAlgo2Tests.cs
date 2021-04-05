@@ -81,6 +81,9 @@ namespace practicing_data_structures.tests.trees
       // Assert
       Assert.Equal(3, indexes[0][0]);
       Assert.Equal(2, indexes[0][1]);
+
+      Assert.Equal(3, visitedNodes[0][0]);
+      Assert.Equal(2, visitedNodes[0][1]);
     }
 
     [Fact]

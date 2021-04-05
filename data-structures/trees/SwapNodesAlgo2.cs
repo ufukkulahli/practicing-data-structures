@@ -31,6 +31,8 @@ namespace practicing_data_structures.data_structures.trees
 
       SwapNodes(indexes, currIndex, targetDepth, currDepth);
 
+      CollectVisitedNodes(indexes, currIndex, visitedNodes);
+
       Swap(indexes, (currIndex+1), targetDepth, (currDepth+1), visitedNodes);
     }
 
@@ -41,6 +43,21 @@ namespace practicing_data_structures.data_structures.trees
         var tempLeftNodeValue = indexes[currIndex][0];
         indexes[currIndex][0] = indexes[currIndex][1];
         indexes[currIndex][1] = tempLeftNodeValue;
+      }
+    }
+
+    private void CollectVisitedNodes(int[][] indexes, int currIndex, int[][] visitedNodes)
+    {
+      visitedNodes[currIndex] = new int[2];
+
+      if (indexes[currIndex][0] != -1)
+      {
+        visitedNodes[currIndex][0] = indexes[currIndex][0];
+      }
+
+      if (indexes[currIndex][1] != -1)
+      {
+        visitedNodes[currIndex][1] = indexes[currIndex][1];
       }
     }
 
