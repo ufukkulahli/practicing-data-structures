@@ -27,11 +27,14 @@ namespace practicing_data_structures.tests.trees
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      swapNodesAlgo2.Swap(indexes, queries);
+      var visitedNodes = swapNodesAlgo2.Swap(indexes, queries);
 
       // Assert
       Assert.Equal(3, indexes[1][0]);
       Assert.Equal(2, indexes[1][1]);
+
+      Assert.Equal(3, visitedNodes[1][0]);
+      Assert.Equal(2, visitedNodes[1][1]);
     }
 
     [Fact]
@@ -127,7 +130,7 @@ namespace practicing_data_structures.tests.trees
       var swapNodesAlgo2 = new SwapNodesAlgo2();
 
       // Act
-      swapNodesAlgo2.Swap(indexes, queries);
+      var visitedNodes = swapNodesAlgo2.Swap(indexes, queries);
 
       // Arrange
       Assert.Equal(2, indexes[1][0]);
@@ -144,6 +147,11 @@ namespace practicing_data_structures.tests.trees
 
       Assert.Equal(-1, indexes[5][0]);
       Assert.Equal(-1, indexes[5][1]);
+
+      Assert.Equal(2, visitedNodes[1][0]);
+      Assert.Equal(3, visitedNodes[1][1]);
+      Assert.Equal(4, visitedNodes[2][0]);
+      Assert.Equal(5, visitedNodes[3][0]);
     }
 
   }
