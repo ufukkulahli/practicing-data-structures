@@ -5,6 +5,14 @@ namespace practicing_data_structures.data_structures.trie
 
     public int[] AddOrFind(string[][] queries)
     {
+      for(var i=0; i<queries.Length; i++)
+      {
+        if(Add(queries[0]))
+        {
+          // TODO
+        }
+      }
+
       throw new System.NotImplementedException();
     }
 
