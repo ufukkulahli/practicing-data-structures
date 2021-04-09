@@ -8,5 +8,11 @@ namespace practicing_data_structures.data_structures.trie
       throw new System.NotImplementedException();
     }
 
+    public bool Add(string[] query)
+    {
+      return
+        query[0] == "add";
+    }
+
   }
 }
