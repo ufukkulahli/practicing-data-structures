@@ -5,6 +5,8 @@ namespace practicing_data_structures.data_structures.trie
 
     public int[] AddOrFind(string[][] queries)
     {
+      var results = new int[0];
+
       for(var i=0; i<queries.Length; i++)
       {
         var queryIsAdd = QueryIsAdd(queries[i]);
@@ -15,7 +17,7 @@ namespace practicing_data_structures.data_structures.trie
         }
       }
 
-      throw new System.NotImplementedException();
+      return results;
     }
 
     public bool QueryIsAdd(string[] query)
