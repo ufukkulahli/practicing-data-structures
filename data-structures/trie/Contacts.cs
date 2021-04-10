@@ -7,7 +7,9 @@ namespace practicing_data_structures.data_structures.trie
     {
       for(var i=0; i<queries.Length; i++)
       {
-        if(Add(queries[0]))
+        var queryIsAdd = QueryIsAdd(queries[i]);
+
+        if (queryIsAdd)
         {
           // TODO
         }
@@ -16,7 +18,7 @@ namespace practicing_data_structures.data_structures.trie
       throw new System.NotImplementedException();
     }
 
-    public bool Add(string[] query)
+    public bool QueryIsAdd(string[] query)
     {
       return
         query[0] == "add";

@@ -34,7 +34,7 @@ namespace practicing_data_structures.tests.trie
       query[1]  = "hack";
 
       // Act
-      var queryIsAdd = new Contacts().Add(query);
+      var queryIsAdd = new Contacts().QueryIsAdd(query);
 
       // Assert
       Assert.True(queryIsAdd);
