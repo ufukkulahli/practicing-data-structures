@@ -10,6 +10,46 @@ namespace practicing_data_structures.tests.trie
     public void AddOrFindTest()
     {
       // Arrange
+      var queries = Queries();
+
+      // Act
+      var results = new Contacts().AddOrFind(queries);
+
+      // Assert
+      Assert.Empty(results);
+    }
+
+    [Fact]
+    public void QueryIsAdd()
+    { 
+      // Arrange
+      var query = new string[2];
+      query[0]  = "add";
+      query[1]  = "hack";
+
+      // Act
+      var queryIsAdd = new Contacts().QueryIsAdd(query);
+
+      // Assert
+      Assert.True(queryIsAdd);
+    }
+
+    [Fact]
+    public void FindTest()
+    {
+      // Arrange
+      var queries = Queries();
+      var toBeFound = "hac";
+
+      // Act
+      var occurence = new Contacts().OccurenceCount(toBeFound, queries);
+
+      // Assert
+      Assert.Equal(2, occurence);
+    }
+
+    private string[][] Queries()
+    {
       var query1   = new string[2];
       query1[0]    = "add";
       query1[1]    = "hack";
@@ -32,26 +72,7 @@ namespace practicing_data_structures.tests.trie
       queries[2]  = query3;
       queries[3]  = query4;
 
-      // Act
-      var results = new Contacts().AddOrFind(queries);
-
-      // Assert
-      Assert.Empty(results);
-    }
-
-    [Fact]
-    public void QueryIsAdd()
-    { 
-      // Arrange
-      var query = new string[2];
-      query[0]  = "add";
-      query[1]  = "hack";
-
-      // Act
-      var queryIsAdd = new Contacts().QueryIsAdd(query);
-
-      // Assert
-      Assert.True(queryIsAdd);
+      return queries;
     }
 
   }

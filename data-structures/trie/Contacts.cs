@@ -9,9 +9,9 @@ namespace practicing_data_structures.data_structures.trie
 
       for(var i=0; i<queries.Length; i++)
       {
-        var queryIsAdd = QueryIsAdd(queries[i]);
+        var queryIsFind = QueryIsFind(queries[i]);
 
-        if (queryIsAdd)
+        if (queryIsFind)
         {
           // TODO
         }
@@ -20,10 +20,25 @@ namespace practicing_data_structures.data_structures.trie
       return results;
     }
 
-    public bool QueryIsAdd(string[] query)
+    public bool QueryIsAdd(string[] query)  => query[0] == "add";
+    public bool QueryIsFind(string[] query) => query[0] == "find";
+
+    public int OccurenceCount(string toBeFound, string[][]queries)
     {
-      return
-        query[0] == "add";
+      var occurence = 0;
+
+      for(var i=0; i<queries.Length; i++)
+      {
+        var queryIsAdd = QueryIsAdd(queries[i]);
+        var hasFound   = queries[i][1].StartsWith(toBeFound);
+
+        if (queryIsAdd && hasFound)
+        {
+          occurence++;
+        }
+      }
+
+      return occurence;
     }
 
   }
