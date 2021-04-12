@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.trie
 {
   public sealed class Contacts
@@ -5,7 +7,7 @@ namespace practicing_data_structures.data_structures.trie
 
     public int[] AddOrFind(string[][] queries)
     {
-      var results = new int[0];
+      var results = new List<int>();
 
       for(var i=0; i<queries.Length; i++)
       {
@@ -13,11 +15,13 @@ namespace practicing_data_structures.data_structures.trie
 
         if (queryIsFind)
         {
-          // TODO
+          var toBeFound = ToBeFound(queries[i]);
+          var occurenceOfToBeFound = OccurenceCount(toBeFound, queries);
+          results.Add(occurenceOfToBeFound);
         }
       }
 
-      return results;
+      return results.ToArray();
     }
 
     public bool QueryIsAdd(string[] query)  => query[0] == "add";

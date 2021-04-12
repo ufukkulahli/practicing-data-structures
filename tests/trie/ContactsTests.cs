@@ -16,7 +16,8 @@ namespace practicing_data_structures.tests.trie
       var results = new Contacts().AddOrFind(queries);
 
       // Assert
-      Assert.Empty(results);
+      Assert.Equal(2, results[0]);
+      Assert.Equal(0, results[1]);
     }
 
     [Fact]
