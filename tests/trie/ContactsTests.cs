@@ -48,6 +48,21 @@ namespace practicing_data_structures.tests.trie
       Assert.Equal(2, occurence);
     }
 
+    [Fact]
+    public void ToBeFoundTest()
+    {
+      // Arrange
+      var query = new string[2];
+      query[0]  = "add";
+      query[1]  = "hack";
+
+      // Act
+      var toBeFound = new Contacts().ToBeFound(query);
+
+      // Assert
+      Assert.Equal("hack", toBeFound);
+    }
+
     private string[][] Queries()
     {
       var query1   = new string[2];

@@ -22,6 +22,7 @@ namespace practicing_data_structures.data_structures.trie
 
     public bool QueryIsAdd(string[] query)  => query[0] == "add";
     public bool QueryIsFind(string[] query) => query[0] == "find";
+    public string ToBeFound(string[] query) => query[1];
 
     public int OccurenceCount(string toBeFound, string[][]queries)
     {
