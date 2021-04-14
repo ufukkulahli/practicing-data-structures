@@ -68,12 +68,7 @@ namespace practicing_data_structures.tests.trie
 
       // SHOULD BE
       // TODO: FIX
-      // Assert.Equal(3, results[0]);
-      // Assert.Equal(2, results[1]);
-      // Assert.Equal(0, results[2]);
-
-      // BUT IS
-      Assert.Equal(4, results[0]);
+      Assert.Equal(3, results[0]);
       Assert.Equal(2, results[1]);
       Assert.Equal(0, results[2]);
     }
@@ -101,7 +96,7 @@ namespace practicing_data_structures.tests.trie
       var toBeFound = "hac";
 
       // Act
-      var occurence = new Contacts().OccurenceCount(toBeFound, queries);
+      var occurence = new Contacts().OccurenceCount(toBeFound, queries, (queries.Length-1));
 
       // Assert
       Assert.Equal(2, occurence);
