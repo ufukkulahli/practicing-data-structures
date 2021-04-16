@@ -110,6 +110,46 @@ namespace practicing_data_structures.tests.trie
     }
 
     [Fact]
+    public void AddOrFindTest4()
+    {
+      // Arrange
+      var query1   = new string[2];
+      query1[0]    = "find";
+      query1[1]    = "joe";
+
+      var query2   = new string[2];
+      query2[0]    = "add";
+      query2[1]    = "joe";
+
+      var query3   = new string[2];
+      query3[0]    = "find";
+      query3[1]    = "jo";
+
+      var query4   = new string[2];
+      query4[0]    = "add";
+      query4[1]    = "john";
+
+      var query5   = new string[2];
+      query5[0]    = "find";
+      query5[1]    = "j";
+
+      var queries = new string[5][];
+      queries[0]  = query1;
+      queries[1]  = query2;
+      queries[2]  = query3;
+      queries[3]  = query4;
+      queries[4]  = query5;
+
+      // Act
+      var results = new Contacts().AddOrFind(queries);
+
+      // Assert
+      Assert.Equal(0, results[0]);
+      Assert.Equal(1, results[1]);
+      Assert.Equal(2, results[2]);
+    }
+
+    [Fact]
     public void QueryIsAdd()
     { 
       // Arrange
