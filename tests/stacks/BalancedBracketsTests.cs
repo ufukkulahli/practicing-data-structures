@@ -8,7 +8,15 @@ namespace practicing_data_structures.tests.stacks
     [Fact]
     public void Test()
     {
-      Assert.Throws<System.NotImplementedException>( () => new BalancedBrackets().IsBalanced(null) );
+      // Arrange
+      var brackets = "{[()]}";
+      var bb = new BalancedBrackets();
+
+      // Act
+      var isBalanced = bb.IsBalanced(brackets);
+
+      // Assert
+      Assert.Equal("YES", isBalanced);
     }
 
     [Fact]
