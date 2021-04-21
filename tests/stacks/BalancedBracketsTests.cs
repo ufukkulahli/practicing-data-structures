@@ -34,6 +34,20 @@ namespace practicing_data_structures.tests.stacks
     }
 
     [Fact]
+    public void BracketsAreBalancedButFunctionalityIsBroken1()
+    {
+      // Arrange
+      var brackets = "{(([])[])[]}";
+      var bb = new BalancedBrackets();
+
+      // Act
+      var isBalanced = bb.IsBalanced(brackets);
+
+      // Assert
+      Assert.Equal("YES", isBalanced);
+    }
+
+    [Fact]
     public void BracketsBalanced1()
     {
       // Arrange
