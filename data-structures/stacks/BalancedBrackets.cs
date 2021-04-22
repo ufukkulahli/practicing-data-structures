@@ -41,26 +41,26 @@ namespace practicing_data_structures.data_structures.stacks
         bracket == '[';
     }
 
-    private bool NotBalanced(char currBracketFromHead, char currBracketFromTail)
+    private bool NotBalanced(char openBracket, char closedBracket)
     {
-      return !IsBalanced(currBracketFromHead, currBracketFromTail);
+      return !IsBalanced(openBracket, closedBracket);
     }
 
-    public bool IsBalanced(char currBracketFromHead, char currBracketFromTail)
+    public bool IsBalanced(char openBracket, char closedBracket)
     {
-      if(currBracketFromHead=='{')
+      if(openBracket=='{')
       {
-        return currBracketFromTail=='}';
+        return closedBracket=='}';
       }
 
-      if(currBracketFromHead=='[')
+      if(openBracket=='[')
       {
-        return currBracketFromTail==']';
+        return closedBracket==']';
       }
 
-      if(currBracketFromHead=='(')
+      if(openBracket=='(')
       {
-        return currBracketFromTail==')';
+        return closedBracket==')';
       }
 
       return false;
