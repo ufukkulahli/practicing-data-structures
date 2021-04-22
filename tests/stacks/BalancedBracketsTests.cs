@@ -103,5 +103,21 @@ namespace practicing_data_structures.tests.stacks
       Assert.False(isBalanced);
     }
 
+    [Fact]
+    public void BracketsAreOpen()
+    {
+      Assert.True(new BalancedBrackets().IsOpenBracket('{'));
+      Assert.True(new BalancedBrackets().IsOpenBracket('('));
+      Assert.True(new BalancedBrackets().IsOpenBracket('['));
+    }
+
+    [Fact]
+    public void BracketAreNotOpen()
+    {
+      Assert.False(new BalancedBrackets().IsOpenBracket('}'));
+      Assert.False(new BalancedBrackets().IsOpenBracket(')'));
+      Assert.False(new BalancedBrackets().IsOpenBracket(']'));
+    }
+
   }
 }

@@ -27,6 +27,14 @@ namespace practicing_data_structures.data_structures.stacks
       return "YES";
     }
 
+    public bool IsOpenBracket(char bracket)
+    {
+      return
+        bracket == '{' ||
+        bracket == '(' ||
+        bracket == '[';
+    }
+
     private bool NotBalanced(char currBracketFromHead, char currBracketFromTail)
     {
       return !IsBalanced(currBracketFromHead, currBracketFromTail);
