@@ -34,7 +34,7 @@ namespace practicing_data_structures.tests.stacks
     }
 
     [Fact]
-    public void BracketsAreBalancedButFunctionalityIsBroken1()
+    public void BracketsAreBalanced()
     {
       // Arrange
       var brackets = "{(([])[])[]}";

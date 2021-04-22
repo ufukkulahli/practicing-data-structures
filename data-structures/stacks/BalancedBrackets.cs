@@ -1,27 +1,33 @@
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.stacks
 {
   public sealed class BalancedBrackets
   {
     public string IsBalanced(string brackets)
     {
-      var headPtr = 0;
-      var tailPtr = (brackets.Length-1);
-      var itr     = (brackets.Length/2);
+      var bracketsStack = new Stack<char>();
 
-      for(var i=0; i<itr; i++)
+      for(var i=0;  i<brackets.Length;  i++)
       {
-        var currBracketFromHead = brackets[headPtr];
-        var currBracketFromTail = brackets[tailPtr];
+        var currentBracket = brackets[i];
+        var isOpenBracket  = IsOpenBracket(currentBracket);
 
-        var notBalanced = NotBalanced(currBracketFromHead, currBracketFromTail);
+        if(isOpenBracket)
+        {
+          bracketsStack.Push(currentBracket);
+          continue;
+        }
 
-        if(notBalanced)
+        // Current bracket must be a 'closed-bracket'
+        var latestOpenBracket = bracketsStack.Pop();
+        var isNotBalanced = NotBalanced(latestOpenBracket, currentBracket);
+
+        if(isNotBalanced)
         {
           return "NO";
         }
 
-        headPtr++;
-        tailPtr--;
       }
 
       return "YES";
