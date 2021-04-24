@@ -3,7 +3,7 @@ using Xunit;
 
 namespace practicing_data_structures.tests.trie
 {
-  public class ContactsTests
+  public class ContactsWithoutTrieTests
   {
 
     [Fact]
