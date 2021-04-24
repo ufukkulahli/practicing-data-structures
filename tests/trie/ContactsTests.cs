@@ -13,7 +13,7 @@ namespace practicing_data_structures.tests.trie
       var queries = Queries();
 
       // Act
-      var results = new Contacts().AddOrFind(queries);
+      var results = new ContactsWithoutTrie().AddOrFind(queries);
 
       // Assert
       Assert.Equal(2, results[0]);
@@ -62,7 +62,7 @@ namespace practicing_data_structures.tests.trie
       queries[6]  = query7;
 
       // Act
-      var results = new Contacts().AddOrFind(queries);
+      var results = new ContactsWithoutTrie().AddOrFind(queries);
 
       // Assert
       Assert.Equal(3, results[0]);
@@ -102,7 +102,7 @@ namespace practicing_data_structures.tests.trie
       queries[4]  = query5;
 
       // Act
-      var results = new Contacts().AddOrFind(queries);
+      var results = new ContactsWithoutTrie().AddOrFind(queries);
 
       // Assert
       Assert.Equal(0, results[0]);
@@ -141,7 +141,7 @@ namespace practicing_data_structures.tests.trie
       queries[4]  = query5;
 
       // Act
-      var results = new Contacts().AddOrFind(queries);
+      var results = new ContactsWithoutTrie().AddOrFind(queries);
 
       // Assert
       Assert.Equal(0, results[0]);
@@ -158,7 +158,7 @@ namespace practicing_data_structures.tests.trie
       query[1]  = "hack";
 
       // Act
-      var queryIsAdd = new Contacts().QueryIsAdd(query);
+      var queryIsAdd = new ContactsWithoutTrie().QueryIsAdd(query);
 
       // Assert
       Assert.True(queryIsAdd);
@@ -172,7 +172,7 @@ namespace practicing_data_structures.tests.trie
       var toBeFound = "hac";
 
       // Act
-      var occurence = new Contacts().OccurenceCount(toBeFound, queries, (queries.Length-1));
+      var occurence = new ContactsWithoutTrie().OccurenceCount(toBeFound, queries, (queries.Length-1));
 
       // Assert
       Assert.Equal(2, occurence);
@@ -187,7 +187,7 @@ namespace practicing_data_structures.tests.trie
       query[1]  = "hack";
 
       // Act
-      var toBeFound = new Contacts().ToBeFound(query);
+      var toBeFound = new ContactsWithoutTrie().ToBeFound(query);
 
       // Assert
       Assert.Equal("hack", toBeFound);
