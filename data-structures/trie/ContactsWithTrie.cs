@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace practicing_data_structures.data_structures.trie
 {
   public sealed class ContactsWithTrie
@@ -30,9 +32,14 @@ namespace practicing_data_structures.data_structures.trie
 
   public sealed class TrieNode
   {
+    public readonly IDictionary<char, TrieNode> children = new Dictionary<char, TrieNode>();
+
     public void AddChild(char letter)
     {
-      throw new System.NotImplementedException();
+      if (!children.ContainsKey(letter))
+      {
+        children.Add(letter, new TrieNode());
+      }
     }
 
     public TrieNode GetChild(char letter)
