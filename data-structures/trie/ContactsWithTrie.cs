@@ -44,7 +44,7 @@ namespace practicing_data_structures.data_structures.trie
 
     public TrieNode GetChild(char letter)
     {
-      throw new System.NotImplementedException();
+      return children[letter];
     }
   }
 

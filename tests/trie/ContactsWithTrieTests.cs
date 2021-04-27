@@ -60,7 +60,16 @@ namespace practicing_data_structures.tests.trie
     [Fact]
     public void GetChildTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new TrieNode().GetChild('a'));
+      // Arrange
+      var trieNode = new TrieNode();
+      trieNode.AddChild('a');
+      trieNode.AddChild('b');
+
+      // Act
+      var tn = trieNode.GetChild('b');
+
+      // Assert
+      Assert.Empty(tn.children);
     }
 
   }
