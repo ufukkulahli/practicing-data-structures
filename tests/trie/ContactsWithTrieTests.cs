@@ -27,7 +27,16 @@ namespace practicing_data_structures.tests.trie
     [Fact]
     public void AddTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new Trie().Add(null));
+      // Arrange
+      var trie = new Trie();
+
+      // Act
+      trie.Add("joe");
+
+      // Assert
+      Assert.Equal('j', trie.root.children.Single().Key);
+      Assert.Equal('o', trie.root.children.Single().Value.children.Single().Key);
+      Assert.Equal('e', trie.root.children.Single().Value.children.Single().Value.children.Single().Key);
     }
 
     [Fact]

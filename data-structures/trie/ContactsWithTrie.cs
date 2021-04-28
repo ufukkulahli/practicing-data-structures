@@ -19,9 +19,17 @@ namespace practicing_data_structures.data_structures.trie
 
   public sealed class Trie
   {
+    public TrieNode root {get; private set;} = new TrieNode();
+
     public void Add(string contact)
     {
-      throw new System.NotImplementedException();
+      var current = this.root;
+
+      foreach(var letter in contact)
+      {
+        current.AddChild(letter);
+        current = current.GetChild(letter);
+      }
     }
 
     public int Find(string contact)
