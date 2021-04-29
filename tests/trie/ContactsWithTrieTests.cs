@@ -40,6 +40,26 @@ namespace practicing_data_structures.tests.trie
     }
 
     [Fact]
+    public void AddTest2()
+    {
+      // Arrange
+      var trie = new Trie();
+
+      // Act && Assert
+      trie.Add("joe");
+      Assert.Equal('j', trie.root.children.Single().Key);
+      Assert.Equal('o', trie.root.children.Single().Value.children.Single().Key);
+      Assert.Equal('e', trie.root.children.Single().Value.children.Single().Value.children.Single().Key);
+
+      // Act && Assert
+      trie.Add("jon");
+      Assert.Equal('j', trie.root.children.Single().Key);
+      Assert.Equal('o', trie.root.children.Single().Value.children.Single().Key);
+      Assert.Equal('e', trie.root.children.Single().Value.children.Single().Value.children.First().Key);
+      Assert.Equal('n', trie.root.children.Single().Value.children.Single().Value.children.Last().Key);
+    }
+
+    [Fact]
     public void FindTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new Trie().Find(null));
