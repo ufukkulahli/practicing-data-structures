@@ -62,7 +62,16 @@ namespace practicing_data_structures.tests.trie
     [Fact]
     public void FindTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new Trie().Find(null));
+      // Arrange
+      var trie = new Trie();
+      trie.Add("joe");
+      trie.Add("jon");
+
+      // Act
+      var occurence = trie.Find("jo");
+
+      // Assert
+      Assert.Equal(2, occurence);
     }
 
   }
