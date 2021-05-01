@@ -6,7 +6,23 @@ namespace practicing_data_structures.data_structures.trie
   {
     public int[] AddOrFind(string[][] queries)
     {
-      throw new System.NotImplementedException();
+      var occurences = new List<int>();
+      var contacts = new Trie();
+
+      for(var i=0; i<queries.Length; i++)
+      {
+        if(queries[i][0]=="add")
+        {
+          contacts.Add(queries[i][1]);
+        }
+        if(queries[i][0]=="find")
+        {
+          var occurence = contacts.Find(queries[i][1]);
+          occurences.Add(occurence);
+        }
+      }
+
+      return occurences.ToArray();
     }
   }
 
