@@ -4,17 +4,10 @@ namespace practicing_data_structures.data_structures.trie
 {
   public sealed class ContactsWithTrie
   {
-
-    public void Add(string contact)
+    public int[] AddOrFind(string[][] queries)
     {
       throw new System.NotImplementedException();
     }
-
-    public void Find(string contact)
-    {
-      throw new System.NotImplementedException();
-    }
-
   }
 
   public sealed class Trie

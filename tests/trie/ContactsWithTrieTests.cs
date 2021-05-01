@@ -10,13 +10,7 @@ namespace practicing_data_structures.tests.trie
     [Fact]
     public void AddTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new ContactsWithTrie().Add(null));
-    }
-
-    [Fact]
-    public void FindTest()
-    {
-      Assert.Throws<System.NotImplementedException>( () => new ContactsWithTrie().Find(null));
+      Assert.Throws<System.NotImplementedException>( () => new ContactsWithTrie().AddOrFind(null));
     }
 
   }
