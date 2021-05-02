@@ -27,6 +27,15 @@ namespace practicing_data_structures.tests.trie
       // Assert.Equal(0, result[1]);
     }
 
+    [Fact]
+    public void QueryTests()
+    {
+      Assert.True(new ContactsWithTrie().QueryIsAdd(new string[1]{"add"}));
+      Assert.False(new ContactsWithTrie().QueryIsAdd(new string[1]{"addd"}));
+      Assert.True(new ContactsWithTrie().QueryIsFind(new string[1]{"find"}));
+      Assert.False(new ContactsWithTrie().QueryIsFind(new string[1]{"findd"}));
+    }
+
     private string[][] Queries()
     {
       var query1   = new string[2];

@@ -24,6 +24,9 @@ namespace practicing_data_structures.data_structures.trie
 
       return occurences.ToArray();
     }
+
+    public bool QueryIsAdd(string[] queries) => queries[0] == "add";
+    public bool QueryIsFind(string[] queries) => queries[0] == "find";
   }
 
   public sealed class Trie
