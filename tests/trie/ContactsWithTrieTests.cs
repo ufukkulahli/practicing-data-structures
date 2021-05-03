@@ -15,16 +15,11 @@ namespace practicing_data_structures.tests.trie
       var contacts = new ContactsWithTrie();
 
       // Act
-      // var result = contacts.AddOrFind(queries);
-
-      // Assert
-      Assert.Throws<System.Collections.Generic.KeyNotFoundException>(
-        () => contacts.AddOrFind(queries)
-      );
+      var result = contacts.AddOrFind(queries);
 
       // Should be
-      // Assert.Equal(2, result[0]);
-      // Assert.Equal(0, result[1]);
+      Assert.Equal(2, result[0]);
+      Assert.Equal(0, result[1]);
     }
 
     [Fact]

@@ -11,11 +11,11 @@ namespace practicing_data_structures.data_structures.trie
 
       for(var i=0; i<queries.Length; i++)
       {
-        if(queries[i][0]=="add")
+        if(QueryIsAdd(queries[i]))
         {
           contacts.Add(queries[i][1]);
         }
-        if(queries[i][0]=="find")
+        if(QueryIsFind(queries[i]))
         {
           var occurence = contacts.Find(queries[i][1]);
           occurences.Add(occurence);
@@ -79,7 +79,13 @@ namespace practicing_data_structures.data_structures.trie
 
     public TrieNode GetChild(char letter)
     {
-      return children[letter];
+      TrieNode childNode = null;
+      if(children.TryGetValue(letter, out childNode))
+      {
+        return childNode;
+      }
+
+      return null;
     }
   }
 
