@@ -5,10 +5,21 @@ namespace practicing_data_structures.tests.heap
 {
   public class RunningMedianTests
   {
+
     [Fact]
-    public void Test()
+    public void WhenMaxHeapCountMoreThanMinHeapCount_And_CurrentNumberIsSamllerThanCurrentMedian()
     {
-      Assert.Throws<System.NotImplementedException>( () => new RunningMedian().Find(null) );
+      // Arrange
+      var numbers = new int[]{ 2, 1 };
+      var median = new RunningMedian();
+
+      // Act
+      median.Find(numbers);
+
+      // Assert
+      Assert.Equal(2, median.minHeap[0]);
+      Assert.Equal(1, median.maxHeap[0]);
     }
+
   }
 }
