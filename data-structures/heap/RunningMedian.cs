@@ -33,5 +33,13 @@ namespace practicing_data_structures.data_structures.heap
 
       return results;
     }
+
+    public double CalculateMedian(List<int> maxHeap, List<int> minHeap)
+    {
+      return
+        (double)
+          (maxHeap[0] + minHeap[0]) / 2;
+    }
+
   }
 }
