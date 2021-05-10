@@ -10,9 +10,9 @@ namespace practicing_data_structures.data_structures.heap
     public IEnumerable<double> Find(int[] numbers)
     {
       var results = new List<double>();
-      
-      var currentMedian = numbers[0];
-      maxHeap.Add(currentMedian);
+
+      var currentMedian = (double)numbers[0];
+      maxHeap.Add(numbers[0]);
 
       for(var i=1; i<numbers.Length; i++)
       {
@@ -27,7 +27,14 @@ namespace practicing_data_structures.data_structures.heap
             minHeap.Add(maxHeap[0]);
             maxHeap.RemoveAt(0);
             maxHeap.Add(currentNumber);
+            continue;
           }
+
+            maxHeap.Sort();
+            maxHeap.Reverse();
+            minHeap.Add(currentNumber);
+            minHeap.Sort();
+            currentMedian = CalculateMedian(maxHeap, minHeap);
         }
       }
 
