@@ -35,7 +35,21 @@ namespace practicing_data_structures.data_structures.heap
             minHeap.Add(currentNumber);
             minHeap.Sort();
             currentMedian = CalculateMedian(maxHeap, minHeap);
+            continue;
         }
+
+        if(maxHeap.Count == minHeap.Count)
+        {
+          if(currentNumber < currentMedian)
+          {
+            maxHeap.Add(currentNumber);
+            maxHeap.Sort();
+            maxHeap.Reverse();
+            currentMedian = (double)maxHeap[0];
+            continue;
+          }
+        }
+
       }
 
       return results;
