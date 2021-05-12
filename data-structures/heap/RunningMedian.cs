@@ -48,6 +48,11 @@ namespace practicing_data_structures.data_structures.heap
             currentMedian = (double)maxHeap[0];
             continue;
           }
+
+            minHeap.Add(currentNumber);
+            minHeap.Sort();
+            currentMedian = (double)minHeap[0];
+            continue;
         }
 
       }
