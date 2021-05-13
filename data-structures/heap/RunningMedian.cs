@@ -55,6 +55,18 @@ namespace practicing_data_structures.data_structures.heap
             continue;
         }
 
+        if(maxHeap.Count < minHeap.Count)
+        {
+          if(currentNumber > currentMedian)
+          {
+            minHeap.Sort();
+            maxHeap.Add(minHeap[0]);
+            minHeap.RemoveAt(0);
+            minHeap.Add(currentNumber);
+            continue;
+          }
+        }
+
       }
 
       return results;
