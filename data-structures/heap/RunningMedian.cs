@@ -65,6 +65,12 @@ namespace practicing_data_structures.data_structures.heap
             minHeap.Add(currentNumber);
             continue;
           }
+
+            maxHeap.Add(currentNumber);
+            maxHeap.Sort();
+            maxHeap.Reverse();
+            currentMedian = CalculateMedian(maxHeap, minHeap);
+            continue;
         }
 
       }

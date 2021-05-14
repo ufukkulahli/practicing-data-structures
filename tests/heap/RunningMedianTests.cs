@@ -87,6 +87,23 @@ namespace practicing_data_structures.tests.heap
     }
 
     [Fact]
+    public void WhenMaxHeapCountLessThanMinHeapCount_And_CurrentNumberIsSmallerThanCurrentMedian()
+    {
+      // Arrange
+      var numbers = new int[]{ 10, 11, 12, 4 };
+      var median = new RunningMedian();
+
+      // Act
+      median.Find(numbers);
+
+      // Assert
+      Assert.Equal(10, median.maxHeap[0]);
+      Assert.Equal(4,  median.maxHeap[1]);
+      Assert.Equal(11, median.minHeap[0]);
+      Assert.Equal(12, median.minHeap[1]);
+    }
+
+    [Fact]
     public void CalculateMedian()
     {
       // Arrange
