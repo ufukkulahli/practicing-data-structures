@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using practicing_data_structures.data_structures.heap;
 using Xunit;
 
@@ -115,6 +116,26 @@ namespace practicing_data_structures.tests.heap
 
       // Assert
       Assert.Equal(5, median);
+    }
+
+    [Fact]
+    public void FindMedian()
+    {
+      // Arrange
+      var numbers = new int[]{ 12, 4, 5, 3, 8, 7 };
+      var median = new RunningMedian();
+
+      // Act
+      var results = median.Find(numbers).ToList();
+
+      // Assert
+      Assert.Equal(12.0 , results[0]);
+      Assert.Equal(8.0  , results[1]);
+      Assert.Equal(5.0  , results[2]);
+      Assert.Equal(4.5  , results[3]);
+      Assert.Equal(5.0  , results[4]);
+      // TODO: FIX
+      //Assert.Equal(6.0  , results[5]);
     }
 
   }

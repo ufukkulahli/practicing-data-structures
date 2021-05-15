@@ -12,6 +12,7 @@ namespace practicing_data_structures.data_structures.heap
       var results = new List<double>();
 
       var currentMedian = (double)numbers[0];
+      results.Add(currentMedian);
       maxHeap.Add(numbers[0]);
 
       for(var i=1; i<numbers.Length; i++)
@@ -27,14 +28,16 @@ namespace practicing_data_structures.data_structures.heap
             minHeap.Add(maxHeap[0]);
             maxHeap.RemoveAt(0);
             maxHeap.Add(currentNumber);
-            continue;
           }
-
+          else
+          {
+            minHeap.Add(currentNumber);
+          }
             maxHeap.Sort();
             maxHeap.Reverse();
-            minHeap.Add(currentNumber);
             minHeap.Sort();
             currentMedian = CalculateMedian(maxHeap, minHeap);
+            results.Add(currentMedian);
             continue;
         }
 
@@ -46,12 +49,13 @@ namespace practicing_data_structures.data_structures.heap
             maxHeap.Sort();
             maxHeap.Reverse();
             currentMedian = (double)maxHeap[0];
+            results.Add(currentMedian);
             continue;
           }
-
             minHeap.Add(currentNumber);
             minHeap.Sort();
             currentMedian = (double)minHeap[0];
+            results.Add(currentMedian);
             continue;
         }
 
@@ -63,13 +67,15 @@ namespace practicing_data_structures.data_structures.heap
             maxHeap.Add(minHeap[0]);
             minHeap.RemoveAt(0);
             minHeap.Add(currentNumber);
-            continue;
           }
-
+          else
+          {
             maxHeap.Add(currentNumber);
+          }
             maxHeap.Sort();
             maxHeap.Reverse();
             currentMedian = CalculateMedian(maxHeap, minHeap);
+            results.Add(currentMedian);
             continue;
         }
 
