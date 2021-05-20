@@ -81,8 +81,8 @@ namespace practicing_data_structures.tests.heap
       median.Find(numbers);
 
       // Assert
-      Assert.Equal(1, median.maxHeap[0]);
-      Assert.Equal(2, median.maxHeap[1]);
+      Assert.Equal(2, median.maxHeap[0]);
+      Assert.Equal(1, median.maxHeap[1]);
       Assert.Equal(3, median.minHeap[0]);
       Assert.Equal(4, median.minHeap[1]);
     }
