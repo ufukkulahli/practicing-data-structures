@@ -134,8 +134,7 @@ namespace practicing_data_structures.tests.heap
       Assert.Equal(5.0  , results[2]);
       Assert.Equal(4.5  , results[3]);
       Assert.Equal(5.0  , results[4]);
-      // TODO: FIX
-      //Assert.Equal(6.0  , results[5]);
+      Assert.Equal(6.0  , results[5]);
     }
 
     [Fact]
