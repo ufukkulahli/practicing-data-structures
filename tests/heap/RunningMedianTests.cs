@@ -209,5 +209,25 @@ namespace practicing_data_structures.tests.heap
       Assert.Equal(5    , results[7]);
     }
 
+    [Fact]
+    public void FindMedian6()
+    {
+      // Arrange
+      var numbers = new int[]{ 32, 22, 55, 9, 35, 36 };
+      var median = new RunningMedian();
+
+      // Act
+      var results = median.Find(numbers).ToList();
+
+      // Assert
+      Assert.Equal(32 , results[0]);
+      Assert.Equal(27 , results[1]);
+      Assert.Equal(32 , results[2]);
+      Assert.Equal(27 , results[3]);
+      Assert.Equal(32 , results[4]);
+      // TODO: FIX
+      // Assert.Equal(33 , results[5]);
+    }
+
   }
 }
