@@ -225,8 +225,7 @@ namespace practicing_data_structures.tests.heap
       Assert.Equal(32 , results[2]);
       Assert.Equal(27 , results[3]);
       Assert.Equal(32 , results[4]);
-      // TODO: FIX
-      // Assert.Equal(33 , results[5]);
+      Assert.Equal(33.5 , results[5]);
     }
 
   }
