@@ -10,5 +10,12 @@ namespace practicing_data_structures.tests.lists
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Add(1) );
     }
+
+    [Fact]
+    public void HeightReturnsZero()
+    {
+      Assert.Equal(0, new SkipList<int>().Height);
+    }
+
   }
 }
