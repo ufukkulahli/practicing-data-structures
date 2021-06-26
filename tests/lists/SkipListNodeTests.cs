@@ -24,5 +24,11 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal(0, new SkipListNode<int>().Height);
     }
 
+    [Fact]
+    public void InvalidHeightCausesException()
+    {
+      Assert.Throws<System.ArgumentException>( () => new SkipListNode<string>("hello", 0) );
+    }
+
   }
 }
