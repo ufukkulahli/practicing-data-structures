@@ -9,19 +9,19 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void IncreaseHeightTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>().IncreaseHeight() );
+      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>(10,10).IncreaseHeight() );
     }
 
     [Fact]
     public void DecreaseHeightTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>().DecreaseHeight() );
+      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>(10,10).DecreaseHeight() );
     }
 
     [Fact]
-    public void HeightReturnsZero()
+    public void HeightReturnsGivenHeight()
     {
-      Assert.Equal(0, new SkipListNode<int>().Height);
+      Assert.Equal(10, new SkipListNode<int>(10,10).Height);
     }
 
     [Fact]

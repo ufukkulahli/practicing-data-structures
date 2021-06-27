@@ -4,11 +4,7 @@ namespace practicing_data_structures.data_structures.lists
   {
     public T Value {get; private set;}
     public SkipListNode<T>[] Forwards;
-    public int Height { get => Forwards?.Length ?? 0; }
-
-    public SkipListNode()
-    {
-    }
+    public int Height { get => Forwards.Length; }
 
     public SkipListNode(T value, int height)
     {

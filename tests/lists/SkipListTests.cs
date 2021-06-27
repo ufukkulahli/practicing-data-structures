@@ -12,9 +12,9 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
-    public void HeightReturnsZero()
+    public void HeightReturnsDefaultHeight_WhichIsOne()
     {
-      Assert.Equal(0, new SkipList<int>().Height);
+      Assert.Equal(1, new SkipList<int>().Height);
     }
 
   }
