@@ -30,5 +30,21 @@ namespace practicing_data_structures.tests.lists
       Assert.Throws<System.ArgumentException>( () => new SkipListNode<string>("hello", 0) );
     }
 
+    [Fact]
+    public void ResetForwards()
+    {
+      // Arrange
+      var node = new SkipListNode<int>(1,1);
+      
+      // Pre-Assert
+      Assert.NotNull(node.Forwards);
+
+      // Act
+      node.Reset();
+
+      // Assert
+      Assert.Null(node.Forwards);
+    }
+
   }
 }
