@@ -10,5 +10,22 @@ namespace practicing_data_structures.data_structures.lists
     {
       throw new System.NotImplementedException();
     }
+
+    public void Reset()
+    {
+      var currentNode = this.Head;
+      var lastNode    = this.Head;
+
+      while(currentNode!=null)
+      {
+        currentNode = currentNode.Forwards[0];
+        lastNode.Reset();
+        lastNode = currentNode;
+      }
+
+      this.Head = new SkipListNode<T>(default(T), 1);
+      this.Count = 0;
+    }
+
   }
 }

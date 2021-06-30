@@ -23,5 +23,20 @@ namespace practicing_data_structures.tests.lists
       Assert.Equal(0, new SkipList<int>().Count);
     }
 
+    [Fact]
+    public void ResetSkipList()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+
+      // Act
+      list.Reset();
+
+      // Assert
+      Assert.Equal(0, list.Count);
+      Assert.Equal(1, list.Head.Height);
+      Assert.Equal(0, list.Head.Value);
+    }
+
   }
 }
