@@ -11,6 +11,11 @@ namespace practicing_data_structures.data_structures.lists
       throw new System.NotImplementedException();
     }
 
+    public void Remove(T value)
+    {
+      throw new System.NotImplementedException();
+    }
+
     public void Reset()
     {
       var currentNode = this.Head;
