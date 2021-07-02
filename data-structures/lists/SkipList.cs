@@ -16,6 +16,11 @@ namespace practicing_data_structures.data_structures.lists
       throw new System.NotImplementedException();
     }
 
+    public void Contains(T value)
+    {
+      throw new System.NotImplementedException();
+    }
+
     public void Reset()
     {
       var currentNode = this.Head;

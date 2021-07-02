@@ -12,6 +12,18 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void RemoveTest()
+    {
+      Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );
+    }
+
+    [Fact]
+    public void ContainsTest()
+    {
+      Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Contains(1) );
+    }
+
+    [Fact]
     public void HeightReturnsDefaultHeight_WhichIsOne()
     {
       Assert.Equal(1, new SkipList<int>().Height);
