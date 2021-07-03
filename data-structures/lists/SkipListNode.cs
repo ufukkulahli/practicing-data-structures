@@ -18,7 +18,14 @@ namespace practicing_data_structures.data_structures.lists
 
     public void IncreaseHeight()
     {
-      throw new System.NotImplementedException();
+      var forwards = new SkipListNode<T>[this.Height+1];
+
+      for(var i=0; i<this.Height; i++)
+      {
+        forwards[i] = this.Forwards[i];
+      }
+
+      this.Forwards = forwards;
     }
 
     public void DecreaseHeight()

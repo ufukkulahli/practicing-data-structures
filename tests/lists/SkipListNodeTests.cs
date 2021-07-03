@@ -9,7 +9,14 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void IncreaseHeightTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>(10,10).IncreaseHeight() );
+      // Arrange
+      var node = new SkipListNode<int>(1,1);
+
+      // Act
+      node.IncreaseHeight();
+
+      // Assert
+      Assert.Equal(2, node.Height);
     }
 
     [Fact]
