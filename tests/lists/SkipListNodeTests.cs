@@ -22,7 +22,14 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void DecreaseHeightTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipListNode<int>(10,10).DecreaseHeight() );
+            // Arrange
+      var node = new SkipListNode<int>(1,5);
+
+      // Act
+      node.DecreaseHeight();
+
+      // Assert
+      Assert.Equal(4, node.Height);
     }
 
     [Fact]
