@@ -16,6 +16,14 @@ namespace practicing_data_structures.data_structures.lists
       this.Forwards = new SkipListNode<T>[height];
     }
 
+    public void Invalid(int height)
+    {
+      if (height < 0 || height >= this.Height)
+      {
+        throw new System.IndexOutOfRangeException();
+      }
+    }
+
     public void IncreaseHeight()
     {
       var forwards = new SkipListNode<T>[this.Height+1];
