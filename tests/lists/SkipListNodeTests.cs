@@ -63,7 +63,7 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void ValidateHeight()
     {
-      Assert.Throws<System.IndexOutOfRangeException>( () => new SkipListNode<int>(1,1).Invalid(10) );
+      Assert.Throws<System.IndexOutOfRangeException>( () => new SkipListNode<int>(1,1).ThrowIfInvalid(10) );
     }
 
     [Fact]

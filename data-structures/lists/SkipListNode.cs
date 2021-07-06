@@ -20,17 +20,17 @@ namespace practicing_data_structures.data_structures.lists
     {
       get
       {
-          Invalid(height);
+          ThrowIfInvalid(height);
           return this.Forwards[height];
       }
       set
       {
-          Invalid(height);
+          ThrowIfInvalid(height);
           this.Forwards[height] = value;
       }
     }
 
-    public void Invalid(int height)
+    public void ThrowIfInvalid(int height)
     {
       if (height < 0 || height >= this.Height)
       {
