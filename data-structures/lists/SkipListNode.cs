@@ -16,6 +16,20 @@ namespace practicing_data_structures.data_structures.lists
       this.Forwards = new SkipListNode<T>[height];
     }
 
+    public SkipListNode<T> this[int height]
+    {
+      get
+      {
+          Invalid(height);
+          return this.Forwards[height];
+      }
+      set
+      {
+          Invalid(height);
+          this.Forwards[height] = value;
+      }
+    }
+
     public void Invalid(int height)
     {
       if (height < 0 || height >= this.Height)

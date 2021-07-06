@@ -66,5 +66,20 @@ namespace practicing_data_structures.tests.lists
       Assert.Throws<System.IndexOutOfRangeException>( () => new SkipListNode<int>(1,1).Invalid(10) );
     }
 
+    [Fact]
+    public void Indexing()
+    {
+      // Arrange
+      var node = new SkipListNode<int>(1,1);
+
+      // Act
+      node[0]=new SkipListNode<int>(5,5);
+      var first = node[0];
+
+      // Assert
+      Assert.Equal(5, first.Value);
+      Assert.Equal(5, first.Height);
+    }
+
   }
 }
