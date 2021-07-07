@@ -1,6 +1,8 @@
+using System;
+
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class SkipListNode<T>
+  public sealed class SkipListNode<T> where T: IComparable<T>
   {
     public T Value {get; private set;}
     public SkipListNode<T>[] Forwards;

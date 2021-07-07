@@ -12,6 +12,21 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void NodesToBeUpdated()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+
+      // Act
+      var nodes = list.NodesToBeUpdated(5);
+
+      // Assert
+      Assert.Equal(1, nodes.Length);
+      Assert.Equal(1, nodes[0].Height);
+      Assert.Equal(0, nodes[0].Value);
+    }
+
+    [Fact]
     public void RemoveTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );

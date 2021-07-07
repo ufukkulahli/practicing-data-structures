@@ -1,6 +1,8 @@
+using System;
+
 namespace practicing_data_structures.data_structures.lists
 {
-  public sealed class SkipList<T>
+  public sealed class SkipList<T> where T: IComparable<T>
   {
     public SkipListNode<T> Head {get; private set;} = new SkipListNode<T>(default(T), 1);
     public int Height {get => Head.Height;}
@@ -9,6 +11,25 @@ namespace practicing_data_structures.data_structures.lists
     public void Add(T value)
     {
       throw new System.NotImplementedException();
+    }
+
+    public SkipListNode<T>[] NodesToBeUpdated(T value)
+    {
+      var results = new SkipListNode<T>[this.Height];
+      var currentNode = this.Head;
+
+      for(var i=(this.Height-1);  i>=0;  i--)
+      {
+        while(currentNode[i]!=null && value.CompareTo(currentNode[i].Value) > 0)
+        {
+          currentNode = currentNode[i];
+        }
+
+        results[i] = currentNode;
+      }
+
+
+      return results;
     }
 
     public void Remove(T value)
