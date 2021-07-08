@@ -27,6 +27,20 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void ThrowsIfInsertsDuplicate()
+    {
+      // Arrange
+      var node = new SkipListNode<int>(1, 1);
+      node.Forwards = new SkipListNode<int>[1] { new SkipListNode<int>(1,1) };
+      var nodes = new SkipListNode<int>[1]{ node };
+      var valueToBeAdded = 1;
+      var list = new SkipList<int>();
+
+      // Act && Assert
+      Assert.Throws<System.ArgumentException>( () => list.ThrowIfTryToInsertDuplicate(valueToBeAdded, nodes) );
+    }
+
+    [Fact]
     public void RemoveTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );

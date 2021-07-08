@@ -32,6 +32,17 @@ namespace practicing_data_structures.data_structures.lists
       return results;
     }
 
+    public void ThrowIfTryToInsertDuplicate(T valueToBeAdded, SkipListNode<T>[] nodes)
+    {
+      var firstNode = nodes[0];
+      var valuesAreSame = firstNode[0] != null && valueToBeAdded.CompareTo(firstNode[0].Value) == 0;
+
+      if (valuesAreSame)
+      {
+        throw new ArgumentException();
+      }
+    }
+
     public void Remove(T value)
     {
       throw new System.NotImplementedException();
