@@ -41,6 +41,19 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void GenerateHeightOfNewNodeAlwaysGreaterThanZero()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+
+      // Act
+      var height = list.GenerateHeightOfNewNode();
+
+      // Assert
+      Assert.NotEqual(0, height);
+    }
+
+    [Fact]
     public void RemoveTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );

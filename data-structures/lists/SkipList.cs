@@ -7,6 +7,8 @@ namespace practicing_data_structures.data_structures.lists
     public SkipListNode<T> Head {get; private set;} = new SkipListNode<T>(default(T), 1);
     public int Height {get => Head.Height;}
     public int Count { get; private set;} = 0;
+    private Random random = new Random();
+    private double probability = 0.5;
 
     public void Add(T value)
     {
@@ -41,6 +43,18 @@ namespace practicing_data_structures.data_structures.lists
       {
         throw new ArgumentException();
       }
+    }
+
+    public int GenerateHeightOfNewNode()
+    {
+      var generatedHeight = 1;
+
+      while(this.random.NextDouble() < this.probability  &&  generatedHeight < this.Head.Height+1)
+      {
+        generatedHeight++;
+      }
+      
+      return generatedHeight;
     }
 
     public void Remove(T value)
