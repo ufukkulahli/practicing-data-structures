@@ -57,6 +57,15 @@ namespace practicing_data_structures.data_structures.lists
       return generatedHeight;
     }
 
+    public void HandleHeadHeightAndSetNewNode(int height, SkipListNode<T> newNode)
+    {
+      if(height > this.Head.Height)
+      {
+        this.Head.IncreaseHeight();
+        this.Head[this.Head.Height-1] = newNode;
+      }
+    }
+
     public void Remove(T value)
     {
       throw new System.NotImplementedException();

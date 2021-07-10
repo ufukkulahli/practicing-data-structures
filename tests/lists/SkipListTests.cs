@@ -54,6 +54,22 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void CompareAndHandleTheCurrentHeightToTheHeadHeight()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+      var node = new SkipListNode<int>(5,1);
+      var height = 10;
+
+      // Act
+      list.HandleHeadHeightAndSetNewNode(height, node);
+
+      // Assert
+      Assert.Equal(2, list.Head.Height);
+      Assert.Equal(5, list.Head[1].Value);
+    }
+
+    [Fact]
     public void RemoveTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );
