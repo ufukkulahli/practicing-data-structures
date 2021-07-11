@@ -66,6 +66,18 @@ namespace practicing_data_structures.data_structures.lists
       }
     }
 
+    public void AddTheNewNode(SkipListNode<T> newNode, SkipListNode<T>[] nodesToBeUpdated)
+    {
+      for(var i=0; i<newNode.Height; i++)
+      {
+        if(i < nodesToBeUpdated.Length)
+        {
+          newNode[i] = nodesToBeUpdated[i][i];
+          nodesToBeUpdated[i][i] = newNode;
+        }
+      }
+    }
+
     public void Remove(T value)
     {
       throw new System.NotImplementedException();

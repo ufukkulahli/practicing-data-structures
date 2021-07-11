@@ -70,6 +70,31 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void Add()
+    {
+      // Arrange
+      var node1 = new SkipListNode<int>(2,2);
+      var node2 = new SkipListNode<int>(3,3);
+
+      var nodesToBeUpdated   = new SkipListNode<int>[1];
+      nodesToBeUpdated[0]    = node1;
+      nodesToBeUpdated[0][0] = node2;
+
+      var list = new SkipList<int>();
+      var newNode = new SkipListNode<int>(1,1);
+
+      // Act
+      list.AddTheNewNode(newNode, nodesToBeUpdated);
+
+      // Assert
+      Assert.Equal(3, newNode[0].Value);
+      Assert.Equal(3, newNode[0].Height);
+
+      Assert.Equal(1, nodesToBeUpdated[0][0].Value);
+      Assert.Equal(1, nodesToBeUpdated[0][0].Height);
+    }
+
+    [Fact]
     public void RemoveTest()
     {
       Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );
