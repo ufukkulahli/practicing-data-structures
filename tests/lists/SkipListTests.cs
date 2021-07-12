@@ -8,7 +8,14 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void AddTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Add(1) );
+      // Arrange
+      var list = new SkipList<int>();
+
+      // Act
+      list.Add(99);
+
+      // Assert
+      Assert.Equal(1, list.Count);
     }
 
     [Fact]

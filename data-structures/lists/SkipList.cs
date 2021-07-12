@@ -12,7 +12,13 @@ namespace practicing_data_structures.data_structures.lists
 
     public void Add(T value)
     {
-      throw new System.NotImplementedException();
+      var nodesToBeUpdated = NodesToBeUpdated(value);
+      ThrowIfTryToInsertDuplicate(value, nodesToBeUpdated);
+      var heightOfNewNode = GenerateHeightOfNewNode();
+      var newNode = new SkipListNode<T>(value, heightOfNewNode);
+      HandleHeadHeightAndSetNewNode(heightOfNewNode, newNode);
+      AddTheNewNode(newNode, nodesToBeUpdated);
+      this.Count++;
     }
 
     public SkipListNode<T>[] NodesToBeUpdated(T value)
