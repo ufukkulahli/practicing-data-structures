@@ -84,8 +84,13 @@ namespace practicing_data_structures.data_structures.lists
       }
     }
 
-    public void Remove(T value)
+    public bool Remove(T value)
     {
+      if(this.Count==0)
+      {
+        return false;
+      }
+
       throw new System.NotImplementedException();
     }
 

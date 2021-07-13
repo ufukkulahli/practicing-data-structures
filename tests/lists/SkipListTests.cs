@@ -104,7 +104,18 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void RemoveTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Remove(1) );
+      // Arrange
+      var list = new SkipList<int>();
+      list.Add(1);
+
+      // Act & Assert
+      Assert.Throws<System.NotImplementedException>( () => list.Remove(1) );
+    }
+
+    [Fact]
+    public void NothingToRemove()
+    {
+      Assert.False(new SkipList<int>().Remove(1));
     }
 
     [Fact]
