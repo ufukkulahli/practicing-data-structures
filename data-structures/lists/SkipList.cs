@@ -91,6 +91,14 @@ namespace practicing_data_structures.data_structures.lists
         return false;
       }
 
+      var nodesToBeUpdated = this.NodesToBeUpdated(value);
+      var nodeToBeDeleted = nodesToBeUpdated[0][0];
+
+      if(nodeToBeDeleted!=null && value.CompareTo(nodeToBeDeleted.Value)==0)
+      {
+        throw new System.NotImplementedException();
+      }
+
       throw new System.NotImplementedException();
     }
 
