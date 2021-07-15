@@ -96,10 +96,27 @@ namespace practicing_data_structures.data_structures.lists
 
       if(nodeToBeDeleted!=null && value.CompareTo(nodeToBeDeleted.Value)==0)
       {
-        throw new System.NotImplementedException();
+        this.Remove(nodesToBeUpdated, nodeToBeDeleted);
+        nodeToBeDeleted.Reset();
+        //todo: check height
+        this.Count--;
+        return true;
       }
 
       throw new System.NotImplementedException();
+    }
+
+    public void Remove(SkipListNode<T>[] nodesToBeUpdated, SkipListNode<T> nodeToBeDeleted)
+    {
+      for(var i=0; i<this.Head.Height; i++)
+      {
+        if(nodesToBeUpdated[i][i] != nodeToBeDeleted)
+        {
+          break;
+        }
+
+        nodesToBeUpdated[i][i] = nodeToBeDeleted[i];
+      }
     }
 
     public void Contains(T value)
