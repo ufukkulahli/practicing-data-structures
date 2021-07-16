@@ -116,6 +116,20 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
+    public void RemovingNonExistingNodeReturnsFalse()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+      list.Add(1);
+
+      // Act
+      var removed = list.Remove(2);
+
+      // Assert
+      Assert.False(removed);
+    }
+
+    [Fact]
     public void NothingToRemove()
     {
       Assert.False(new SkipList<int>().Remove(1));

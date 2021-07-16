@@ -103,7 +103,7 @@ namespace practicing_data_structures.data_structures.lists
         return true;
       }
 
-      throw new System.NotImplementedException();
+      return false;
     }
 
     public void Remove(SkipListNode<T>[] nodesToBeUpdated, SkipListNode<T> nodeToBeDeleted)
