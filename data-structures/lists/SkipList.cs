@@ -98,7 +98,10 @@ namespace practicing_data_structures.data_structures.lists
       {
         this.Remove(nodesToBeUpdated, nodeToBeDeleted);
         nodeToBeDeleted.Reset();
-        //todo: check height
+        if(this.Head[this.Head.Height-1]==null)
+        {
+          this.Head.DecreaseHeight();
+        }
         this.Count--;
         return true;
       }

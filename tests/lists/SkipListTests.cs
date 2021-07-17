@@ -113,6 +113,7 @@ namespace practicing_data_structures.tests.lists
 
       // Assert
       Assert.True(removed);
+      Assert.Equal(1, list.Height);
     }
 
     [Fact]
@@ -127,6 +128,7 @@ namespace practicing_data_structures.tests.lists
 
       // Assert
       Assert.False(removed);
+      Assert.Equal(1, list.Height);
     }
 
     [Fact]
