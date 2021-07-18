@@ -140,7 +140,14 @@ namespace practicing_data_structures.tests.lists
     [Fact]
     public void ContainsTest()
     {
-      Assert.Throws<System.NotImplementedException>( () => new SkipList<int>().Contains(1) );
+      // Arrange
+      var list = new SkipList<int>();
+      
+      // Act
+      var contains = list.Contains(5);
+
+      // Assert
+      Assert.False(contains);
     }
 
     [Fact]

@@ -122,9 +122,20 @@ namespace practicing_data_structures.data_structures.lists
       }
     }
 
-    public void Contains(T value)
+    public bool Contains(T value)
     {
-      throw new System.NotImplementedException();
+      var currentNode = this.Head;
+
+      for(var i=this.Height-1; i>=0; i--)
+      {
+        while(currentNode[i]!=null)
+        {
+          // todo: impl
+          throw new System.NotImplementedException();
+        }
+      }
+
+      return false;
     }
 
     public void Reset()
