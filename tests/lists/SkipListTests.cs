@@ -138,7 +138,7 @@ namespace practicing_data_structures.tests.lists
     }
 
     [Fact]
-    public void ContainsTest()
+    public void DoesNotContainsTest()
     {
       // Arrange
       var list = new SkipList<int>();
@@ -148,6 +148,20 @@ namespace practicing_data_structures.tests.lists
 
       // Assert
       Assert.False(contains);
+    }
+
+    [Fact]
+    public void ContainsTest()
+    {
+      // Arrange
+      var list = new SkipList<int>();
+      list.Add(5);
+      
+      // Act
+      var contains = list.Contains(5);
+
+      // Assert
+      Assert.True(contains);
     }
 
     [Fact]

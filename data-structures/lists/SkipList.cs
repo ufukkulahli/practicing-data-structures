@@ -130,8 +130,20 @@ namespace practicing_data_structures.data_structures.lists
       {
         while(currentNode[i]!=null)
         {
-          // todo: impl
-          throw new System.NotImplementedException();
+          var compareResult = value.CompareTo(currentNode[i].Value);
+
+          if(compareResult == 0)
+          {
+            return true;
+          }
+          if(compareResult < 0)
+          {
+            break;
+          }
+          if(compareResult > 0)
+          {
+            currentNode = currentNode[i];
+          }
         }
       }
 
